@@ -20,9 +20,15 @@ jobs:
           VERCEL_ORG_ID_RAW: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID_RAW: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
-          echo "VERCEL_TOKEN=$(printf '%s' \"$VERCEL_TOKEN_RAW\" | tr -d '\\r\\n')" >> "$GITHUB_ENV"
-          echo "VERCEL_ORG_ID=$(printf '%s' \"$VERCEL_ORG_ID_RAW\" | tr -d '\\r\\n')" >> "$GITHUB_ENV"
-          echo "VERCEL_PROJECT_ID=$(printf '%s' \"$VERCEL_PROJECT_ID_RAW\" | tr -d '\\r\\n')" >> "$GITHUB_ENV"
+          sanitize() {
+            printf '%s' "$1" \
+              | tr -d '\r\n' \
+              | sed -E "s/^[[:space:]]+//; s/[[:space:]]+$//; s/^['\"\\]+//; s/['\"\\]+$//"
+          }
+
+          echo "VERCEL_TOKEN=$(sanitize \"$VERCEL_TOKEN_RAW\")" >> "$GITHUB_ENV"
+          echo "VERCEL_ORG_ID=$(sanitize \"$VERCEL_ORG_ID_RAW\")" >> "$GITHUB_ENV"
+          echo "VERCEL_PROJECT_ID=$(sanitize \"$VERCEL_PROJECT_ID_RAW\")" >> "$GITHUB_ENV"
 
       - name: Validate Vercel Secrets
         run: |
