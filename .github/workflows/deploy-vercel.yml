@@ -9,14 +9,26 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Normalize Vercel Secrets
+        env:
+          VERCEL_TOKEN_RAW: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID_RAW: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID_RAW: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          echo "VERCEL_TOKEN=$(printf '%s' \"$VERCEL_TOKEN_RAW\" | tr -d '\\r\\n')" >> "$GITHUB_ENV"
+          echo "VERCEL_ORG_ID=$(printf '%s' \"$VERCEL_ORG_ID_RAW\" | tr -d '\\r\\n')" >> "$GITHUB_ENV"
+          echo "VERCEL_PROJECT_ID=$(printf '%s' \"$VERCEL_PROJECT_ID_RAW\" | tr -d '\\r\\n')" >> "$GITHUB_ENV"
+
+      - name: Validate Vercel Secrets
+        run: |
+          [[ -n "$VERCEL_TOKEN" ]] || (echo "Missing VERCEL_TOKEN" && exit 1)
+          [[ -n "$VERCEL_ORG_ID" ]] || (echo "Missing VERCEL_ORG_ID" && exit 1)
+          [[ -n "$VERCEL_PROJECT_ID" ]] || (echo "Missing VERCEL_PROJECT_ID" && exit 1)
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
