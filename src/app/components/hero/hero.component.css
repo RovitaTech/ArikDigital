@@ -4,6 +4,21 @@
 
 .hero-section {
   min-height: 100svh;
+  padding-top: clamp(8.75rem, 12vh, 11rem);
+}
+
+.hero-line {
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.08) 0%, transparent 66%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero-orb {
+  animation: float-orb 8s ease-in-out infinite;
+}
+
+.hero-orb:nth-child(2) {
+  animation-delay: 1.2s;
 }
 
 .hero-content {
@@ -21,10 +36,69 @@
   max-width: 46rem;
 }
 
+.hero-primary,
+.hero-secondary {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-primary::after,
+.hero-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.22) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform 550ms ease;
+}
+
+.hero-primary:hover::after,
+.hero-secondary:hover::after {
+  transform: translateX(120%);
+}
+
+.hero-metrics {
+  margin-top: 0.8rem;
+}
+
+.metric-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  padding: 0.6rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 999px;
+  background: rgba(19, 19, 28, 0.64);
+  backdrop-filter: blur(8px);
+}
+
+.metric-value {
+  color: #f0eff8;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.metric-label {
+  color: #9d9caa;
+  font-size: 0.83rem;
+  font-weight: 500;
+}
+
+@keyframes float-orb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) scale(1.04);
+  }
+}
+
 @media (max-width: 768px) {
   .hero-section {
     min-height: auto;
-    padding-top: 7.5rem;
+    padding-top: 7rem;
     padding-bottom: 5.5rem;
   }
 
@@ -39,6 +113,16 @@
   }
 
   .hero-actions button {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .hero-metrics {
+    margin-top: 0.5rem;
+  }
+
+  .metric-chip {
+    justify-content: center;
     width: 100%;
     max-width: 20rem;
   }

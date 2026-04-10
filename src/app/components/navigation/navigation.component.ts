@@ -8,14 +8,27 @@ import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angul
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent {
-  protected readonly isScrolled = signal(false);
+  protected readonly isCollapsed = signal(false);
 
   @HostListener('window:scroll')
   onWindowScroll(): void {
-    this.isScrolled.set(window.scrollY > 50);
+    const scrollY = window.scrollY;
+
+    if (scrollY > 90) {
+      this.isCollapsed.set(true);
+      return;
+    }
+
+    if (scrollY < 45) {
+      this.isCollapsed.set(false);
+    }
   }
 
   protected scrollToSection(id: string): void {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  protected scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

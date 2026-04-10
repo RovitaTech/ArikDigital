@@ -1,3 +1,110 @@
 :host {
   display: block;
 }
+
+.main-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.main-shell::before,
+.main-shell::after {
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.main-shell::before {
+  inset: -20vh -10vw;
+  background:
+    radial-gradient(circle at 16% 20%, rgba(108, 99, 255, 0.16), transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(255, 101, 132, 0.14), transparent 40%),
+    radial-gradient(circle at 55% 80%, rgba(67, 232, 160, 0.09), transparent 45%);
+  filter: blur(20px);
+}
+
+.main-shell::after {
+  inset: 0;
+  z-index: -1;
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at center, black 38%, transparent 92%);
+}
+
+app-hero,
+app-clients,
+app-stats,
+app-services,
+app-process,
+app-pricing,
+app-team,
+app-contact,
+app-footer {
+  position: relative;
+  animation: section-fade 600ms ease-out both;
+}
+
+app-clients,
+app-stats,
+app-services,
+app-process,
+app-pricing,
+app-team,
+app-contact,
+app-footer {
+  margin-top: clamp(1.25rem, 2.8vw, 2.75rem);
+}
+
+app-clients {
+  animation-delay: 40ms;
+}
+
+app-stats {
+  animation-delay: 80ms;
+}
+
+app-services {
+  animation-delay: 120ms;
+}
+
+app-process {
+  animation-delay: 160ms;
+}
+
+app-pricing {
+  animation-delay: 200ms;
+}
+
+app-team {
+  animation-delay: 240ms;
+}
+
+app-contact {
+  animation-delay: 280ms;
+}
+
+app-footer {
+  animation-delay: 320ms;
+}
+
+@keyframes section-fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-shell::after {
+    background-size: 34px 34px;
+    opacity: 0.18;
+  }
+}

@@ -7,8 +7,6 @@ interface PlanItem {
   maintenance: string;
   features: string[];
   badge?: string;
-  containerClass: string;
-  buttonClass: string;
 }
 
 @Component({
@@ -19,6 +17,8 @@ interface PlanItem {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PricingComponent {
+  protected activePlanIndex = 1;
+
   protected readonly plans: PlanItem[] = [
     {
       name: 'Starter',
@@ -26,8 +26,6 @@ export class PricingComponent {
       period: 'one-time',
       maintenance: '€49/mo maintenance',
       features: ['Up to 5 pages', 'Mobile responsive', 'Contact form', 'SEO basics', '2 revisions'],
-      containerClass: 'relative bg-gradient-to-b from-[#13131C] to-[#0F0F16] rounded-2xl p-8 transition-all duration-300 border border-white/[0.08] hover:-translate-y-2',
-      buttonClass: 'w-full py-3.5 rounded-xl font-semibold text-[15px] transition-all border-2 border-white/[0.1] bg-white/[0.02] text-white hover:bg-white/[0.08] hover:border-white/[0.2] hover:-translate-y-0.5',
     },
     {
       name: 'Growth',
@@ -43,8 +41,6 @@ export class PricingComponent {
         'Unlimited revisions',
       ],
       badge: 'Most popular',
-      containerClass: 'relative bg-gradient-to-b from-[#13131C] to-[#0F0F16] rounded-2xl p-8 transition-all duration-300 border-2 border-[#6C63FF] shadow-[0_0_60px_rgba(108,99,255,0.25)] md:-translate-y-6 md:scale-105',
-      buttonClass: 'w-full py-3.5 rounded-xl font-semibold text-[15px] transition-all bg-gradient-to-r from-[#6C63FF] to-[#5B52E8] text-white hover:shadow-lg hover:shadow-[#6C63FF]/30 hover:-translate-y-0.5',
     },
     {
       name: 'Premium',
@@ -59,10 +55,16 @@ export class PricingComponent {
         'Priority support',
         'Dedicated manager',
       ],
-      containerClass: 'relative bg-gradient-to-b from-[#13131C] to-[#0F0F16] rounded-2xl p-8 transition-all duration-300 border border-white/[0.08] hover:-translate-y-2',
-      buttonClass: 'w-full py-3.5 rounded-xl font-semibold text-[15px] transition-all border-2 border-white/[0.1] bg-white/[0.02] text-white hover:bg-white/[0.08] hover:border-white/[0.2] hover:-translate-y-0.5',
     },
   ];
+
+  protected setActivePlan(index: number): void {
+    this.activePlanIndex = index;
+  }
+
+  protected isActive(index: number): boolean {
+    return this.activePlanIndex === index;
+  }
 
   protected scrollToSection(id: string): void {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });

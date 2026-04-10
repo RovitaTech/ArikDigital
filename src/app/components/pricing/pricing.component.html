@@ -4,18 +4,22 @@
       <div class="text-[#6C63FF] text-[13px] font-['Urbanist'] font-semibold tracking-[0.15em] uppercase mb-5">
         INVESTMENT OPTIONS
       </div>
-      <h2 class="font-['Urbanist'] font-extrabold text-white mb-4">Transparent pricing. Zero surprises.</h2>
-      <p class="text-[#9D9CAA] text-[17px] font-['Urbanist'] max-w-2xl mx-auto">
+      <h2 class="pricing-heading font-['Urbanist'] font-extrabold text-white mb-4">Transparent pricing. Zero surprises.</h2>
+      <p class="pricing-subheading text-[#9D9CAA] font-['Urbanist'] max-w-2xl mx-auto">
         Choose a package that fits your needs, or contact us for a custom quote
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      @for (plan of plans; track plan.name) {
-        <div [class]="plan.containerClass">
-          @if (plan.badge) {
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-2 bg-gradient-to-r from-[#6C63FF] to-[#5B52E8] rounded-full text-[13px] text-white font-['Urbanist'] font-bold shadow-lg shadow-[#6C63FF]/30">
-              {{ plan.badge }}
+      @for (plan of plans; track plan.name; let i = $index) {
+        <article
+          class="pricing-card relative bg-gradient-to-b from-[#13131C] to-[#0F0F16] rounded-2xl p-8 transition-all duration-300 border border-white/[0.08] hover:-translate-y-2 cursor-pointer"
+          [class.is-active]="isActive(i)"
+          (click)="setActivePlan(i)"
+        >
+          @if (plan.badge || isActive(i)) {
+            <div class="plan-badge absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-2 bg-gradient-to-r from-[#6C63FF] to-[#5B52E8] rounded-full text-[13px] text-white font-['Urbanist'] font-bold shadow-lg shadow-[#6C63FF]/30">
+              {{ isActive(i) ? (plan.badge ?? 'Selected plan') : plan.badge }}
             </div>
           }
 
@@ -43,10 +47,15 @@
             + optional {{ plan.maintenance }}
           </div>
 
-          <button type="button" (click)="scrollToSection('contact')" [class]="plan.buttonClass">
+          <button
+            type="button"
+            class="plan-button w-full py-3.5 rounded-xl font-semibold text-[15px] transition-all"
+            [class.is-active]="isActive(i)"
+            (click)="setActivePlan(i); scrollToSection('contact')"
+          >
             Contact sales
           </button>
-        </div>
+        </article>
       }
     </div>
   </div>

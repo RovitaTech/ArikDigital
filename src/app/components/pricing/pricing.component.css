@@ -1,3 +1,52 @@
 :host {
   display: block;
 }
+
+.pricing-heading {
+  font-size: clamp(2rem, 4.3vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.pricing-subheading {
+  font-size: clamp(1rem, 1.55vw, 1.1rem);
+}
+
+.pricing-card {
+  will-change: transform;
+}
+
+.pricing-card.is-active {
+  border-width: 2px;
+  border-color: #6c63ff;
+  transform: translateY(-1rem) scale(1.03);
+  box-shadow: 0 0 60px rgba(108, 99, 255, 0.25);
+}
+
+.plan-badge {
+  white-space: nowrap;
+}
+
+.plan-button {
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+}
+
+.plan-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.plan-button.is-active {
+  border-color: transparent;
+  background: linear-gradient(90deg, #6c63ff, #5b52e8);
+  box-shadow: 0 12px 24px rgba(108, 99, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .pricing-card.is-active {
+    transform: translateY(-0.45rem) scale(1.01);
+  }
+}
