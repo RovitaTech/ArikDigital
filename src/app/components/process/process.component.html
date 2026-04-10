@@ -1,0 +1,33 @@
+<section id="process" class="py-32 px-6 bg-gradient-to-b from-[#0A0A0F] via-[#111118] to-[#0A0A0F]">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-24">
+      <div class="text-[#6C63FF] text-[13px] font-['Urbanist'] font-semibold tracking-[0.15em] uppercase mb-5">
+        HOW WE WORK
+      </div>
+      <h2 class="font-['Urbanist'] font-extrabold text-white mb-4">From consultation to launch in 4 steps</h2>
+      <p class="text-[#9D9CAA] text-[17px] font-['Urbanist'] max-w-2xl mx-auto">
+        Our proven process ensures your project is delivered on time and exceeds expectations
+      </p>
+    </div>
+
+    <div class="relative">
+      <div class="hidden lg:block absolute top-14 left-0 right-0 h-px">
+        <div class="h-full bg-gradient-to-r from-[#6C63FF] via-[#FF6584] to-[#43E8A0] origin-left"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+        @for (step of steps; track step.number) {
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-28 h-28 rounded-full border-2 border-[#6C63FF] bg-gradient-to-br from-[#0A0A0F] to-[#13131C] mb-8 relative group hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-0 rounded-full bg-[#6C63FF] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+              <span class="text-4xl font-['Urbanist'] font-extrabold text-[#6C63FF] relative">{{ step.number }}</span>
+            </div>
+
+            <h3 class="font-['Urbanist'] font-extrabold text-white mb-4 text-[22px]">{{ step.title }}</h3>
+            <p class="text-[#9D9CAA] text-[15px] font-['Urbanist'] leading-relaxed">{{ step.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" [class.scrolled]="isScrolled()">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-0">
+      <span class="text-[26px] font-['Urbanist'] font-extrabold text-white tracking-tight">Arik</span>
+      <span class="text-[26px] font-['Urbanist'] font-extrabold text-[#6C63FF] tracking-tight">Digital</span>
+    </div>
+
+    <div class="hidden md:flex items-center gap-10">
+      @for (item of ['Services', 'Process', 'Pricing', 'Team', 'Contact']; track item) {
+        <button
+          type="button"
+          (click)="scrollToSection(item.toLowerCase())"
+          class="text-[#F0EFF8]/80 hover:text-[#6C63FF] transition-all font-['Urbanist'] text-[15px] font-medium relative group"
+        >
+          {{ item }}
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#6C63FF] group-hover:w-full transition-all duration-300"></span>
+        </button>
+      }
+    </div>
+
+    <button
+      type="button"
+      (click)="scrollToSection('contact')"
+      class="bg-gradient-to-r from-[#6C63FF] to-[#5B52E8] text-white px-7 py-3 rounded-xl hover:shadow-lg hover:shadow-[#6C63FF]/30 hover:-translate-y-0.5 transition-all font-['Urbanist'] text-[15px] font-semibold"
+    >
+      Talk to our team
+    </button>
+  </div>
+</nav>

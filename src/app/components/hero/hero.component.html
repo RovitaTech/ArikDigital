@@ -1,0 +1,40 @@
+<section class="hero-section relative min-h-screen flex items-center justify-center px-6 pt-20 pb-32 overflow-hidden">
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#6C63FF] rounded-full blur-[120px] opacity-20"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#FF6584] rounded-full blur-[120px] opacity-20"></div>
+
+  <div class="hero-content relative z-10 max-w-5xl mx-auto text-center">
+    <div class="hero-kicker inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#13131C]/60 backdrop-blur-sm border border-white/[0.08] mb-10">
+      <div class="w-2 h-2 bg-[#6C63FF] rounded-full shadow-lg shadow-[#6C63FF]/50"></div>
+      <span class="text-[#B5B4C0] text-[15px] font-['Urbanist'] font-medium">Trusted by industry leaders since 2023</span>
+    </div>
+
+    <h1 class="hero-title font-['Urbanist'] font-extrabold mb-7 leading-[1.05]">
+      <div class="text-white">Custom websites that</div>
+      <div class="text-[#6C63FF]">elevate your brand</div>
+      <div class="bg-gradient-to-r from-[#FF6584] via-[#B77FFF] to-[#43E8A0] bg-clip-text text-transparent">
+        and drive real results.
+      </div>
+    </h1>
+
+    <p class="hero-subtitle text-[#9D9CAA] text-[19px] font-['Urbanist'] font-normal max-w-[580px] mx-auto mb-12 leading-relaxed">
+      Partner with our expert team to create stunning, high-converting websites tailored to your business. Let's discuss your project.
+    </p>
+
+    <div class="hero-actions flex items-center justify-center gap-5 mb-20">
+      <button
+        type="button"
+        (click)="scrollToSection('contact')"
+        class="bg-gradient-to-r from-[#6C63FF] to-[#5B52E8] text-white px-9 py-4 rounded-xl hover:shadow-xl hover:shadow-[#6C63FF]/30 hover:-translate-y-1 transition-all font-['Urbanist'] font-semibold text-[16px]"
+      >
+        Schedule a consultation
+      </button>
+      <button
+        type="button"
+        (click)="scrollToSection('services')"
+        class="border-2 border-white/[0.1] bg-white/[0.02] backdrop-blur-sm text-white px-9 py-4 rounded-xl hover:bg-white/[0.08] hover:border-white/[0.2] hover:-translate-y-1 transition-all font-['Urbanist'] font-semibold text-[16px]"
+      >
+        Explore our services
+      </button>
+    </div>
+  </div>
+</section>

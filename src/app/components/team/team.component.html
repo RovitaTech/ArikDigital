@@ -1,0 +1,36 @@
+<section id="team" class="py-32 px-6 bg-gradient-to-b from-[#0A0A0F] via-[#13131C] to-[#0A0A0F]">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-20">
+      <div class="text-[#6C63FF] text-[13px] font-['Urbanist'] font-semibold tracking-[0.15em] uppercase mb-5">
+        MEET THE TEAM
+      </div>
+      <h2 class="font-['Urbanist'] font-extrabold text-white mb-4">Real people. Real results.</h2>
+      <p class="text-[#9D9CAA] text-[17px] font-['Urbanist'] max-w-2xl mx-auto">
+        Passionate experts dedicated to bringing your vision to life
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      @for (member of team; track member.name) {
+        <div class="bg-gradient-to-b from-[#1A1A26] to-[#13131C] border border-white/[0.08] rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 group">
+          <div [class]="member.avatarClass">
+            <span class="text-4xl font-['Urbanist'] font-extrabold text-white">{{ member.name.charAt(0) }}</span>
+          </div>
+
+          <h3 class="font-['Urbanist'] font-extrabold text-white mb-2 text-[22px]">{{ member.name }}</h3>
+          <div class="text-[#6C63FF] text-[15px] font-['Urbanist'] font-semibold mb-5">{{ member.role }}</div>
+
+          <p class="text-[#9D9CAA] text-[15px] font-['Urbanist'] leading-relaxed mb-6">{{ member.bio }}</p>
+
+          <div class="flex flex-wrap gap-2">
+            @for (skill of member.skills; track skill) {
+              <span class="px-3 py-2 bg-[#0A0A0F]/60 border border-white/[0.08] rounded-lg text-[13px] text-[#B5B4C0] font-['Urbanist'] font-medium">
+                {{ skill }}
+              </span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

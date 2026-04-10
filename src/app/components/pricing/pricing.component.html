@@ -1,0 +1,53 @@
+<section id="pricing" class="py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-20">
+      <div class="text-[#6C63FF] text-[13px] font-['Urbanist'] font-semibold tracking-[0.15em] uppercase mb-5">
+        INVESTMENT OPTIONS
+      </div>
+      <h2 class="font-['Urbanist'] font-extrabold text-white mb-4">Transparent pricing. Zero surprises.</h2>
+      <p class="text-[#9D9CAA] text-[17px] font-['Urbanist'] max-w-2xl mx-auto">
+        Choose a package that fits your needs, or contact us for a custom quote
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      @for (plan of plans; track plan.name) {
+        <div [class]="plan.containerClass">
+          @if (plan.badge) {
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-2 bg-gradient-to-r from-[#6C63FF] to-[#5B52E8] rounded-full text-[13px] text-white font-['Urbanist'] font-bold shadow-lg shadow-[#6C63FF]/30">
+              {{ plan.badge }}
+            </div>
+          }
+
+          <div class="text-[#B5B4C0] text-[13px] font-['Urbanist'] font-bold uppercase tracking-wider mb-6 mt-2">
+            {{ plan.name }}
+          </div>
+
+          <div class="mb-2"><span class="text-6xl font-['Urbanist'] font-extrabold text-white">{{ plan.price }}</span></div>
+          <div class="text-[#9D9CAA] text-[15px] font-['Urbanist'] mb-8">{{ plan.period }}</div>
+
+          <div class="space-y-4 mb-8">
+            @for (feature of plan.features; track feature) {
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-[#43E8A0]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-3.5 h-3.5 text-[#43E8A0]">
+                    <path d="M20 6 9 17l-5-5"></path>
+                  </svg>
+                </div>
+                <span class="text-[#F0EFF8] text-[15px] font-['Urbanist']">{{ feature }}</span>
+              </div>
+            }
+          </div>
+
+          <div class="text-[#8A8899] text-[13px] font-['Urbanist'] mb-6 pb-6 border-b border-white/[0.05]">
+            + optional {{ plan.maintenance }}
+          </div>
+
+          <button type="button" (click)="scrollToSection('contact')" [class]="plan.buttonClass">
+            Contact sales
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</section>

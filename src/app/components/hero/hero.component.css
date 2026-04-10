@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+
+.hero-section {
+  min-height: 100svh;
+}
+
+.hero-content {
+  width: min(100%, 76rem);
+}
+
+.hero-title {
+  font-size: clamp(2.7rem, 7.4vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.7vw, 1.65rem);
+  max-width: 46rem;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: 7.5rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .hero-kicker {
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-bottom: 0;
+  }
+
+  .hero-actions button {
+    width: 100%;
+    max-width: 20rem;
+  }
+}

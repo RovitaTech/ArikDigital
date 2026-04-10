@@ -1,0 +1,22 @@
+<section class="py-20 px-6 border-y border-white/[0.05]">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-[#8A8899] text-[15px] font-['Urbanist'] font-medium uppercase tracking-[0.15em]">
+        Trusted by leading brands
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 items-center">
+      @for (client of clients; track client.name) {
+        <div class="flex items-center justify-center text-[#4A4958] hover:text-[#8A8899] transition-all duration-300 grayscale hover:grayscale-0 opacity-50 hover:opacity-100">
+          <svg [class]="client.widthClass + ' h-6'" viewBox="0 0 120 24" fill="currentColor">
+            <text x="0" y="18" class="font-bold text-[19px] font-['Urbanist']">{{ client.text }}</text>
+            @if (client.stroke) {
+              <path d="M85 16 Q95 20, 105 16" stroke="currentColor" stroke-width="2" fill="none"></path>
+            }
+          </svg>
+        </div>
+      }
+    </div>
+  </div>
+</section>

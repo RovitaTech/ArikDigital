@@ -1,0 +1,18 @@
+<section class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
+      @for (stat of stats; track stat.label; let index = $index) {
+        <div class="text-center relative group">
+          @if (index < stats.length - 1) {
+            <div class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-16 w-px bg-white/[0.08]"></div>
+          }
+
+          <div class="text-5xl md:text-6xl font-['Urbanist'] font-extrabold bg-gradient-to-br from-[#6C63FF] to-[#9D95FF] bg-clip-text text-transparent mb-3">
+            {{ stat.number }}
+          </div>
+          <div class="text-[#9D9CAA] text-[15px] font-['Urbanist'] font-medium">{{ stat.label }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
