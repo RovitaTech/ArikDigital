@@ -369,6 +369,24 @@
 }
 
 @media (max-width: 1024px) {
+  .team-group-list {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .team-group-row {
+    height: 4.45rem;
+  }
+
+  .team-bubble {
+    width: 4.6rem;
+    height: 4.6rem;
+  }
+
+  .team-group-label {
+    font-size: 1.3rem;
+  }
+
   .team-mini-card {
     width: 14.8rem;
     height: 16.5rem;
@@ -392,43 +410,9 @@
     width: 12.4rem;
     height: 15rem;
   }
-}
-
-@media (max-width: 1024px) {
-  .team-group-list {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-  }
-
-  .team-group-row {
-    height: 4.45rem;
-  }
-
-  .team-bubble {
-    width: 4.6rem;
-    height: 4.6rem;
-  }
-
-  .team-group-label {
-    font-size: 1.3rem;
-  }
-  }
-
-  .team-mini-name {
-    font-size: 0.93rem;
-  }
-
-  .team-mini-role {
-    font-size: 0.78rem;
-    margin-bottom: 0.95rem;
-  }
 
   .team-group-row {
     height: 4.05rem;
-  }
-
-  .team-group-row-sub {
-    height: 3.9rem;
   }
 
   .team-bubble {
