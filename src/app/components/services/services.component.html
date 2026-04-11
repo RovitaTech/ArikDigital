@@ -1,30 +1,24 @@
-<section id="services" class="py-32 px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-20">
-      <div class="text-[#6C63FF] text-[13px] font-['Urbanist'] font-semibold tracking-[0.15em] uppercase mb-5">
-        WHAT WE OFFER
-      </div>
-      <h2 class="font-['Urbanist'] font-extrabold text-white mb-4">Everything your brand needs to win online</h2>
-      <p class="text-[#9D9CAA] text-[17px] font-['Urbanist'] max-w-2xl mx-auto">
-        Our team specializes in creating tailored solutions that drive growth
-      </p>
+<section id="services" class="services-section">
+  <div class="services-shell">
+    <div class="services-header">
+      <div class="services-kicker">WHAT WE OFFER</div>
+      <h2 class="services-title">Everything your brand needs to win online</h2>
+      <p class="services-subtitle">Our team specializes in creating tailored solutions that drive growth</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="services-grid">
       @for (service of services; track service.title) {
-        <div class="group relative bg-gradient-to-b from-[#13131C] to-[#0F0F16] border border-white/[0.08] rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden">
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300" [style.background]="'radial-gradient(circle at top right, ' + service.color + ', transparent)'"></div>
+        <div class="service-card">
+          <div class="service-overlay" [style.background]="'radial-gradient(circle at top right, ' + service.color + ', transparent)'"></div>
 
           @if (service.tag) {
-            <div class="absolute top-5 right-5 px-3 py-1.5 bg-[#1A1A26]/80 backdrop-blur-sm border border-white/[0.08] rounded-full text-[11px] text-[#B5B4C0] font-['Urbanist'] font-medium uppercase tracking-wide">
-              {{ service.tag }}
-            </div>
+            <div class="service-tag">{{ service.tag }}</div>
           }
 
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" [style.backgroundColor]="service.color + '15'">
+          <div class="service-icon" [style.backgroundColor]="service.color + '15'">
             @switch (service.icon) {
               @case ('globe') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="w-[26px] h-[26px]" [style.color]="service.color">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
                   <circle cx="12" cy="12" r="10"></circle>
                   <path d="M2 12h20"></path>
                   <path d="M12 2a15 15 0 0 1 0 20"></path>
@@ -32,19 +26,19 @@
                 </svg>
               }
               @case ('cart') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="w-[26px] h-[26px]" [style.color]="service.color">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
                   <circle cx="9" cy="20" r="1"></circle>
                   <circle cx="17" cy="20" r="1"></circle>
                   <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                 </svg>
               }
               @case ('zap') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="w-[26px] h-[26px]" [style.color]="service.color">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
                   <path d="M13 2 3 14h7l-1 8 10-12h-7z"></path>
                 </svg>
               }
               @case ('palette') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="w-[26px] h-[26px]" [style.color]="service.color">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
                   <path d="M12 2a10 10 0 1 0 10 10c0-2.2-1.8-4-4-4h-1.5a2.5 2.5 0 0 1 0-5H18"></path>
                   <circle cx="7.5" cy="10.5" r="1"></circle>
                   <circle cx="9.5" cy="6.5" r="1"></circle>
@@ -53,21 +47,21 @@
                 </svg>
               }
               @case ('trending') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="w-[26px] h-[26px]" [style.color]="service.color">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
                   <path d="M3 17l6-6 4 4 8-8"></path>
                   <path d="M14 7h7v7"></path>
                 </svg>
               }
               @case ('wrench') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="w-[26px] h-[26px]" [style.color]="service.color">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
                   <path d="M14.7 6.3a6 6 0 0 0-8 8l-4.2 4.2a1 1 0 0 0 1.4 1.4L8 15.7a6 6 0 0 0 8-8l-3 3-2-2z"></path>
                 </svg>
               }
             }
           </div>
 
-          <h3 class="font-['Urbanist'] font-extrabold text-white mb-3 text-[20px]">{{ service.title }}</h3>
-          <p class="text-[#9D9CAA] text-[15px] font-['Urbanist'] leading-relaxed">{{ service.description }}</p>
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
         </div>
       }
     </div>

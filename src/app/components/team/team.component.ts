@@ -3,9 +3,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 interface TeamMember {
   name: string;
   role: string;
-  bio: string;
-  avatarClass: string;
-  skills: string[];
+  description: string;
+  image: string;
+  imagePosition: string;
+}
+
+interface TeamCarouselMember {
+  name: string;
+  role: string;
+  image: string;
 }
 
 @Component({
@@ -16,27 +22,83 @@ interface TeamMember {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TeamComponent {
+  protected showGroupsView = false;
+
   protected readonly team: TeamMember[] = [
     {
-      name: 'Sarah Chen',
-      role: 'CEO & Founder',
-      bio: 'Leading the vision with 10+ years in digital transformation',
-      avatarClass: 'w-24 h-24 rounded-2xl bg-gradient-to-br from-[#6C63FF] to-[#9D95FF] mb-6 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300',
-      skills: ['Strategy', 'Leadership', 'Growth'],
+      name: 'Emirhan',
+      role: 'CEO',
+      description: 'Shapes vision and long-term company direction.',
+      image: '/assets/images/ceo.webp',
+      imagePosition: '50% 18%',
     },
     {
-      name: 'Your Name',
+      name: 'Arsalan',
       role: 'CTO',
-      bio: 'Crafting pixel-perfect experiences with cutting-edge tech',
-      avatarClass: 'w-24 h-24 rounded-2xl bg-gradient-to-br from-[#FF6584] to-[#FF95AB] mb-6 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300',
-      skills: ['Angular', 'UI/UX', 'Dev'],
+      description: 'Owns architecture, performance, and product technology.',
+      image: '/assets/images/cto.webp',
+      imagePosition: '50% 38%',
     },
     {
-      name: 'Marketing Team',
-      role: 'Growth & Marketing',
-      bio: 'Driving results through data-driven campaigns and outreach',
-      avatarClass: 'w-24 h-24 rounded-2xl bg-gradient-to-br from-[#43E8A0] to-[#6FEDB5] mb-6 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300',
-      skills: ['Outreach', 'Leads', 'SEO'],
+      name: 'Mariam Noor',
+      role: 'Marketing Lead',
+      description: 'Builds campaigns that convert attention into growth.',
+      image: '/assets/images/marketing.webp',
+      imagePosition: '50% 20%',
     },
   ];
+
+  protected readonly ourTeamMembers: TeamCarouselMember[] = [
+    {
+      name: 'Emirhan',
+      role: 'CEO',
+      image: '/assets/images/ceo.webp',
+    },
+    {
+      name: 'Mariam Noor',
+      role: 'Marketing Lead',
+      image: '/assets/images/marketing.webp',
+    },
+    {
+      name: 'Arsalan',
+      role: 'CTO',
+      image: '/assets/images/ceo.webp',
+    },
+    {
+      name: 'Nadia Rehman',
+      role: 'Content Lead',
+      image: '/assets/images/marketing.webp',
+    },
+    {
+      name: 'Hassan Ali',
+      role: 'Frontend Engineer',
+      image: '/assets/images/ceo.webp',
+    },
+    {
+      name: 'Lara Ahmed',
+      role: 'UI Designer',
+      image: '/assets/images/marketing.webp',
+    },
+    {
+      name: 'Omar Khan',
+      role: 'Product Manager',
+      image: '/assets/images/ceo.webp',
+    },
+    {
+      name: 'Bilal Saeed',
+      role: 'Growth Manager',
+      image: '/assets/images/marketing.webp',
+    },
+  ];
+
+  protected readonly firstRowMembers = this.ourTeamMembers.slice(0, 4);
+  protected readonly secondRowMembers = this.ourTeamMembers.slice(4, 8);
+
+  protected openGroupsView(): void {
+    this.showGroupsView = true;
+  }
+
+  protected openCardsView(): void {
+    this.showGroupsView = false;
+  }
 }

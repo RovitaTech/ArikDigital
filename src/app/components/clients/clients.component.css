@@ -1,3 +1,98 @@
 :host {
   display: block;
 }
+
+.clients-section {
+  padding: 3rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(180deg, rgba(10, 10, 15, 0.5) 0%, rgba(19, 19, 28, 0.3) 100%);
+}
+
+.clients-shell {
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+.clients-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.clients-label {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.clients-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.clients-carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.clients-track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: slideClients 40s linear infinite;
+}
+
+.client-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+}
+
+.client-name {
+  color: #ffffff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.client-item:hover .client-name {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+@keyframes slideClients {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-140px * 15 - 3rem * 15));
+  }
+}
+
+.clients-carousel-wrapper:hover .clients-track {
+  animation-play-state: paused;
+}
+
+@media (min-width: 768px) {
+  .clients-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .clients-label {
+    font-size: 1rem;
+  }
+
+  .client-name {
+    font-size: 1.2rem;
+  }
+}

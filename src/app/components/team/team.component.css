@@ -1,3 +1,442 @@
 :host {
   display: block;
 }
+
+.team-section {
+  padding: 5.5rem 1.25rem;
+  background:
+    radial-gradient(60% 45% at 50% 12%, rgba(108, 99, 255, 0.16), transparent 70%),
+    linear-gradient(180deg, #0a0a0f 0%, #13131c 52%, #0a0a0f 100%);
+}
+
+.team-shell {
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+.team-stage {
+  overflow: hidden;
+  position: relative;
+}
+
+.team-track {
+  width: 200%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  transition: transform 620ms cubic-bezier(0.18, 0.84, 0.22, 1);
+  transform: translateX(0);
+}
+
+.team-track-alt {
+  transform: translateX(-50%);
+}
+
+.team-view {
+  width: 100%;
+  position: relative;
+}
+
+.team-view-groups {
+  padding: 0.35rem 0 0.3rem;
+}
+
+.team-stage-arrow {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(108, 99, 255, 0.42);
+  background: rgba(14, 15, 30, 0.9);
+  color: #cfcdf3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.team-stage-arrow svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.team-stage-arrow:hover {
+  transform: translateY(-2px);
+  border-color: rgba(108, 99, 255, 0.8);
+  color: #ffffff;
+}
+
+.team-stage-arrow-next {
+  top: 2.75rem;
+  right: 0.15rem;
+}
+
+.team-stage-arrow-prev {
+  bottom: 0.35rem;
+  left: 0.15rem;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.team-kicker {
+  color: #6c63ff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.team-title {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+}
+
+.team-subtitle {
+  margin: 1rem auto 0;
+  color: #a4a4b2;
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(1rem, 1.7vw, 1.3rem);
+  line-height: 1.5;
+  max-width: 44rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.team-card {
+  position: relative;
+  height: clamp(19rem, 28vw, 24rem);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #141520;
+  transform: translateY(0);
+  transition: transform 260ms ease, box-shadow 260ms ease;
+  box-shadow: 0 20px 46px rgba(5, 6, 16, 0.48);
+}
+
+.team-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(14, 16, 36, 0.06) 8%, rgba(16, 17, 42, 0.5) 56%, rgba(16, 17, 44, 0.92) 100%),
+    linear-gradient(180deg, rgba(108, 99, 255, 0) 25%, rgba(108, 99, 255, 0.34) 100%);
+}
+
+.team-card::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 28%;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(108, 99, 255, 0) 0%, rgba(108, 99, 255, 0.44) 100%);
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 52px rgba(8, 10, 24, 0.6);
+}
+
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.02) contrast(1.03);
+}
+
+.team-content {
+  position: absolute;
+  left: 1.35rem;
+  right: 1.35rem;
+  bottom: 1.2rem;
+  z-index: 3;
+}
+
+.team-content-base {
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.team-hover {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background:
+    linear-gradient(180deg, rgba(16, 18, 42, 0.05) 0%, rgba(21, 24, 56, 0.38) 45%, rgba(20, 22, 52, 0.95) 100%),
+    linear-gradient(180deg, rgba(108, 99, 255, 0.06) 0%, rgba(108, 99, 255, 0.36) 100%);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 240ms ease;
+}
+
+.team-content-hover {
+  bottom: 1.3rem;
+  z-index: 1;
+}
+
+.team-card:hover .team-hover,
+.team-card:focus-within .team-hover {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.team-card:hover .team-content-base,
+.team-card:focus-within .team-content-base {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.team-name {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(1.2rem, 1.9vw, 1.52rem);
+  line-height: 1.14;
+  font-weight: 800;
+}
+
+.team-role {
+  margin: 0.48rem 0 0;
+  color: rgba(238, 238, 255, 0.92);
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.team-description {
+  margin: 0.45rem 0 0;
+  color: rgba(228, 229, 245, 0.82);
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.96rem;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.team-groups-panel {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 1.15rem 0.9rem 1rem;
+}
+
+.team-groups-title {
+  margin: 0 0 1.25rem;
+  text-align: center;
+  color: #f8f8ff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(1.9rem, 2.5vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.team-carousel-wrap {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.team-carousel-row {
+  width: 100%;
+  overflow: hidden;
+}
+
+.team-carousel-track {
+  display: flex;
+  gap: 0.9rem;
+  width: max-content;
+}
+
+.team-carousel-track-ltr {
+  animation: teamSlideLtr 26s linear infinite;
+}
+
+.team-carousel-track-rtl {
+  animation: teamSlideRtl 26s linear infinite;
+}
+
+.team-mini-card {
+  width: 16.2rem;
+  height: 18rem;
+  border-radius: 1.3rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #141520;
+  flex: 0 0 auto;
+  position: relative;
+  box-shadow: 0 18px 36px rgba(3, 3, 10, 0.36);
+  transition: box-shadow 260ms ease, border-color 260ms ease, transform 260ms ease;
+  transform: translateY(0);
+}
+
+.team-mini-card:hover {
+  box-shadow: 0 24px 44px rgba(8, 10, 24, 0.52);
+  border-color: rgba(108, 99, 255, 0.24);
+  transform: translateY(-4px);
+}
+
+.team-mini-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 14%;
+  display: block;
+  filter: saturate(1.02) contrast(1.03);
+}
+
+.team-mini-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(14, 16, 36, 0.08) 12%, rgba(16, 17, 42, 0.45) 52%, rgba(16, 17, 44, 0.96) 100%),
+    linear-gradient(180deg, rgba(108, 99, 255, 0) 18%, rgba(108, 99, 255, 0.36) 100%);
+  pointer-events: none;
+}
+
+.team-mini-info {
+  position: absolute;
+  inset: auto 1.1rem 1rem;
+  z-index: 2;
+  padding: 0;
+}
+
+.team-mini-name {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.18rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.team-mini-role {
+  margin: 0.36rem 0 0;
+  color: rgba(238, 238, 255, 0.93);
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.94rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+@keyframes teamSlideRtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes teamSlideLtr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .team-section {
+    padding: 6rem 1.5rem;
+  }
+
+  .team-header {
+    margin-bottom: 3rem;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .team-mini-card {
+    width: 14.8rem;
+    height: 16.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .team-track {
+    transition-duration: 520ms;
+  }
+
+  .team-card {
+    height: 21.5rem;
+  }
+
+  .team-carousel-track {
+    gap: 0.65rem;
+  }
+
+  .team-mini-card {
+    width: 12.4rem;
+    height: 15rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .team-group-list {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .team-group-row {
+    height: 4.45rem;
+  }
+
+  .team-bubble {
+    width: 4.6rem;
+    height: 4.6rem;
+  }
+
+  .team-group-label {
+    font-size: 1.3rem;
+  }
+  }
+
+  .team-mini-name {
+    font-size: 0.93rem;
+  }
+
+  .team-mini-role {
+    font-size: 0.78rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .team-group-row {
+    height: 4.05rem;
+  }
+
+  .team-group-row-sub {
+    height: 3.9rem;
+  }
+
+  .team-bubble {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .team-group-label {
+    font-size: 1.15rem;
+  }
+}

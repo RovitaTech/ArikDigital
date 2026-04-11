@@ -1,3 +1,192 @@
 :host {
   display: block;
 }
+
+.contact-section {
+  padding: 6rem 1.25rem;
+  background:
+    radial-gradient(55% 45% at 0% 0%, rgba(108, 99, 255, 0.14), transparent 70%),
+    radial-gradient(45% 35% at 100% 0%, rgba(255, 89, 132, 0.12), transparent 72%),
+    radial-gradient(40% 38% at 50% 100%, rgba(67, 232, 160, 0.11), transparent 75%),
+    linear-gradient(180deg, #0a0a0f 0%, #11111a 100%);
+}
+
+.contact-shell {
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+.contact-header {
+  max-width: 52rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.contact-kicker {
+  color: #6c63ff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.contact-title {
+  margin: 0;
+  color: #f8f8fd;
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+}
+
+.contact-subtitle {
+  margin: 0.95rem auto 0;
+  color: #a7a6b6;
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(1rem, 1.45vw, 1.25rem);
+  line-height: 1.5;
+  max-width: 42rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 70rem;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.contact-form-wrap {
+  width: 100%;
+}
+
+.contact-label {
+  display: block;
+  color: #f0eff8;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.contact-input {
+  width: 100%;
+  padding: 0.95rem 1.1rem;
+  background: #13131c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.85rem;
+  color: #f0eff8;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-input::placeholder {
+  color: #5a5968;
+}
+
+.contact-input:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+.contact-textarea {
+  min-height: 9.25rem;
+  resize: vertical;
+}
+
+.contact-submit {
+  width: 100%;
+  border: 0;
+  border-radius: 0.9rem;
+  padding: 0.95rem 1.25rem;
+  background: linear-gradient(90deg, #6c63ff 0%, #5b52e8 100%);
+  color: #fff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(108, 99, 255, 0.34);
+}
+
+.contact-info-wrap {
+  width: 100%;
+}
+
+.contact-info-card {
+  background: linear-gradient(140deg, #13131c 0%, #0f0f16 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.2rem;
+  padding: 2rem;
+}
+
+.contact-info-title {
+  margin: 0;
+  color: #fff;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.contact-info-copy {
+  margin: 1rem 0 2rem;
+  color: #9d9caa;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.contact-icon-wrap {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.8rem;
+  background: rgba(108, 99, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-item-title {
+  color: #f0eff8;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  font-size: 0.95rem;
+}
+
+.contact-item-value {
+  color: #9d9caa;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 1024px) {
+  .contact-section {
+    padding: 7rem 1.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+    gap: 3rem;
+  }
+
+  .contact-info-wrap {
+    padding-top: 0.25rem;
+  }
+
+  .contact-info-card {
+    padding: 2.5rem;
+  }
+}

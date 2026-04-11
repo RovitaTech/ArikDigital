@@ -1,3 +1,152 @@
 :host {
   display: block;
 }
+
+.process-section {
+  padding: 5.5rem 1.25rem;
+  background:
+    radial-gradient(60% 45% at 50% 12%, rgba(108, 99, 255, 0.16), transparent 70%),
+    linear-gradient(180deg, #0a0a0f 0%, #13131c 52%, #0a0a0f 100%);
+}
+
+.process-shell {
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.process-kicker {
+  color: #6c63ff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+  display: block;
+}
+
+.process-title {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.process-subtitle {
+  margin: 0 auto;
+  color: #a4a4b2;
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(1rem, 1.7vw, 1.3rem);
+  line-height: 1.5;
+  max-width: 44rem;
+}
+
+.process-container {
+  position: relative;
+}
+
+.process-connector {
+  display: none;
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #6c63ff, #ff6584, #43e8a0);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-10;
+}
+
+.process-step {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.process-step-circle {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: 2px solid #6c63ff;
+  background: linear-gradient(135deg, #0a0a0f 0%, #13131c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.2);
+}
+
+.process-step-circle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 32px rgba(108, 99, 255, 0.4);
+}
+
+.process-step-number {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #6c63ff;
+}
+
+.process-step-title {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.process-step-description {
+  margin: 0;
+  color: #a4a4b2;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .process-section {
+    padding: 6rem 1.5rem;
+  }
+
+  .process-header {
+    margin-bottom: 4rem;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .process-connector {
+    display: block;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}

@@ -2,9 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 interface ClientLogo {
   name: string;
-  widthClass: string;
   text: string;
-  stroke?: boolean;
 }
 
 @Component({
@@ -16,11 +14,20 @@ interface ClientLogo {
 })
 export class ClientsComponent {
   protected readonly clients: ClientLogo[] = [
-    { name: 'Meta', widthClass: 'w-24', text: 'Meta' },
-    { name: 'Amazon', widthClass: 'w-28', text: 'amazon', stroke: true },
-    { name: 'Google', widthClass: 'w-28', text: 'Google' },
-    { name: 'Stripe', widthClass: 'w-24', text: 'Stripe' },
-    { name: 'Shopify', widthClass: 'w-28', text: 'Shopify' },
-    { name: 'Netflix', widthClass: 'w-28', text: 'NETFLIX' },
+    { name: 'Meta', text: 'Meta' },
+    { name: 'Amazon', text: 'Amazon' },
+    { name: 'Google', text: 'Google' },
+    { name: 'Stripe', text: 'Stripe' },
+    { name: 'Shopify', text: 'Shopify' },
+    { name: 'Netflix', text: 'Netflix' },
+    { name: 'Uber', text: 'Uber' },
+    { name: 'Airbnb', text: 'Airbnb' },
+    { name: 'Slack', text: 'Slack' },
+    { name: 'Figma', text: 'Figma' },
+    { name: 'PayPal', text: 'PayPal' },
+    { name: 'Spotify', text: 'Spotify' },
+    { name: 'Adobe', text: 'Adobe' },
+    { name: 'Microsoft', text: 'Microsoft' },
+    { name: 'Twitter', text: 'Twitter' },
   ];
 }

@@ -1,36 +1,105 @@
-<section id="team" class="py-32 px-6 bg-gradient-to-b from-[#0A0A0F] via-[#13131C] to-[#0A0A0F]">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-20">
-      <div class="text-[#6C63FF] text-[13px] font-['Urbanist'] font-semibold tracking-[0.15em] uppercase mb-5">
-        MEET THE TEAM
+<section id="team" class="team-section">
+  <div class="team-shell team-stage">
+    <div class="team-track" [class.team-track-alt]="showGroupsView">
+      <div class="team-view team-view-cards">
+        <div class="team-header">
+          <div class="team-kicker">MEET THE TEAM</div>
+          <h2 class="team-title">Real people. Real results.</h2>
+          <p class="team-subtitle">Passionate experts dedicated to bringing your vision to life</p>
+        </div>
+
+        <button type="button" class="team-stage-arrow team-stage-arrow-next" (click)="openGroupsView()" aria-label="Open team groups view">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 5 7 7-7 7"></path>
+          </svg>
+        </button>
+
+        <div class="team-grid">
+          @for (member of team; track member.name) {
+            <article class="team-card">
+              <img class="team-image" [src]="member.image" [alt]="member.name" [style.object-position]="member.imagePosition" loading="lazy" decoding="async" />
+              <div class="team-content team-content-base">
+                <h3 class="team-name">{{ member.name }}</h3>
+                <p class="team-role">{{ member.role }}</p>
+              </div>
+
+              <div class="team-hover" aria-hidden="true">
+                <div class="team-content team-content-hover">
+                  <h3 class="team-name">{{ member.name }}</h3>
+                  <p class="team-role">{{ member.role }}</p>
+                  <p class="team-description">{{ member.description }}</p>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
       </div>
-      <h2 class="font-['Urbanist'] font-extrabold text-white mb-4">Real people. Real results.</h2>
-      <p class="text-[#9D9CAA] text-[17px] font-['Urbanist'] max-w-2xl mx-auto">
-        Passionate experts dedicated to bringing your vision to life
-      </p>
-    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      @for (member of team; track member.name) {
-        <div class="bg-gradient-to-b from-[#1A1A26] to-[#13131C] border border-white/[0.08] rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 group">
-          <div [class]="member.avatarClass">
-            <span class="text-4xl font-['Urbanist'] font-extrabold text-white">{{ member.name.charAt(0) }}</span>
-          </div>
+      <div class="team-view team-view-groups">
+        <button type="button" class="team-stage-arrow team-stage-arrow-prev" (click)="openCardsView()" aria-label="Back to main team cards">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 5-7 7 7 7"></path>
+          </svg>
+        </button>
 
-          <h3 class="font-['Urbanist'] font-extrabold text-white mb-2 text-[22px]">{{ member.name }}</h3>
-          <div class="text-[#6C63FF] text-[15px] font-['Urbanist'] font-semibold mb-5">{{ member.role }}</div>
+        <div class="team-groups-panel">
+          <h3 class="team-groups-title">Our Team</h3>
 
-          <p class="text-[#9D9CAA] text-[15px] font-['Urbanist'] leading-relaxed mb-6">{{ member.bio }}</p>
+          <div class="team-carousel-wrap">
+            <div class="team-carousel-row team-carousel-row-top">
+              <div class="team-carousel-track team-carousel-track-ltr">
+                @for (member of firstRowMembers; track member.name + member.role) {
+                  <article class="team-mini-card">
+                    <img class="team-mini-image" [src]="member.image" [alt]="member.name" loading="lazy" decoding="async" />
+                    <div class="team-mini-overlay"></div>
+                    <div class="team-mini-info">
+                      <h4 class="team-mini-name">{{ member.name }}</h4>
+                      <p class="team-mini-role">{{ member.role }}</p>
+                    </div>
+                  </article>
+                }
 
-          <div class="flex flex-wrap gap-2">
-            @for (skill of member.skills; track skill) {
-              <span class="px-3 py-2 bg-[#0A0A0F]/60 border border-white/[0.08] rounded-lg text-[13px] text-[#B5B4C0] font-['Urbanist'] font-medium">
-                {{ skill }}
-              </span>
-            }
+                @for (member of firstRowMembers; track $index) {
+                  <article class="team-mini-card" aria-hidden="true">
+                    <img class="team-mini-image" [src]="member.image" [alt]="member.name" loading="lazy" decoding="async" />
+                    <div class="team-mini-overlay"></div>
+                    <div class="team-mini-info">
+                      <h4 class="team-mini-name">{{ member.name }}</h4>
+                      <p class="team-mini-role">{{ member.role }}</p>
+                    </div>
+                  </article>
+                }
+              </div>
+            </div>
+
+            <div class="team-carousel-row team-carousel-row-bottom">
+              <div class="team-carousel-track team-carousel-track-rtl">
+                @for (member of secondRowMembers; track member.name + member.role) {
+                  <article class="team-mini-card">
+                    <img class="team-mini-image" [src]="member.image" [alt]="member.name" loading="lazy" decoding="async" />
+                    <div class="team-mini-overlay"></div>
+                    <div class="team-mini-info">
+                      <h4 class="team-mini-name">{{ member.name }}</h4>
+                      <p class="team-mini-role">{{ member.role }}</p>
+                    </div>
+                  </article>
+                }
+
+                @for (member of secondRowMembers; track $index) {
+                  <article class="team-mini-card" aria-hidden="true">
+                    <img class="team-mini-image" [src]="member.image" [alt]="member.name" loading="lazy" decoding="async" />
+                    <div class="team-mini-overlay"></div>
+                    <div class="team-mini-info">
+                      <h4 class="team-mini-name">{{ member.name }}</h4>
+                      <p class="team-mini-role">{{ member.role }}</p>
+                    </div>
+                  </article>
+                }
+              </div>
+            </div>
           </div>
         </div>
-      }
+      </div>
     </div>
   </div>
 </section>
