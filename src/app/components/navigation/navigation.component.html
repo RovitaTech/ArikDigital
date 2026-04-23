@@ -6,24 +6,32 @@
     </button>
 
     <div class="desktop-nav hidden md:flex items-center gap-10">
-      @for (item of ['Services', 'Process', 'Pricing', 'Team', 'Contact']; track item) {
+      @for (item of navItems; track item.id) {
         <button
           type="button"
-          (click)="scrollToSection(item.toLowerCase())"
+          (click)="scrollToSection(item.id)"
           class="text-[#F0EFF8]/80 hover:text-[#6C63FF] transition-all font-['Urbanist'] text-[15px] font-medium relative group"
         >
-          {{ item }}
+          {{ item.label[language()] }}
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#6C63FF] group-hover:w-full transition-all duration-300"></span>
         </button>
       }
     </div>
 
-    <button
-      type="button"
-      (click)="scrollToSection('contact')"
+    <label class="language-select-wrap" aria-label="Language select">
+      <select class="language-select" [value]="language()" (change)="onLanguageChange($event)">
+        <option value="en">EN</option>
+        <option value="de">DE</option>
+      </select>
+    </label>
+
+    <a
+      [href]="bookingUrl"
+      target="_blank"
+      rel="noopener noreferrer"
       class="nav-cta bg-gradient-to-r from-[#6C63FF] to-[#5B52E8] text-white px-7 py-3 rounded-xl hover:shadow-lg hover:shadow-[#6C63FF]/30 hover:-translate-y-0.5 transition-all font-['Urbanist'] text-[15px] font-semibold"
     >
-      Talk to our team
-    </button>
+      {{ language() === 'de' ? 'Erstgespraech buchen' : 'Schedule a consultation' }}
+    </a>
   </div>
 </nav>

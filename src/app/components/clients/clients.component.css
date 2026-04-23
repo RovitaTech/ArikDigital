@@ -33,6 +33,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
 }
 
 .clients-carousel {
@@ -53,6 +54,19 @@
   align-items: center;
   justify-content: center;
   min-width: 140px;
+  position: relative;
+}
+
+.client-item::after {
+  content: '';
+  position: absolute;
+  bottom: -0.45rem;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.6), transparent);
+  opacity: 0;
+  transition: opacity 220ms ease;
 }
 
 .client-name {
@@ -68,6 +82,10 @@
 .client-item:hover .client-name {
   opacity: 0.8;
   transform: scale(1.05);
+}
+
+.client-item:hover::after {
+  opacity: 1;
 }
 
 @keyframes slideClients {
@@ -94,5 +112,11 @@
 
   .client-name {
     font-size: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-track {
+    animation: none;
   }
 }

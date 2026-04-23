@@ -2,9 +2,185 @@
   display: block;
 }
 
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(55% 70% at 20% 10%, rgba(108, 99, 255, 0.24), transparent 70%),
+    radial-gradient(45% 60% at 88% 15%, rgba(255, 101, 132, 0.2), transparent 68%),
+    linear-gradient(180deg, #07070c 0%, #0a0a0f 100%);
+  overflow: hidden;
+  animation: intro-fade-out 380ms ease 1.45s forwards;
+}
+
+.intro-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.35) 0.6px, transparent 0.6px),
+    radial-gradient(rgba(255, 255, 255, 0.25) 0.55px, transparent 0.55px);
+  background-position: 0 0, 13px 13px;
+  background-size: 24px 24px;
+}
+
+.intro-ring {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transform-origin: center;
+}
+
+.intro-ring-a {
+  width: min(88vw, 52rem);
+  aspect-ratio: 1;
+  animation: intro-pulse 1.8s ease-out infinite;
+}
+
+.intro-ring-b {
+  width: min(70vw, 40rem);
+  aspect-ratio: 1;
+  border-color: rgba(108, 99, 255, 0.35);
+  animation: intro-pulse 1.8s ease-out 220ms infinite;
+}
+
+.intro-ring-c {
+  width: min(52vw, 30rem);
+  aspect-ratio: 1;
+  border-color: rgba(255, 101, 132, 0.28);
+  animation: intro-pulse 1.8s ease-out 420ms infinite;
+}
+
+.intro-center {
+  position: relative;
+  z-index: 2;
+  width: min(92vw, 36rem);
+  display: grid;
+  justify-items: center;
+  gap: 0.8rem;
+}
+
+.intro-kicker {
+  color: #b8b6cf;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  opacity: 0;
+  animation: intro-rise 520ms ease 120ms forwards;
+}
+
+.intro-brand {
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(2.6rem, 10vw, 5.8rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  animation: intro-rise 620ms cubic-bezier(0.2, 0.85, 0.2, 1) 220ms forwards;
+}
+
+.intro-brand-white {
+  color: #f0eff8;
+}
+
+.intro-brand-violet {
+  color: #6c63ff;
+}
+
+.intro-bar {
+  width: min(70vw, 21rem);
+  height: 0.34rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  animation: intro-rise 500ms ease 360ms forwards;
+}
+
+.intro-bar-fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #6c63ff, #ff6584, #43e8a0);
+  animation: intro-progress 1.15s cubic-bezier(0.2, 0.8, 0.2, 1) 420ms forwards;
+}
+
+.main-shell-entering {
+  pointer-events: none;
+}
+
+.main-shell-entering app-hero .hero-content,
+.main-shell-entering app-hero .hero-title-text,
+.main-shell-entering app-hero .hero-subtitle-text,
+.main-shell-entering app-hero .hero-action-btn,
+.main-shell-entering app-hero .hero-metrics,
+.main-shell-entering app-hero .metric-chip,
+.main-shell-entering app-hero .metric-value,
+.main-shell-entering app-hero .hero-orb,
+.main-shell-entering app-hero .hero-line {
+  animation-play-state: paused !important;
+}
+
+@keyframes intro-pulse {
+  0% {
+    transform: scale(0.88);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.38;
+  }
+  100% {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+}
+
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes intro-fade-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 .main-shell {
   position: relative;
   isolation: isolate;
+  background:
+    radial-gradient(70% 55% at 20% 0%, rgba(108, 99, 255, 0.12), transparent 65%),
+    radial-gradient(60% 50% at 82% 22%, rgba(255, 101, 132, 0.09), transparent 62%),
+    radial-gradient(55% 42% at 50% 100%, rgba(67, 232, 160, 0.08), transparent 60%),
+    linear-gradient(180deg, #09090e 0%, #0a0a0f 38%, #050508 100%);
+  --mesh-shift-a: 10%;
+  --mesh-shift-b: 92%;
+  animation: mesh-drift 12s ease-in-out infinite alternate;
 }
 
 .main-shell::before,
@@ -16,23 +192,26 @@
 }
 
 .main-shell::before {
-  inset: -20vh -10vw;
+  inset: -28vh -18vw;
   background:
-    radial-gradient(circle at 16% 20%, rgba(108, 99, 255, 0.16), transparent 45%),
-    radial-gradient(circle at 85% 30%, rgba(255, 101, 132, 0.14), transparent 40%),
-    radial-gradient(circle at 55% 80%, rgba(67, 232, 160, 0.09), transparent 45%);
-  filter: blur(20px);
+    radial-gradient(circle at var(--mesh-shift-a) 18%, rgba(108, 99, 255, 0.2), transparent 42%),
+    radial-gradient(circle at var(--mesh-shift-b) 26%, rgba(255, 101, 132, 0.16), transparent 38%),
+    radial-gradient(circle at 55% 76%, rgba(67, 232, 160, 0.12), transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba(5, 28, 32, 0.16), transparent 55%);
+  filter: blur(28px);
+  opacity: 1;
 }
 
 .main-shell::after {
   inset: 0;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.22;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(circle at center, black 38%, transparent 92%);
+  animation: drift-grid 14s linear infinite;
 }
 
 app-hero,
@@ -45,7 +224,8 @@ app-team,
 app-contact,
 app-footer {
   position: relative;
-  animation: section-fade 600ms ease-out both;
+  opacity: 0;
+  animation: section-fade 680ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 app-clients,
@@ -94,7 +274,7 @@ app-footer {
 @keyframes section-fade {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(18px) scale(0.995);
   }
   to {
     opacity: 1;
@@ -102,9 +282,60 @@ app-footer {
   }
 }
 
+@keyframes mesh-drift {
+  0% {
+    --mesh-shift-a: 12%;
+    --mesh-shift-b: 90%;
+  }
+  100% {
+    --mesh-shift-a: 22%;
+    --mesh-shift-b: 82%;
+  }
+}
+
+@keyframes drift-grid {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 0 48px, 48px 0;
+  }
+}
+
 @media (max-width: 768px) {
   .main-shell::after {
     background-size: 34px 34px;
     opacity: 0.18;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-overlay,
+  .intro-ring,
+  .intro-kicker,
+  .intro-brand,
+  .intro-bar,
+  .intro-bar-fill,
+  .main-shell,
+  .main-shell::after,
+  app-hero,
+  app-clients,
+  app-stats,
+  app-services,
+  app-process,
+  app-pricing,
+  app-team,
+  app-contact,
+  app-footer {
+    animation: none !important;
+    opacity: 1;
+  }
+
+  .intro-overlay {
+    display: none;
+  }
+
+  .main-shell-entering {
+    pointer-events: auto;
   }
 }

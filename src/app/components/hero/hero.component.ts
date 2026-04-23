@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroComponent {
-  protected scrollToSection(id: string): void {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  }
+  readonly animateIn = input(false);
+  readonly language = input<'en' | 'de'>('de');
+  protected readonly bookingUrl = 'https://calendar.google.com/calendar/u/0/appointments/schedules';
 }

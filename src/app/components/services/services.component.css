@@ -65,12 +65,30 @@
   overflow: hidden;
   transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
   cursor: pointer;
+  opacity: 0;
+  transform: translateY(26px);
+  animation: card-in 620ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(108, 99, 255, 0.18), rgba(255, 101, 132, 0.05), rgba(67, 232, 160, 0.16));
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;
 }
 
 .service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(108, 99, 255, 0.15);
   border-color: rgba(108, 99, 255, 0.2);
+}
+
+.service-card:hover::before {
+  opacity: 1;
 }
 
 .service-overlay {
@@ -83,6 +101,30 @@
 
 .service-card:hover .service-overlay {
   opacity: 0.05;
+}
+
+.service-card:nth-child(1) {
+  animation-delay: 50ms;
+}
+
+.service-card:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.service-card:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+.service-card:nth-child(4) {
+  animation-delay: 230ms;
+}
+
+.service-card:nth-child(5) {
+  animation-delay: 280ms;
+}
+
+.service-card:nth-child(6) {
+  animation-delay: 330ms;
 }
 
 .service-tag {
@@ -148,6 +190,17 @@
   z-index: 1;
 }
 
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (min-width: 768px) {
   .services-section {
     padding: 6rem 1.5rem;
@@ -167,5 +220,13 @@
   .services-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
   }
 }

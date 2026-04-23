@@ -5,12 +5,46 @@
 .hero-section {
   min-height: 100svh;
   padding-top: clamp(8.75rem, 12vh, 11rem);
+  isolation: isolate;
+}
+
+.hero-reactive {
+  position: absolute;
+  inset: -18%;
+  pointer-events: none;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.hero-reactive-dark {
+  opacity: 0.82;
+  background:
+    radial-gradient(circle at 24% 24%, rgba(5, 28, 32, 0.96) 0%, rgba(5, 28, 32, 0.9) 12%, rgba(5, 28, 32, 0.24) 24%, transparent 42%),
+    radial-gradient(circle at 76% 76%, rgba(5, 28, 32, 0.72) 0%, rgba(5, 28, 32, 0.22) 16%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(5, 28, 32, 0.34) 0%, transparent 58%);
+  filter: blur(12px);
+  transform: scale(1.1);
+  animation: dark-drift 14s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.hero-reactive-glow {
+  opacity: 0.8;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(108, 99, 255, 0.72) 0%, rgba(108, 99, 255, 0.24) 18%, transparent 34%),
+    radial-gradient(circle at 82% 26%, rgba(255, 101, 132, 0.48) 0%, rgba(255, 101, 132, 0.16) 18%, transparent 36%),
+    radial-gradient(circle at 68% 78%, rgba(67, 232, 160, 0.42) 0%, rgba(67, 232, 160, 0.14) 16%, transparent 34%),
+    radial-gradient(circle at 32% 72%, rgba(255, 193, 7, 0.18) 0%, transparent 26%);
+  filter: blur(32px) saturate(1.15);
+  mix-blend-mode: screen;
+  animation: glow-drift 12s ease-in-out infinite alternate;
+  z-index: 1;
 }
 
 .hero-line {
   background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.08) 0%, transparent 66%);
   opacity: 0.6;
   pointer-events: none;
+  animation: breathe-line 6.5s ease-in-out infinite;
 }
 
 .hero-orb {
@@ -23,6 +57,9 @@
 
 .hero-content {
   width: min(100%, 76rem);
+  animation: hero-rise 900ms cubic-bezier(0.18, 0.82, 0.22, 1) both;
+  position: relative;
+  z-index: 10;
 }
 
 .hero-title {
@@ -31,15 +68,81 @@
   letter-spacing: -0.035em;
 }
 
+.hero-title-line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-title-text {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  filter: blur(6px);
+  animation: line-in 740ms cubic-bezier(0.15, 0.9, 0.2, 1) forwards;
+}
+
+.hero-title-line:nth-child(1) .hero-title-text {
+  animation-delay: 130ms;
+}
+
+.hero-title-line:nth-child(2) .hero-title-text {
+  animation-delay: 240ms;
+}
+
+.hero-title-line:nth-child(3) .hero-title-text {
+  animation-delay: 350ms;
+}
+
+.hero-title-line:nth-child(3) .hero-title-text {
+  position: relative;
+}
+
+.hero-title-line:nth-child(3) .hero-title-text::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 10%, rgba(255, 255, 255, 0.55) 45%, transparent 85%);
+  transform: translateX(-130%);
+  animation: text-sheen 720ms ease 820ms forwards;
+  mix-blend-mode: screen;
+}
+
 .hero-subtitle {
   font-size: clamp(1rem, 1.7vw, 1.65rem);
   max-width: 46rem;
+  overflow: hidden;
+}
+
+.hero-subtitle-text {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(4px);
+  animation: fade-up 700ms ease-out 470ms forwards;
 }
 
 .hero-primary,
 .hero-secondary {
   position: relative;
   overflow: hidden;
+}
+
+.hero-action-btn {
+  opacity: 0;
+  transform: translateY(22px) scale(0.97);
+  animation: cta-in 680ms cubic-bezier(0.2, 0.86, 0.22, 1) forwards;
+}
+
+.hero-action-btn-primary {
+  animation-delay: 600ms;
+}
+
+.hero-action-btn-secondary {
+  animation-delay: 740ms;
+}
+
+.hero-actions {
+  justify-content: center;
 }
 
 .hero-primary::after,
@@ -60,6 +163,8 @@
 
 .hero-metrics {
   margin-top: 0.8rem;
+  opacity: 0;
+  animation: fade-up 650ms ease-out 900ms forwards;
 }
 
 .metric-chip {
@@ -71,12 +176,34 @@
   border-radius: 999px;
   background: rgba(19, 19, 28, 0.64);
   backdrop-filter: blur(8px);
+  transition: transform 220ms ease, border-color 220ms ease;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: chip-in 520ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.metric-chip-a {
+  animation-delay: 980ms;
+}
+
+.metric-chip-b {
+  animation-delay: 1060ms;
+}
+
+.metric-chip-c {
+  animation-delay: 1140ms;
+}
+
+.metric-chip:hover {
+  transform: translateY(-3px);
+  border-color: rgba(108, 99, 255, 0.38);
 }
 
 .metric-value {
   color: #f0eff8;
   font-weight: 700;
   letter-spacing: -0.02em;
+  animation: value-pop 640ms ease 1120ms both;
 }
 
 .metric-label {
@@ -92,6 +219,114 @@
   }
   50% {
     transform: translate3d(0, -14px, 0) scale(1.04);
+  }
+}
+
+@keyframes breathe-line {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes line-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes cta-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes value-pop {
+  0% {
+    transform: scale(0.84);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes text-sheen {
+  to {
+    transform: translateX(130%);
+  }
+}
+
+@keyframes glow-drift {
+  from {
+    transform: translate3d(-3.5%, -2%, 0) scale(1.05);
+  }
+  to {
+    transform: translate3d(3.5%, 2%, 0) scale(1.12);
+  }
+}
+
+@keyframes dark-drift {
+  from {
+    transform: translate3d(-2.6%, -1.6%, 0) scale(1.06);
+  }
+  to {
+    transform: translate3d(2.6%, 1.6%, 0) scale(1.14);
   }
 }
 
@@ -112,7 +347,7 @@
     margin-bottom: 0;
   }
 
-  .hero-actions button {
+  .hero-actions > * {
     width: 100%;
     max-width: 20rem;
   }
@@ -125,5 +360,23 @@
     justify-content: center;
     width: 100%;
     max-width: 20rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reactive,
+  .hero-line,
+  .hero-orb,
+  .hero-content,
+  .hero-title-text,
+  .hero-subtitle-text,
+  .hero-action-btn,
+  .hero-metrics,
+  .metric-chip,
+  .metric-value {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }

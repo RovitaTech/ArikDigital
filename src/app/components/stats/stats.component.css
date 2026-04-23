@@ -1,3 +1,122 @@
 :host {
   display: block;
 }
+
+.stats-section {
+  padding: 5.5rem 1.25rem;
+}
+
+.stats-shell {
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.stat-card {
+  position: relative;
+  border-radius: 1.15rem;
+  padding: 1.35rem 0.9rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(19, 19, 28, 0.82) 0%, rgba(12, 12, 18, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(9px);
+  transition: transform 230ms ease, border-color 230ms ease, box-shadow 230ms ease;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: stat-in 620ms ease forwards;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(108, 99, 255, 0.38);
+  box-shadow: 0 15px 30px rgba(108, 99, 255, 0.16);
+}
+
+.stat-card:nth-child(1) {
+  animation-delay: 70ms;
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 140ms;
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 210ms;
+}
+
+.stat-card:nth-child(4) {
+  animation-delay: 280ms;
+}
+
+.stat-number {
+  font-family: 'Urbanist', sans-serif;
+  font-size: clamp(2.1rem, 6.2vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #6c63ff, #9d95ff 55%, #43e8a0 120%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.38rem;
+}
+
+.stat-label {
+  color: #9d9caa;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.stat-divider {
+  display: none;
+}
+
+@keyframes stat-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .stats-section {
+    padding: 6rem 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.8rem 0.8rem;
+  }
+
+  .stat-divider {
+    display: block;
+    position: absolute;
+    right: -0.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 4.4rem;
+    background: rgba(255, 255, 255, 0.09);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-card {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

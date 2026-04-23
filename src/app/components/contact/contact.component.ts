@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -11,6 +11,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 })
 export class ContactComponent {
   private readonly fb = inject(FormBuilder);
+  readonly language = input<'en' | 'de'>('de');
 
   protected readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required]],
@@ -25,7 +26,11 @@ export class ContactComponent {
       return;
     }
 
-    alert('Thank you! Our team will contact you within 24 hours to discuss your project.');
+    alert(
+      this.language() === 'de'
+        ? 'Danke! Unser Team meldet sich innerhalb von 24 Stunden bei dir, um dein Projekt zu besprechen.'
+        : 'Thank you! Our team will contact you within 24 hours to discuss your project.'
+    );
     this.form.reset();
   }
 }

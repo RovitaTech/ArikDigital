@@ -1,24 +1,28 @@
-<footer class="border-t border-white/[0.05] py-10 px-6 bg-gradient-to-b from-[#0A0A0F] to-[#050508]">
-  <div class="max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-      <div class="flex items-center gap-0">
+<footer class="footer-section">
+  <div class="footer-shell">
+    <div class="footer-row">
+      <div class="footer-brand">
         <span class="text-[22px] font-['Urbanist'] font-extrabold text-white tracking-tight">Arik</span>
         <span class="text-[22px] font-['Urbanist'] font-extrabold text-[#6C63FF] tracking-tight">Digital</span>
       </div>
 
-      <div class="flex items-center gap-8">
-        @for (item of ['Services', 'Pricing', 'Team', 'Contact']; track item) {
+      <div class="footer-links">
+        @for (item of [
+          { id: 'services', label: language() === 'de' ? 'Leistungen' : 'Services' },
+          { id: 'pricing', label: language() === 'de' ? 'Preise' : 'Pricing' },
+          { id: 'contact', label: language() === 'de' ? 'Kontakt' : 'Contact' }
+        ]; track item.id) {
           <button
             type="button"
-            (click)="scrollToSection(item.toLowerCase())"
-            class="text-[#9D9CAA] hover:text-[#6C63FF] transition-colors font-['Urbanist'] text-[14px] font-medium"
+            (click)="scrollToSection(item.id)"
+            class="footer-link"
           >
-            {{ item }}
+            {{ item.label }}
           </button>
         }
       </div>
 
-      <div class="text-[#5A5968] text-[14px] font-['Urbanist']">© 2026 ArikDigital. All rights reserved.</div>
+      <div class="footer-copy">{{ language() === 'de' ? '© 2026 ArikDigital. Alle Rechte vorbehalten.' : '© 2026 ArikDigital. All rights reserved.' }}</div>
     </div>
   </div>
 </footer>
