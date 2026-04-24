@@ -1,12 +1,33 @@
-<div class="main-shell min-h-screen bg-[#0A0A0F] overflow-x-hidden">
-  <app-navigation />
-  <app-hero />
-  <app-clients />
-  <app-stats />
-  <app-services />
-  <app-process />
-  <app-pricing />
-  <app-team />
-  <app-contact />
-  <app-footer />
+@if (showIntro()) {
+  <div class="intro-overlay" aria-hidden="true">
+    <div class="intro-noise"></div>
+    <div class="intro-ring intro-ring-a"></div>
+    <div class="intro-ring intro-ring-b"></div>
+    <div class="intro-ring intro-ring-c"></div>
+
+    <div class="intro-center">
+      <div class="intro-brand">
+        <span class="intro-brand-white">Arik</span><span class="intro-brand-violet">Digital</span>
+      </div>
+      <div class="intro-bar">
+        <span class="intro-bar-fill"></span>
+      </div>
+    </div>
+  </div>
+}
+
+<div class="main-shell min-h-screen bg-[#07070f] overflow-x-hidden" [class.main-shell-entering]="showIntro()">
+  <app-navigation [language]="language()" (languageChange)="setLanguage($event)" />
+  <app-hero [animateIn]="!showIntro()" [language]="language()" />
+  <app-clients [language]="language()" />
+  <app-about [language]="language()" />
+  <app-stats [language]="language()" />
+  <app-services [language]="language()" />
+  <app-process [language]="language()" />
+  <app-case-studies [language]="language()" />
+  <app-pricing [language]="language()" />
+  <app-testimonials [language]="language()" />
+  <app-contact [language]="language()" />
+  <app-footer [language]="language()" />
+  <app-cursor-follower />
 </div>

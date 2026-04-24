@@ -1,0 +1,31 @@
+<section id="work" class="case-studies-section">
+  <div class="case-shell">
+    <header class="case-header" data-reveal-item>
+      <p class="case-kicker">{{ language() === 'de' ? 'AUSGEWAEHLTE PROJEKTE' : 'SELECTED WORK' }}</p>
+      <h2>{{ language() === 'de' ? 'Case Studies mit messbaren Ergebnissen' : 'Case studies with measurable outcomes' }}</h2>
+    </header>
+
+    <div class="case-grid">
+      @for (item of cases; track item.name) {
+        <article class="case-card" [class.case-violet]="item.tone === 'violet'" [class.case-coral]="item.tone === 'coral'" [class.case-mint]="item.tone === 'mint'" data-reveal-item>
+          <div class="case-card-top">
+            <span class="case-tag">{{ item.category }}</span>
+            <span class="case-result">{{ item.result }}</span>
+          </div>
+
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.description }}</p>
+
+          <a href="#contact" class="case-link">
+            {{ language() === 'de' ? 'Case Study ansehen' : 'View case study' }}
+            <span aria-hidden="true">→</span>
+          </a>
+
+          <div class="case-overlay">
+            <span>{{ language() === 'de' ? 'Case Study ansehen →' : 'View case study →' }}</span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

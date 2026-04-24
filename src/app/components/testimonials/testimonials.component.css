@@ -1,0 +1,150 @@
+:host {
+  display: block;
+}
+
+.testimonials-section {
+  padding: var(--section-padding-desktop, 7.2rem) 1.25rem;
+}
+
+.testimonials-shell {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+.testimonials-kicker {
+  margin: 0 0 0.6rem;
+  color: #a69eff;
+  letter-spacing: 0.18em;
+  font-size: clamp(1.04rem, 1.25vw, 1.16rem);
+  font-weight: 700;
+}
+
+.testimonials-header h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4.6vw, 3rem);
+  letter-spacing: -0.02em;
+}
+
+.testimonial-slider {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.slider-arrow {
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f5f4ff;
+  font-size: 1.35rem;
+}
+
+.testimonial-card {
+  border-radius: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(165deg, rgba(124, 58, 237, 0.2), rgba(13, 13, 20, 0.96));
+  padding: clamp(1.25rem, 3.2vw, 2.1rem);
+}
+
+.testimonial-quote {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  line-height: 1.5;
+}
+
+.testimonial-meta {
+  margin-top: 1rem;
+}
+
+.testimonial-stars {
+  color: #ffc66a;
+  display: inline-flex;
+  gap: 0.2rem;
+}
+
+.testimonial-client {
+  margin: 0.45rem 0 0;
+  font-weight: 700;
+}
+
+.testimonial-company {
+  margin: 0.2rem 0 0;
+  color: #a9a8b9;
+}
+
+.slider-dots {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dot-active {
+  background: #7c3aed;
+}
+
+.featured-row {
+  margin-top: 1.4rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: #a8a7b8;
+}
+
+.featured-logos {
+  display: inline-flex;
+  gap: 1rem;
+}
+
+.featured-logos span {
+  opacity: 0.72;
+}
+
+.trust-badges {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  color: #cccbe0;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: var(--section-padding-mobile, 3.75rem) 1rem;
+  }
+
+  .testimonial-slider {
+    grid-template-columns: 1fr;
+  }
+
+  .slider-arrow {
+    display: none;
+  }
+}

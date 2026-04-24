@@ -1,20 +1,20 @@
-<section class="clients-section">
+<section id="clients" class="clients-section">
 
   <div class="clients-shell">
-    <div class="clients-header">
-      <p class="clients-label">Trusted by leading brands</p>
+    <div class="clients-header" data-reveal-item>
+      <p class="clients-label">{{ language() === 'de' ? 'Unsere Kunden' : 'Trusted by' }}</p>
     </div>
 
     <div class="clients-carousel-wrapper">
       <div class="clients-carousel">
         <div class="clients-track">
           @for (client of clients; track client.name) {
-            <div class="client-item">
+            <div class="client-item" data-reveal-item>
               <span class="client-name">{{ client.text }}</span>
             </div>
           }
           @for (client of clients; track client.name + '_dup') {
-            <div class="client-item">
+            <div class="client-item" aria-hidden="true">
               <span class="client-name">{{ client.text }}</span>
             </div>
           }

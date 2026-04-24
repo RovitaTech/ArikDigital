@@ -1,55 +1,75 @@
-<section class="hero-section relative min-h-screen flex items-center justify-center px-6 pb-32 overflow-hidden">
-  <div class="hero-orb absolute top-1/4 left-1/4 w-96 h-96 bg-[#6C63FF] rounded-full blur-[120px] opacity-20"></div>
-  <div class="hero-orb absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#FF6584] rounded-full blur-[120px] opacity-20"></div>
-  <div class="hero-line absolute inset-0"></div>
+<section class="hero-section">
+  <div class="hero-glow hero-glow-left" [style.transform]="leftGlowTransform()"></div>
+  <div class="hero-glow hero-glow-right" [style.transform]="rightGlowTransform()"></div>
 
-  <div class="hero-content relative z-10 max-w-5xl mx-auto text-center">
-    <div class="hero-kicker inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#13131C]/60 backdrop-blur-sm border border-white/[0.08] mb-10">
-      <div class="w-2 h-2 bg-[#6C63FF] rounded-full shadow-lg shadow-[#6C63FF]/50"></div>
-      <span class="text-[#B5B4C0] text-[15px] font-['Urbanist'] font-medium">Trusted by industry leaders since 2023</span>
-    </div>
+  <div class="hero-content">
+    <h1 class="hero-title font-['Urbanist'] font-extrabold">
+      <div class="hero-title-line">
+        @for (word of headlineLine1()[language()]; track word; let i = $index) {
+          <span class="hero-word hero-word-white" [style.--word-index]="i">{{ word }}</span>
+        }
+      </div>
 
-    <h1 class="hero-title font-['Urbanist'] font-extrabold mb-7 leading-[1.05]">
-      <div class="text-white">Custom websites that</div>
-      <div class="text-[#6C63FF]">elevate your brand</div>
-      <div class="bg-gradient-to-r from-[#FF6584] via-[#B77FFF] to-[#43E8A0] bg-clip-text text-transparent">
-        and drive real results.
+      <div class="hero-title-line">
+        @for (word of headlineLine2()[language()]; track word; let i = $index) {
+          <span class="hero-word hero-word-accent" [style.--word-index]="i + 4">{{ word }}</span>
+        }
+      </div>
+
+      <div class="hero-title-line">
+        @for (word of headlineLine3Main()[language()]; track word; let i = $index) {
+          <span class="hero-word hero-word-white" [style.--word-index]="i + 8">{{ word }}</span>
+        }
+        @for (word of headlineLine3Accent()[language()]; track word; let i = $index) {
+          <span class="hero-word hero-word-accent" [style.--word-index]="i + 11">{{ word }}</span>
+        }
       </div>
     </h1>
 
-    <p class="hero-subtitle text-[#9D9CAA] text-[19px] font-['Urbanist'] font-normal max-w-[580px] mx-auto mb-12 leading-relaxed">
-      Partner with our expert team to create stunning, high-converting websites tailored to your business. Let's discuss your project.
+    <p class="hero-subtitle font-['Urbanist']">
+      {{ language() === 'de' ? 'Arbeite mit unserem Expertenteam zusammen und erhalte eine hochkonvertierende Website, exakt auf dein Unternehmen zugeschnitten. Lass uns ueber dein Projekt sprechen.' : 'Partner with our expert team to create stunning, high-converting websites tailored to your business. Let\'s discuss your project.' }}
     </p>
 
-    <div class="hero-actions flex items-center justify-center gap-5 mb-20">
-      <button
-        type="button"
-        (click)="scrollToSection('contact')"
-        class="hero-primary bg-gradient-to-r from-[#6C63FF] to-[#5B52E8] text-white px-9 py-4 rounded-xl hover:shadow-xl hover:shadow-[#6C63FF]/30 hover:-translate-y-1 transition-all font-['Urbanist'] font-semibold text-[16px]"
+    <div class="hero-actions">
+      <a
+        [href]="bookingUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hero-btn hero-btn-primary"
       >
-        Schedule a consultation
-      </button>
+        {{ language() === 'de' ? 'Erstgespraech buchen' : 'Book a call' }}
+      </a>
+
       <button
         type="button"
         (click)="scrollToSection('services')"
-        class="hero-secondary border-2 border-white/[0.1] bg-white/[0.02] backdrop-blur-sm text-white px-9 py-4 rounded-xl hover:bg-white/[0.08] hover:border-white/[0.2] hover:-translate-y-1 transition-all font-['Urbanist'] font-semibold text-[16px]"
+        class="hero-btn hero-btn-ghost"
       >
-        Explore our services
+        {{ language() === 'de' ? 'Unsere Leistungen' : 'Explore services' }}
       </button>
     </div>
 
-    <div class="hero-metrics flex items-center justify-center gap-3 flex-wrap">
-      <div class="metric-chip">
-        <span class="metric-value">98%</span>
-        <span class="metric-label">Client retention</span>
-      </div>
-      <div class="metric-chip">
-        <span class="metric-value">120+</span>
-        <span class="metric-label">Projects shipped</span>
-      </div>
-      <div class="metric-chip">
-        <span class="metric-value">14d</span>
-        <span class="metric-label">Avg. first launch</span>
+    <button type="button" class="hero-scroll-hint" (click)="scrollToSection('clients')" aria-label="Scroll to next section">
+      <span class="hero-scroll-hint-line"></span>
+      <span class="hero-scroll-hint-chevron"></span>
+    </button>
+
+    <div class="hero-metrics-wrap">
+      <div class="hero-metrics-divider"></div>
+
+      <div class="hero-metrics">
+        <div class="metric-chip metric-chip-a">
+          <span class="metric-value">98%</span>
+          <span class="metric-label">{{ language() === 'de' ? 'Kundenbindung' : 'Client retention' }}</span>
+        </div>
+        <div class="metric-chip metric-chip-b">
+          <span class="metric-value">10+</span>
+          <span class="metric-label">{{ language() === 'de' ? 'Jahre Berufserfahrung' : 'Years of work experience' }}</span>
+        </div>
+        <div class="metric-chip metric-chip-c">
+          <span class="metric-value">14d</span>
+          <span class="metric-label">{{ language() === 'de' ? 'Garantierter Launch in 14 Tagen' : 'Guaranteed launch in 14d' }}</span>
+        </div>
       </div>
     </div>
   </div>

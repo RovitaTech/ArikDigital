@@ -1,17 +1,22 @@
-<section class="py-24 px-6">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
-      @for (stat of stats; track stat.label; let index = $index) {
-        <div class="text-center relative group">
-          @if (index < stats.length - 1) {
-            <div class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-16 w-px bg-white/[0.08]"></div>
+<section id="stats" #statsSection class="stats-section">
+  <div class="stats-shell" data-reveal-item>
+    <header class="stats-header" data-reveal-item>
+      <p>{{ language() === 'de' ? 'KENNZAHLEN' : 'KEY METRICS' }}</p>
+      <h2>{{ language() === 'de' ? 'Wachstum in Zahlen' : 'Growth in numbers' }}</h2>
+    </header>
+
+    <div class="stats-grid">
+      @for (stat of stats(); track stat.label; let index = $index) {
+        <article class="stat-card" data-reveal-item>
+          @if (index < stats().length - 1) {
+            <div class="stat-divider"></div>
           }
 
-          <div class="text-5xl md:text-6xl font-['Urbanist'] font-extrabold bg-gradient-to-br from-[#6C63FF] to-[#9D95FF] bg-clip-text text-transparent mb-3">
-            {{ stat.number }}
+          <div class="stat-number">
+            {{ displayNumber(index) }}
           </div>
-          <div class="text-[#9D9CAA] text-[15px] font-['Urbanist'] font-medium">{{ stat.label }}</div>
-        </div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </article>
       }
     </div>
   </div>

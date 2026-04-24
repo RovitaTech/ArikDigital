@@ -1,0 +1,54 @@
+<section id="testimonials" class="testimonials-section">
+  <div class="testimonials-shell">
+    <header class="testimonials-header" data-reveal-item>
+      <p class="testimonials-kicker">{{ language() === 'de' ? 'SOCIAL PROOF' : 'SOCIAL PROOF' }}</p>
+      <h2>{{ language() === 'de' ? 'Was unsere Kunden sagen' : 'What our clients say' }}</h2>
+    </header>
+
+    <div class="testimonial-slider" data-reveal-item>
+      <button type="button" class="slider-arrow" (click)="prev()" aria-label="Previous testimonial">‹</button>
+
+      <article class="testimonial-card">
+        <p class="testimonial-quote">“{{ testimonials[activeIndex()].quote }}”</p>
+        <div class="testimonial-meta">
+          <div class="testimonial-stars" aria-hidden="true">
+            @for (star of stars(testimonials[activeIndex()].stars); track star) {
+              <span>★</span>
+            }
+          </div>
+          <p class="testimonial-client">{{ testimonials[activeIndex()].client }}</p>
+          <p class="testimonial-company">{{ testimonials[activeIndex()].company }}</p>
+        </div>
+      </article>
+
+      <button type="button" class="slider-arrow" (click)="next()" aria-label="Next testimonial">›</button>
+    </div>
+
+    <div class="slider-dots" data-reveal-item>
+      @for (item of testimonials; track item.client; let index = $index) {
+        <button
+          type="button"
+          class="dot"
+          [class.dot-active]="activeIndex() === index"
+          (click)="setSlide(index)"
+          [attr.aria-label]="'Go to testimonial ' + (index + 1)"
+        ></button>
+      }
+    </div>
+
+    <div class="featured-row" data-reveal-item>
+      <span>{{ language() === 'de' ? 'Featured In' : 'Featured In' }}</span>
+      <div class="featured-logos">
+        <span>Forbes</span>
+        <span>TechCrunch</span>
+        <span>HubSpot</span>
+      </div>
+    </div>
+
+    <div class="trust-badges" data-reveal-item>
+      <div class="badge">Google Partner</div>
+      <div class="badge">Meta Partner</div>
+      <div class="badge">Top Rated Agency</div>
+    </div>
+  </div>
+</section>
