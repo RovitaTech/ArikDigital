@@ -1,7 +1,7 @@
-<section id="pricing" class="py-32 px-6">
+<section id="pricing" class="pricing-section py-32 px-6">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-20">
-      <div class="text-[#6C63FF] text-[13px] font-['Urbanist'] font-semibold tracking-[0.15em] uppercase mb-5">
+      <div class="text-[#6C63FF] text-[17px] md:text-[18px] font-['Urbanist'] font-semibold tracking-[0.15em] uppercase mb-5">
         {{ language() === 'de' ? 'PREISE' : 'PRICING' }}
       </div>
       <h2 class="pricing-heading font-['Urbanist'] font-extrabold text-white mb-4">{{ language() === 'de' ? 'Transparente Preise. Keine Ueberraschungen.' : 'Transparent pricing. Zero surprises.' }}</h2>
@@ -10,11 +10,12 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto pricing-grid">
       @for (plan of plans; track plan.name; let i = $index) {
         <article
           class="pricing-card relative bg-gradient-to-b from-[#13131C] to-[#0F0F16] rounded-2xl p-8 transition-all duration-300 border border-white/[0.08] hover:-translate-y-2 cursor-pointer"
           [class.is-active]="isActive(i)"
+          [class.pricing-card-with-badge]="plan.badge || isActive(i)"
           (click)="setActivePlan(i)"
         >
           @if (plan.badge || isActive(i)) {

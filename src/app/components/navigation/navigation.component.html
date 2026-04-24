@@ -1,16 +1,16 @@
-<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" [class.collapsed]="isCollapsed()">
-  <div class="nav-inner max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" [class.collapsed]="isCollapsed()" [class.menu-open]="isMenuOpen()">
+  <div class="nav-inner max-w-7xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
     <button type="button" class="brand-button brand-wrap flex items-center gap-0" (click)="scrollToTop()" aria-label="Scroll to top">
       <span class="text-[26px] font-['Urbanist'] font-extrabold text-white tracking-tight">Arik</span>
       <span class="text-[26px] font-['Urbanist'] font-extrabold text-[#6C63FF] tracking-tight">Digital</span>
     </button>
 
-    <div class="desktop-nav hidden md:flex items-center gap-10">
+    <div class="desktop-nav hidden lg:flex items-center gap-10">
       @for (item of navItems; track item.id) {
         <button
           type="button"
           (click)="scrollToSection(item.id)"
-          class="text-[#F0EFF8]/80 hover:text-[#6C63FF] transition-all font-['Urbanist'] text-[15px] font-medium relative group"
+          class="text-[#F0EFF8]/80 hover:text-[#6C63FF] transition-all font-['Urbanist'] text-[15px] font-medium relative group nav-link"
         >
           {{ item.label[language()] }}
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#6C63FF] group-hover:w-full transition-all duration-300"></span>
@@ -18,20 +18,58 @@
       }
     </div>
 
-    <label class="language-select-wrap" aria-label="Language select">
-      <select class="language-select" [value]="language()" (change)="onLanguageChange($event)">
-        <option value="en">EN</option>
-        <option value="de">DE</option>
-      </select>
-    </label>
+    <div class="desktop-actions hidden lg:flex items-center gap-3">
+      <label class="language-select-wrap" aria-label="Language select">
+        <select class="language-select" [value]="language()" (change)="onLanguageChange($event)">
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+        </select>
+      </label>
 
-    <a
-      [href]="bookingUrl"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="nav-cta bg-gradient-to-r from-[#6C63FF] to-[#5B52E8] text-white px-7 py-3 rounded-xl hover:shadow-lg hover:shadow-[#6C63FF]/30 hover:-translate-y-0.5 transition-all font-['Urbanist'] text-[15px] font-semibold"
-    >
-      {{ language() === 'de' ? 'Erstgespraech buchen' : 'Schedule a consultation' }}
-    </a>
+      <a
+        [href]="bookingUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-cta text-white px-6 py-3 rounded-xl transition-all font-['Urbanist'] text-[15px] font-semibold"
+      >
+        {{ language() === 'de' ? 'Kostenlosen Audit sichern' : 'Get a free audit' }}
+      </a>
+    </div>
+
+    <div class="mobile-actions flex lg:hidden items-center gap-2">
+      <label class="language-select-wrap" aria-label="Language select">
+        <select class="language-select" [value]="language()" (change)="onLanguageChange($event)">
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+        </select>
+      </label>
+
+      <button type="button" class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-overlay" [class.mobile-overlay-open]="isMenuOpen()" (click)="closeMenu()" aria-hidden="true"></div>
+
+  <div class="mobile-menu" [class.mobile-menu-open]="isMenuOpen()">
+    <div class="mobile-menu-inner">
+      @for (item of navItems; track item.id) {
+        <button type="button" class="mobile-link" (click)="scrollToSection(item.id)">
+          {{ item.label[language()] }}
+        </button>
+      }
+
+      <a
+        [href]="bookingUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-cta"
+      >
+        {{ language() === 'de' ? 'Erstgespraech buchen' : 'Book a call' }}
+      </a>
+    </div>
   </div>
 </nav>

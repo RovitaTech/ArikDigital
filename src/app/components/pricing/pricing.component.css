@@ -2,6 +2,11 @@
   display: block;
 }
 
+.pricing-section {
+  position: relative;
+  overflow-x: clip;
+}
+
 .pricing-heading {
   font-size: clamp(2rem, 4.3vw, 3rem);
   line-height: 1.08;
@@ -14,10 +19,19 @@
 
 .pricing-card {
   will-change: transform;
-  overflow: hidden;
+  overflow: visible;
   opacity: 0;
   transform: translateY(22px);
   animation: pricing-rise 640ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.pricing-card-with-badge {
+  padding-top: 3.1rem;
+}
+
+.pricing-grid {
+  padding-top: 1rem;
+  padding-inline: 0.35rem;
 }
 
 .pricing-card::before {
@@ -34,7 +48,7 @@
 .pricing-card.is-active {
   border-width: 2px;
   border-color: #6c63ff;
-  transform: translateY(-1rem) scale(1.03);
+  transform: translateY(-1rem) scale(1.02);
   box-shadow: 0 0 60px rgba(108, 99, 255, 0.25);
 }
 
@@ -57,6 +71,7 @@
 
 .plan-badge {
   white-space: nowrap;
+  z-index: 2;
 }
 
 .plan-button {
@@ -91,6 +106,12 @@
 @media (max-width: 768px) {
   .pricing-card.is-active {
     transform: translateY(-0.45rem) scale(1.01);
+  }
+}
+
+@media (min-width: 769px) {
+  .pricing-grid {
+    padding-inline: 0.6rem;
   }
 }
 

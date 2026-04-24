@@ -3,7 +3,7 @@
 }
 
 .clients-section {
-  padding: 3rem 1.25rem;
+  padding: 3.2rem 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   background: linear-gradient(180deg, rgba(10, 10, 15, 0.5) 0%, rgba(19, 19, 28, 0.3) 100%);
@@ -70,17 +70,21 @@
 }
 
 .client-name {
-  color: #ffffff;
+  color: #9f9ead;
   font-family: 'Urbanist', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.01em;
   white-space: nowrap;
-  transition: opacity 300ms ease, transform 300ms ease;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: opacity 300ms ease, transform 300ms ease, color 300ms ease, filter 300ms ease;
 }
 
 .client-item:hover .client-name {
-  opacity: 0.8;
+  color: #ffffff;
+  opacity: 1;
+  filter: grayscale(0);
   transform: scale(1.05);
 }
 

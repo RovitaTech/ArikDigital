@@ -1,0 +1,22 @@
+:host {
+  pointer-events: none;
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle, #ffc66a 0%, #7c3aed 70%);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  z-index: 100;
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.45);
+  transition: left 90ms linear, top 90ms linear;
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .cursor-follower {
+    display: none;
+  }
+}

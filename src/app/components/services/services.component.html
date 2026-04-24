@@ -1,68 +1,55 @@
-<section id="services" class="services-section">
+<section id="services" class="services-section" [style.--active-service-color]="activeService().color">
   <div class="services-shell">
-    <div class="services-header">
+    <div class="services-header" data-reveal-item>
       <div class="services-kicker">{{ language() === 'de' ? 'LEISTUNGEN' : 'SERVICES' }}</div>
-      <h2 class="services-title">{{ language() === 'de' ? 'Alles, was deine Marke online wirklich braucht' : 'Everything your brand needs to win online' }}</h2>
-      <p class="services-subtitle">{{ language() === 'de' ? 'Wir entwickeln individuelle Loesungen, die messbares Wachstum erzeugen' : 'Our team creates tailored solutions that drive measurable growth' }}</p>
+      <h2 class="services-title">{{ language() === 'de' ? 'Leistungen mit Fokus auf Wachstum' : 'Services focused on growth' }}</h2>
+      <p class="services-subtitle">{{ language() === 'de' ? 'Waehle eine Leistung aus und sieh direkt, wie wir sie umsetzen.' : 'Hover a service to preview how we execute it.' }}</p>
     </div>
 
-    <div class="services-grid">
-      @for (service of services; track service.title) {
-        <div class="service-card">
-          <div class="service-overlay" [style.background]="'radial-gradient(circle at top right, ' + service.color + ', transparent)'"></div>
-
-          @if (service.tag) {
-            <div class="service-tag">{{ service.tag }}</div>
-          }
-
-          <div class="service-icon" [style.backgroundColor]="service.color + '15'">
-            @switch (service.icon) {
-              @case ('globe') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M2 12h20"></path>
-                  <path d="M12 2a15 15 0 0 1 0 20"></path>
-                  <path d="M12 2a15 15 0 0 0 0 20"></path>
-                </svg>
-              }
-              @case ('cart') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
-                  <circle cx="9" cy="20" r="1"></circle>
-                  <circle cx="17" cy="20" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-              }
-              @case ('zap') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
-                  <path d="M13 2 3 14h7l-1 8 10-12h-7z"></path>
-                </svg>
-              }
-              @case ('palette') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
-                  <path d="M12 2a10 10 0 1 0 10 10c0-2.2-1.8-4-4-4h-1.5a2.5 2.5 0 0 1 0-5H18"></path>
-                  <circle cx="7.5" cy="10.5" r="1"></circle>
-                  <circle cx="9.5" cy="6.5" r="1"></circle>
-                  <circle cx="14.5" cy="6.5" r="1"></circle>
-                  <circle cx="16.5" cy="10.5" r="1"></circle>
-                </svg>
-              }
-              @case ('trending') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
-                  <path d="M3 17l6-6 4 4 8-8"></path>
-                  <path d="M14 7h7v7"></path>
-                </svg>
-              }
-              @case ('wrench') {
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="service-icon-svg">
-                  <path d="M14.7 6.3a6 6 0 0 0-8 8l-4.2 4.2a1 1 0 0 0 1.4 1.4L8 15.7a6 6 0 0 0 8-8l-3 3-2-2z"></path>
-                </svg>
-              }
-            }
-          </div>
-
-          <h3 class="service-title">{{ service.title }}</h3>
-          <p class="service-description">{{ service.description }}</p>
+    <div class="services-stage" data-reveal-item>
+      <article class="service-preview-panel" data-reveal-item>
+        <img [src]="activeService().preview" [alt]="activeService().title" />
+        <div class="service-preview-meta">
+          <p class="service-preview-tag">{{ activeService().tag || (language() === 'de' ? 'Leistungsfokus' : 'Service focus') }}</p>
+          <h3>{{ activeService().title }}</h3>
+          <p>{{ activeService().description }}</p>
+          <a href="#contact">{{ language() === 'de' ? 'Projekt starten' : 'Start project' }} →</a>
         </div>
+      </article>
+
+      <div class="services-list" role="list" aria-label="Services">
+        @for (service of services; track service.title; let i = $index) {
+          <button
+            type="button"
+            role="listitem"
+            class="service-row"
+            [class.service-row-active]="activeIndex() === i"
+            [style.--service-color]="service.color"
+            (mouseenter)="setActive(i)"
+            (focus)="setActive(i)"
+            (click)="setActive(i)"
+            data-reveal-item
+          >
+            <span class="service-row-index">{{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }}</span>
+            <span class="service-row-title">{{ service.title }}</span>
+            <span class="service-row-side">{{ service.tag || (language() === 'de' ? 'Strategie' : 'Strategy') }}</span>
+            <span class="service-row-dot" [style.background]="service.color"></span>
+            <span class="service-row-description">{{ service.description }}</span>
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="services-grid-mobile">
+      @for (service of services; track service.title; let i = $index) {
+        <article class="service-card" [class.service-card-active]="activeIndex() === i" (click)="setActive(i)" data-reveal-item>
+          <img [src]="service.preview" [alt]="service.title" />
+          <div class="service-card-body">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+            <a href="#contact">{{ language() === 'de' ? 'Mehr erfahren' : 'Learn more' }} →</a>
+          </div>
+        </article>
       }
     </div>
   </div>

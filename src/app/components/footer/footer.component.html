@@ -1,28 +1,57 @@
 <footer class="footer-section">
   <div class="footer-shell">
-    <div class="footer-row">
-      <div class="footer-brand">
-        <span class="text-[22px] font-['Urbanist'] font-extrabold text-white tracking-tight">Arik</span>
-        <span class="text-[22px] font-['Urbanist'] font-extrabold text-[#6C63FF] tracking-tight">Digital</span>
+    <div class="footer-cta" data-reveal-item>
+      <h2>{{ language() === 'de' ? 'Lass uns gemeinsam wachsen' : 'Let\'s work together' }}</h2>
+      <a [href]="bookingUrl" target="_blank" rel="noopener noreferrer" class="footer-cta-btn">
+        {{ language() === 'de' ? 'Kostenlosen Audit buchen' : 'Book a free audit' }}
+      </a>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span class="text-[22px] font-['Urbanist'] font-extrabold text-white tracking-tight">Arik</span>
+          <span class="text-[22px] font-['Urbanist'] font-extrabold text-[#6C63FF] tracking-tight">Digital</span>
+        </div>
+        <p class="footer-tagline">
+          {{ language() === 'de' ? 'Premium Digitalagentur fuer Websites, Kampagnen und messbares Wachstum.' : 'Premium digital agency for websites, campaigns, and measurable growth.' }}
+        </p>
       </div>
 
-      <div class="footer-links">
-        @for (item of [
-          { id: 'services', label: language() === 'de' ? 'Leistungen' : 'Services' },
-          { id: 'pricing', label: language() === 'de' ? 'Preise' : 'Pricing' },
-          { id: 'contact', label: language() === 'de' ? 'Kontakt' : 'Contact' }
-        ]; track item.id) {
-          <button
-            type="button"
-            (click)="scrollToSection(item.id)"
-            class="footer-link"
-          >
+      <div class="footer-col">
+        <h3>{{ language() === 'de' ? 'Quick Links' : 'Quick Links' }}</h3>
+        @for (item of quickLinks; track item.id + item.label.en) {
+          <button type="button" (click)="scrollToSection(item.id)" class="footer-link">
+            {{ item.label[language()] }}
+          </button>
+        }
+      </div>
+
+      <div class="footer-col">
+        <h3>{{ language() === 'de' ? 'Leistungen' : 'Services' }}</h3>
+        @for (item of serviceLinks; track item.label) {
+          <button type="button" (click)="scrollToSection(item.id)" class="footer-link">
             {{ item.label }}
           </button>
         }
       </div>
 
-      <div class="footer-copy">{{ language() === 'de' ? '© 2026 ArikDigital. Alle Rechte vorbehalten.' : '© 2026 ArikDigital. All rights reserved.' }}</div>
+      <div class="footer-col">
+        <h3>{{ language() === 'de' ? 'Kontakt' : 'Contact' }}</h3>
+        <a class="footer-link" href="mailto:hello@arikdigital.com">hello@arikdigital.com</a>
+        <a class="footer-link" href="tel:+49123456789">+49 123 456 789</a>
+
+        <div class="footer-socials">
+          @for (item of socialLinks; track item.label) {
+            <a [href]="item.href" target="_blank" rel="noopener noreferrer" class="social-link">{{ item.label }}</a>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>{{ language() === 'de' ? '© 2026 ArikDigital. Alle Rechte vorbehalten.' : '© 2026 ArikDigital. All rights reserved.' }}</span>
+      <a href="#">{{ language() === 'de' ? 'Datenschutz' : 'Privacy Policy' }}</a>
     </div>
   </div>
 </footer>

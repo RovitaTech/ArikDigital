@@ -16,13 +16,18 @@
   </div>
 }
 
-<div class="main-shell min-h-screen bg-[#0A0A0F] overflow-x-hidden" [class.main-shell-entering]="showIntro()">
+<div class="main-shell min-h-screen bg-[#07070f] overflow-x-hidden" [class.main-shell-entering]="showIntro()">
   <app-navigation [language]="language()" (languageChange)="setLanguage($event)" />
   <app-hero [animateIn]="!showIntro()" [language]="language()" />
+  <app-clients [language]="language()" />
+  <app-about [language]="language()" />
   <app-stats [language]="language()" />
   <app-services [language]="language()" />
   <app-process [language]="language()" />
+  <app-case-studies [language]="language()" />
   <app-pricing [language]="language()" />
+  <app-testimonials [language]="language()" />
   <app-contact [language]="language()" />
   <app-footer [language]="language()" />
+  <app-cursor-follower />
 </div>

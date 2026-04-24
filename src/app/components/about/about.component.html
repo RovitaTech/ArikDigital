@@ -1,0 +1,79 @@
+<section id="about" #aboutSection class="about-section" [class.about-animated]="isAnimated()">
+  <div class="about-shell">
+    <div class="about-left">
+      <p class="about-kicker">{{ language() === 'de' ? 'WARUM WIR' : 'WHY US' }}</p>
+      <h2 class="about-title">{{ language() === 'de' ? 'Warum Arik Digital?' : 'Why Arik Digital?' }}</h2>
+
+      <div class="about-stats">
+        @for (stat of stats; track stat.label; let index = $index) {
+          <div class="about-stat">
+            <p class="about-stat-number">{{ displayStat(index) }}</p>
+            <p class="about-stat-label">{{ stat.label }}</p>
+          </div>
+        }
+      </div>
+
+      <div class="about-points">
+        @for (point of points; track point.title; let index = $index) {
+          <article class="about-point" [class.about-point-active]="isFeatureActive(index)" (mouseenter)="setActiveFeature(index)" (focusin)="setActiveFeature(index)">
+            <span class="about-active-dot" [class.about-active-dot-visible]="isFeatureActive(index)" aria-hidden="true"></span>
+            <span class="about-point-icon" aria-hidden="true">
+              @switch (point.icon) {
+                @case ('trending') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 17l6-6 4 4 8-8"></path>
+                    <path d="M14 7h7v7"></path>
+                  </svg>
+                }
+                @case ('zap') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2 3 14h7l-1 8 10-12h-7z"></path>
+                  </svg>
+                }
+                @case ('target') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="8"></circle>
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <circle cx="12" cy="12" r="1"></circle>
+                  </svg>
+                }
+                @case ('bars') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 20V10"></path>
+                    <path d="M10 20V4"></path>
+                    <path d="M16 20v-6"></path>
+                    <path d="M22 20v-9"></path>
+                  </svg>
+                }
+              }
+            </span>
+            <div>
+              <h3>{{ point.title }}</h3>
+              <p>{{ point.detail }}</p>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+
+    <aside class="about-quote">
+      <span class="about-quote-mark" aria-hidden="true">"</span>
+
+      <p class="about-quote-text">
+        {{ language() === 'de'
+          ? '"Wir bauen kein Design fuer Awards. Wir bauen digitale Systeme, die Leads erzeugen, Vertrauen aufbauen und dein Wachstum beschleunigen."'
+          : '"We do not design for vanity. We build digital systems that generate qualified leads, build trust, and accelerate growth."' }}
+      </p>
+
+      <div class="about-quote-divider"></div>
+
+      <div class="about-quote-author">
+        <div class="about-quote-avatar">AD</div>
+        <div>
+          <p class="about-quote-name">Arik Digital Team</p>
+          <p class="about-quote-role">{{ language() === 'de' ? 'Gruender & Strategie' : 'Founders & Strategy' }}</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>

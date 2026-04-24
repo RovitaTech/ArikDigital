@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 interface ClientLogo {
   name: string;
@@ -13,6 +13,8 @@ interface ClientLogo {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientsComponent {
+  readonly language = input<'en' | 'de'>('de');
+
   protected readonly clients: ClientLogo[] = [
     { name: 'Meta', text: 'Meta' },
     { name: 'Amazon', text: 'Amazon' },
