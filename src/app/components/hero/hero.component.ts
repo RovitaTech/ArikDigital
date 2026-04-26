@@ -1,34 +1,37 @@
-import { ChangeDetectionStrategy, Component, HostListener, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject, input } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroComponent {
   readonly animateIn = input(false);
-  readonly language = input<'en' | 'de'>('de');
+  private readonly translateSvc = inject(TranslateService);
   protected readonly bookingUrl = 'https://calendar.google.com/calendar/u/0/appointments/schedules';
-  protected readonly leftGlowTransform = signal('translate(0px, 0px)');
-  protected readonly rightGlowTransform = signal('translate(0px, 0px)');
-  protected readonly headlineLine1 = signal({
-    en: ['Custom', 'websites', 'that'],
-    de: ['Individuelle', 'Websites,', 'die'],
-  });
-  protected readonly headlineLine2 = signal({
-    en: ['elevate', 'your', 'brand'],
-    de: ['deine', 'Marke', 'aufwerten'],
-  });
-  protected readonly headlineLine3Main = signal({
-    en: ['and', 'drive', 'real'],
-    de: ['und', 'echte'],
-  });
-  protected readonly headlineLine3Accent = signal({
-    en: ['results.'],
-    de: ['Ergebnisse', 'liefern.'],
-  });
+
+  protected readonly headlineLine1 = toSignal(
+    this.translateSvc.stream('hero.line1').pipe(map((v) => String(v).split(' '))),
+    { initialValue: [] as string[] },
+  );
+  protected readonly headlineLine2 = toSignal(
+    this.translateSvc.stream('hero.line2').pipe(map((v) => String(v).split(' '))),
+    { initialValue: [] as string[] },
+  );
+  protected readonly headlineLine3Main = toSignal(
+    this.translateSvc.stream('hero.line3Main').pipe(map((v) => String(v).split(' '))),
+    { initialValue: [] as string[] },
+  );
+  protected readonly headlineLine3Accent = toSignal(
+    this.translateSvc.stream('hero.line3Accent').pipe(map((v) => String(v).split(' '))),
+    { initialValue: [] as string[] },
+  );
 
   private readonly canUseWindow = typeof window !== 'undefined';
   private readonly canAnimate = this.canUseWindow
@@ -37,6 +40,9 @@ export class HeroComponent {
   private readonly canParallax = this.canUseWindow
     ? this.canAnimate && !window.matchMedia('(pointer: coarse)').matches
     : false;
+
+  protected leftGlowTransform = 'translate(0px, 0px)';
+  protected rightGlowTransform = 'translate(0px, 0px)';
 
   @HostListener('window:mousemove', ['$event'])
   protected onMouseMove(event: MouseEvent): void {
@@ -47,8 +53,8 @@ export class HeroComponent {
     const x = (event.clientX / window.innerWidth - 0.5) * 20;
     const y = (event.clientY / window.innerHeight - 0.5) * 20;
 
-    this.leftGlowTransform.set(`translate(${x}px, ${y}px)`);
-    this.rightGlowTransform.set(`translate(${-x * 0.6}px, ${-y * 0.6}px)`);
+    this.leftGlowTransform = `translate(${x}px, ${y}px)`;
+    this.rightGlowTransform = `translate(${-x * 0.6}px, ${-y * 0.6}px)`;
   }
 
   protected scrollToSection(id: string): void {

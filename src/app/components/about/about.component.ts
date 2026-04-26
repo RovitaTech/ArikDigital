@@ -5,18 +5,18 @@ import {
   ElementRef,
   OnDestroy,
   ViewChild,
-  input,
   signal,
 } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface AboutPoint {
-  title: string;
-  detail: string;
+  titleKey: string;
+  detailKey: string;
   icon: 'trending' | 'zap' | 'target' | 'bars';
 }
 
 interface AboutStat {
-  label: string;
+  labelKey: string;
   finalValue: number;
   suffix: string;
 }
@@ -24,6 +24,7 @@ interface AboutStat {
 @Component({
   selector: 'app-about',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,7 +32,6 @@ interface AboutStat {
 export class AboutComponent implements AfterViewInit, OnDestroy {
   @ViewChild('aboutSection', { static: true }) private aboutSection?: ElementRef<HTMLElement>;
 
-  readonly language = input<'en' | 'de'>('de');
   protected readonly isAnimated = signal(false);
   protected readonly activeFeature = signal(0);
   protected readonly statValues = signal([0, 0, 0]);
@@ -39,28 +39,25 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
   private rafId: number | null = null;
 
+  protected readonly stats: AboutStat[] = [
+    { finalValue: 50, suffix: '+', labelKey: 'about.stats.projects' },
+    { finalValue: 14, suffix: ' Tage', labelKey: 'about.stats.delivery' },
+    { finalValue: 3, suffix: 'x', labelKey: 'about.stats.roi' },
+  ];
+
+  protected readonly points: AboutPoint[] = [
+    { titleKey: 'about.points.p1.title', detailKey: 'about.points.p1.detail', icon: 'trending' },
+    { titleKey: 'about.points.p2.title', detailKey: 'about.points.p2.detail', icon: 'zap' },
+    { titleKey: 'about.points.p3.title', detailKey: 'about.points.p3.detail', icon: 'target' },
+    { titleKey: 'about.points.p4.title', detailKey: 'about.points.p4.detail', icon: 'bars' },
+  ];
+
   protected setActiveFeature(index: number): void {
     this.activeFeature.set(index);
   }
 
   protected isFeatureActive(index: number): boolean {
     return this.activeFeature() === index;
-  }
-
-  protected get stats(): AboutStat[] {
-    if (this.language() === 'en') {
-      return [
-        { finalValue: 50, suffix: '+', label: 'Projects completed' },
-        { finalValue: 14, suffix: ' Tage', label: 'Average delivery time' },
-        { finalValue: 3, suffix: 'x', label: 'Average ROI' },
-      ];
-    }
-
-    return [
-      { finalValue: 50, suffix: '+', label: 'Projekte abgeschlossen' },
-      { finalValue: 14, suffix: ' Tage', label: 'Durchschnittliche Lieferzeit' },
-      { finalValue: 3, suffix: 'x', label: 'Durchschnittlicher ROI' },
-    ];
   }
 
   protected displayStat(index: number): string {
@@ -129,55 +126,5 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     };
 
     this.rafId = requestAnimationFrame(tick);
-  }
-
-  protected get points(): AboutPoint[] {
-    if (this.language() === 'en') {
-      return [
-        {
-          title: 'Senior Growth Expertise',
-          detail: 'Campaign and web specialists aligned to revenue, not vanity metrics.',
-          icon: 'trending',
-        },
-        {
-          title: 'Fast Execution Rhythm',
-          detail: 'Clear milestones, weekly delivery cycles, and transparent communication.',
-          icon: 'zap',
-        },
-        {
-          title: 'Conversion-First Design',
-          detail: 'Every page section is built to reduce friction and raise lead quality.',
-          icon: 'target',
-        },
-        {
-          title: 'Data-Led Optimization',
-          detail: 'Continuous measurement and iteration to improve ROI after launch.',
-          icon: 'bars',
-        },
-      ];
-    }
-
-    return [
-      {
-        title: 'Erfahrung im Wachstumsmarketing',
-        detail: 'Spezialisten fuer Kampagnen und Websites mit Fokus auf echten Umsatz.',
-        icon: 'trending',
-      },
-      {
-        title: 'Schnelle Umsetzung',
-        detail: 'Klare Meilensteine, woechentliche Releases und transparente Kommunikation.',
-        icon: 'zap',
-      },
-      {
-        title: 'Conversion-First Design',
-        detail: 'Jeder Abschnitt wird fuer bessere Leads und hoehere Anfragen optimiert.',
-        icon: 'target',
-      },
-      {
-        title: 'Datengetriebene Optimierung',
-        detail: 'Kontinuierliche Messung und Verbesserung fuer nachhaltigen ROI.',
-        icon: 'bars',
-      },
-    ];
   }
 }

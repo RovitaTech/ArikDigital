@@ -5,20 +5,21 @@ import {
   ElementRef,
   OnDestroy,
   ViewChild,
-  input,
   signal,
 } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface ProcessStep {
   number: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   icon: 'message' | 'clipboard' | 'code' | 'rocket';
 }
 
 @Component({
   selector: 'app-process',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './process.component.html',
   styleUrl: './process.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,9 +27,34 @@ interface ProcessStep {
 export class ProcessComponent implements AfterViewInit, OnDestroy {
   @ViewChild('processSection', { static: true }) private processSection?: ElementRef<HTMLElement>;
 
-  readonly language = input<'en' | 'de'>('de');
   protected readonly isAnimated = signal(false);
   protected readonly activeStep = signal(0);
+  protected readonly steps: ProcessStep[] = [
+    {
+      number: '01',
+      titleKey: 'process.steps.s1.title',
+      descriptionKey: 'process.steps.s1.desc',
+      icon: 'message',
+    },
+    {
+      number: '02',
+      titleKey: 'process.steps.s2.title',
+      descriptionKey: 'process.steps.s2.desc',
+      icon: 'clipboard',
+    },
+    {
+      number: '03',
+      titleKey: 'process.steps.s3.title',
+      descriptionKey: 'process.steps.s3.desc',
+      icon: 'code',
+    },
+    {
+      number: '04',
+      titleKey: 'process.steps.s4.title',
+      descriptionKey: 'process.steps.s4.desc',
+      icon: 'rocket',
+    },
+  ];
 
   private observer: IntersectionObserver | null = null;
 
@@ -73,63 +99,5 @@ export class ProcessComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.observer?.disconnect();
     this.observer = null;
-  }
-
-  protected get steps(): ProcessStep[] {
-    if (this.language() === 'en') {
-      return [
-        {
-          number: '01',
-          title: 'Initial consultation',
-          description: 'Our sales team will work with you to find the best solution and discuss the project scope.',
-          icon: 'message',
-        },
-        {
-          number: '02',
-          title: 'Onboarding',
-          description: 'You will get a clear overview of the process and all the information you need.',
-          icon: 'clipboard',
-        },
-        {
-          number: '03',
-          title: 'Development',
-          description: 'You can sit back and relax while our team develops your professional website.',
-          icon: 'code',
-        },
-        {
-          number: '04',
-          title: 'Handover',
-          description: 'In exactly 14 days you will receive your brand new website - ready to go live.',
-          icon: 'rocket',
-        },
-      ];
-    }
-
-    return [
-      {
-        number: '01',
-        title: 'Erstgespraech',
-        description: 'Unser Sales-Team findet mit dir die beste Loesung und bespricht den Projektumfang.',
-        icon: 'message',
-      },
-      {
-        number: '02',
-        title: 'Onboarding',
-        description: 'Du bekommst einen klaren Ueberblick ueber den Ablauf und alle Informationen, die du brauchst.',
-        icon: 'clipboard',
-      },
-      {
-        number: '03',
-        title: 'Entwicklung',
-        description: 'Du kannst dich zuruecklehnen, waehrend unser Team deine professionelle Website entwickelt.',
-        icon: 'code',
-      },
-      {
-        number: '04',
-        title: 'Uebergabe',
-        description: 'In genau 14 Tagen erhaeltst du deine brandneue Website - startklar fuer den Livegang.',
-        icon: 'rocket',
-      },
-    ];
   }
 }

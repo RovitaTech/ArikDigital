@@ -1,21 +1,21 @@
 <section id="stats" #statsSection class="stats-section">
   <div class="stats-shell" data-reveal-item>
     <header class="stats-header" data-reveal-item>
-      <p>{{ language() === 'de' ? 'KENNZAHLEN' : 'KEY METRICS' }}</p>
-      <h2>{{ language() === 'de' ? 'Wachstum in Zahlen' : 'Growth in numbers' }}</h2>
+      <p>{{ 'stats.kicker' | translate }}</p>
+      <h2>{{ 'stats.title' | translate }}</h2>
     </header>
 
     <div class="stats-grid">
-      @for (stat of stats(); track stat.label; let index = $index) {
+      @for (stat of stats; track stat.labelKey; let index = $index) {
         <article class="stat-card" data-reveal-item>
-          @if (index < stats().length - 1) {
+          @if (index < stats.length - 1) {
             <div class="stat-divider"></div>
           }
 
           <div class="stat-number">
             {{ displayNumber(index) }}
           </div>
-          <div class="stat-label">{{ stat.label }}</div>
+          <div class="stat-label">{{ stat.labelKey | translate }}</div>
         </article>
       }
     </div>

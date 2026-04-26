@@ -1,23 +1,30 @@
-import { ChangeDetectionStrategy, Component, HostListener, input, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject, signal } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent {
-  readonly language = input<'en' | 'de'>('de');
-  readonly languageChange = output<'en' | 'de'>();
+  private readonly translateSvc = inject(TranslateService);
   protected readonly isCollapsed = signal(false);
   protected readonly isMenuOpen = signal(false);
   protected readonly bookingUrl = 'https://calendar.google.com/calendar/u/0/appointments/schedules';
+  protected readonly currentLang = toSignal(
+    this.translateSvc.onLangChange.pipe(map((e) => e.lang)),
+    { initialValue: this.translateSvc.currentLang ?? 'de' },
+  );
   protected readonly navItems = [
-    { id: 'about', label: { en: 'About', de: 'Ueber uns' } },
-    { id: 'services', label: { en: 'Services', de: 'Leistungen' } },
-    { id: 'work', label: { en: 'Case Studies', de: 'Case Studies' } },
-    { id: 'contact', label: { en: 'Contact', de: 'Kontakt' } },
+    { id: 'about', labelKey: 'nav.about' },
+    { id: 'services', labelKey: 'nav.services' },
+    { id: 'work', labelKey: 'nav.caseStudies' },
+    { id: 'contact', labelKey: 'nav.contact' },
   ];
 
   @HostListener('window:scroll')
@@ -53,8 +60,7 @@ export class NavigationComponent {
       return;
     }
 
-    const nextLanguage = target.value === 'en' ? 'en' : 'de';
-    this.languageChange.emit(nextLanguage);
+    this.translateSvc.use(target.value === 'en' ? 'en' : 'de');
   }
 
   protected scrollToTop(): void {

@@ -1,15 +1,15 @@
 <section id="testimonials" class="testimonials-section">
   <div class="testimonials-shell">
     <header class="testimonials-header" data-reveal-item>
-      <p class="testimonials-kicker">{{ language() === 'de' ? 'SOCIAL PROOF' : 'SOCIAL PROOF' }}</p>
-      <h2>{{ language() === 'de' ? 'Was unsere Kunden sagen' : 'What our clients say' }}</h2>
+      <p class="testimonials-kicker">{{ 'testimonials.kicker' | translate }}</p>
+      <h2>{{ 'testimonials.title' | translate }}</h2>
     </header>
 
     <div class="testimonial-slider" data-reveal-item>
       <button type="button" class="slider-arrow" (click)="prev()" aria-label="Previous testimonial">‹</button>
 
       <article class="testimonial-card">
-        <p class="testimonial-quote">“{{ testimonials[activeIndex()].quote }}”</p>
+        <p class="testimonial-quote">“{{ testimonials[activeIndex()].quoteKey | translate }}”</p>
         <div class="testimonial-meta">
           <div class="testimonial-stars" aria-hidden="true">
             @for (star of stars(testimonials[activeIndex()].stars); track star) {
@@ -37,7 +37,7 @@
     </div>
 
     <div class="featured-row" data-reveal-item>
-      <span>{{ language() === 'de' ? 'Featured In' : 'Featured In' }}</span>
+      <span>Featured In</span>
       <div class="featured-logos">
         <span>Forbes</span>
         <span>TechCrunch</span>

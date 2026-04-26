@@ -1,9 +1,9 @@
 <footer class="footer-section">
   <div class="footer-shell">
     <div class="footer-cta" data-reveal-item>
-      <h2>{{ language() === 'de' ? 'Lass uns gemeinsam wachsen' : 'Let\'s work together' }}</h2>
+      <h2>{{ 'footer.cta' | translate }}</h2>
       <a [href]="bookingUrl" target="_blank" rel="noopener noreferrer" class="footer-cta-btn">
-        {{ language() === 'de' ? 'Kostenlosen Audit buchen' : 'Book a free audit' }}
+        {{ 'footer.ctaBtn' | translate }}
       </a>
     </div>
 
@@ -14,21 +14,21 @@
           <span class="text-[22px] font-['Urbanist'] font-extrabold text-[#6C63FF] tracking-tight">Digital</span>
         </div>
         <p class="footer-tagline">
-          {{ language() === 'de' ? 'Premium Digitalagentur fuer Websites, Kampagnen und messbares Wachstum.' : 'Premium digital agency for websites, campaigns, and measurable growth.' }}
+          {{ 'footer.tagline' | translate }}
         </p>
       </div>
 
       <div class="footer-col">
-        <h3>{{ language() === 'de' ? 'Quick Links' : 'Quick Links' }}</h3>
-        @for (item of quickLinks; track item.id + item.label.en) {
+        <h3>{{ 'footer.quickLinks' | translate }}</h3>
+        @for (item of quickLinks; track item.id + item.labelKey) {
           <button type="button" (click)="scrollToSection(item.id)" class="footer-link">
-            {{ item.label[language()] }}
+            {{ item.labelKey | translate }}
           </button>
         }
       </div>
 
       <div class="footer-col">
-        <h3>{{ language() === 'de' ? 'Leistungen' : 'Services' }}</h3>
+        <h3>{{ 'footer.services' | translate }}</h3>
         @for (item of serviceLinks; track item.label) {
           <button type="button" (click)="scrollToSection(item.id)" class="footer-link">
             {{ item.label }}
@@ -37,7 +37,7 @@
       </div>
 
       <div class="footer-col">
-        <h3>{{ language() === 'de' ? 'Kontakt' : 'Contact' }}</h3>
+        <h3>{{ 'footer.contact' | translate }}</h3>
         <a class="footer-link" href="mailto:hello@arikdigital.com">hello@arikdigital.com</a>
         <a class="footer-link" href="tel:+49123456789">+49 123 456 789</a>
 
@@ -50,8 +50,8 @@
     </div>
 
     <div class="footer-bottom">
-      <span>{{ language() === 'de' ? '© 2026 ArikDigital. Alle Rechte vorbehalten.' : '© 2026 ArikDigital. All rights reserved.' }}</span>
-      <a href="#">{{ language() === 'de' ? 'Datenschutz' : 'Privacy Policy' }}</a>
+      <span>{{ 'footer.copyright' | translate }}</span>
+      <a href="#">{{ 'footer.privacy' | translate }}</a>
     </div>
   </div>
 </footer>

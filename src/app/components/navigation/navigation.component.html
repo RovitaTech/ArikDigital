@@ -12,7 +12,7 @@
           (click)="scrollToSection(item.id)"
           class="text-[#F0EFF8]/80 hover:text-[#6C63FF] transition-all font-['Urbanist'] text-[15px] font-medium relative group nav-link"
         >
-          {{ item.label[language()] }}
+          {{ item.labelKey | translate }}
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#6C63FF] group-hover:w-full transition-all duration-300"></span>
         </button>
       }
@@ -20,7 +20,7 @@
 
     <div class="desktop-actions hidden lg:flex items-center gap-3">
       <label class="language-select-wrap" aria-label="Language select">
-        <select class="language-select" [value]="language()" (change)="onLanguageChange($event)">
+        <select class="language-select" [value]="currentLang()" (change)="onLanguageChange($event)">
           <option value="en">EN</option>
           <option value="de">DE</option>
         </select>
@@ -32,13 +32,13 @@
         rel="noopener noreferrer"
         class="nav-cta text-white px-6 py-3 rounded-xl transition-all font-['Urbanist'] text-[15px] font-semibold"
       >
-        {{ language() === 'de' ? 'Kostenlosen Audit sichern' : 'Get a free audit' }}
+        {{ 'nav.getAudit' | translate }}
       </a>
     </div>
 
     <div class="mobile-actions flex lg:hidden items-center gap-2">
       <label class="language-select-wrap" aria-label="Language select">
-        <select class="language-select" [value]="language()" (change)="onLanguageChange($event)">
+        <select class="language-select" [value]="currentLang()" (change)="onLanguageChange($event)">
           <option value="en">EN</option>
           <option value="de">DE</option>
         </select>
@@ -58,7 +58,7 @@
     <div class="mobile-menu-inner">
       @for (item of navItems; track item.id) {
         <button type="button" class="mobile-link" (click)="scrollToSection(item.id)">
-          {{ item.label[language()] }}
+          {{ item.labelKey | translate }}
         </button>
       }
 
@@ -68,7 +68,7 @@
         rel="noopener noreferrer"
         class="mobile-cta"
       >
-        {{ language() === 'de' ? 'Erstgespraech buchen' : 'Book a call' }}
+        {{ 'nav.bookCall' | translate }}
       </a>
     </div>
   </div>

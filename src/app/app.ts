@@ -1,4 +1,5 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AboutComponent } from './components/about/about.component';
 import { CaseStudiesComponent } from './components/case-studies/case-studies.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -14,7 +15,7 @@ import { StatsComponent } from './components/stats/stats.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   standalone: true,
   imports: [
     NavigationComponent,
@@ -36,22 +37,12 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App implements OnInit, AfterViewInit, OnDestroy {
-  readonly showIntro = signal(true);
-  readonly language = signal<'en' | 'de'>('de');
-  private introTimerId: ReturnType<typeof setTimeout> | null = null;
+  readonly showIntro = signal(false);
+  private readonly translate = inject(TranslateService);
   private revealObserver: IntersectionObserver | null = null;
 
   ngOnInit(): void {
-    if (typeof window === 'undefined') {
-      this.showIntro.set(false);
-      return;
-    }
-
-    const introDurationMs = 1850;
-    this.introTimerId = window.setTimeout(() => {
-      this.showIntro.set(false);
-      this.introTimerId = null;
-    }, introDurationMs);
+    this.translate.use('de');
   }
 
   ngAfterViewInit(): void {
@@ -65,25 +56,25 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     }
 
     window.requestAnimationFrame(() => {
-      this.setupRevealObserver();
+      try {
+        this.setupRevealObserver();
+      } catch {
+        this.revealAllSections();
+      }
     });
   }
 
   ngOnDestroy(): void {
-    if (this.introTimerId !== null) {
-      clearTimeout(this.introTimerId);
-      this.introTimerId = null;
-    }
-
     this.revealObserver?.disconnect();
     this.revealObserver = null;
   }
 
-  protected setLanguage(language: 'en' | 'de'): void {
-    this.language.set(language);
-  }
-
   private setupRevealObserver(): void {
+    if (typeof IntersectionObserver === 'undefined') {
+      this.revealAllSections();
+      return;
+    }
+
     const sections = document.querySelectorAll<HTMLElement>('section:not(.hero-section)');
 
     if (!sections.length) {

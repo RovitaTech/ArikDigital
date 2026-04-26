@@ -1,20 +1,20 @@
 <section id="about" #aboutSection class="about-section" [class.about-animated]="isAnimated()">
   <div class="about-shell">
     <div class="about-left">
-      <p class="about-kicker">{{ language() === 'de' ? 'WARUM WIR' : 'WHY US' }}</p>
-      <h2 class="about-title">{{ language() === 'de' ? 'Warum Arik Digital?' : 'Why Arik Digital?' }}</h2>
+      <p class="about-kicker">{{ 'about.kicker' | translate }}</p>
+      <h2 class="about-title">{{ 'about.title' | translate }}</h2>
 
       <div class="about-stats">
-        @for (stat of stats; track stat.label; let index = $index) {
+        @for (stat of stats; track stat.labelKey; let index = $index) {
           <div class="about-stat">
             <p class="about-stat-number">{{ displayStat(index) }}</p>
-            <p class="about-stat-label">{{ stat.label }}</p>
+            <p class="about-stat-label">{{ stat.labelKey | translate }}</p>
           </div>
         }
       </div>
 
       <div class="about-points">
-        @for (point of points; track point.title; let index = $index) {
+        @for (point of points; track point.titleKey; let index = $index) {
           <article class="about-point" [class.about-point-active]="isFeatureActive(index)" (mouseenter)="setActiveFeature(index)" (focusin)="setActiveFeature(index)">
             <span class="about-active-dot" [class.about-active-dot-visible]="isFeatureActive(index)" aria-hidden="true"></span>
             <span class="about-point-icon" aria-hidden="true">
@@ -48,8 +48,8 @@
               }
             </span>
             <div>
-              <h3>{{ point.title }}</h3>
-              <p>{{ point.detail }}</p>
+              <h3>{{ point.titleKey | translate }}</h3>
+              <p>{{ point.detailKey | translate }}</p>
             </div>
           </article>
         }
@@ -60,9 +60,7 @@
       <span class="about-quote-mark" aria-hidden="true">"</span>
 
       <p class="about-quote-text">
-        {{ language() === 'de'
-          ? '"Wir bauen kein Design fuer Awards. Wir bauen digitale Systeme, die Leads erzeugen, Vertrauen aufbauen und dein Wachstum beschleunigen."'
-          : '"We do not design for vanity. We build digital systems that generate qualified leads, build trust, and accelerate growth."' }}
+        {{ 'about.quote' | translate }}
       </p>
 
       <div class="about-quote-divider"></div>
@@ -71,7 +69,7 @@
         <div class="about-quote-avatar">AD</div>
         <div>
           <p class="about-quote-name">Arik Digital Team</p>
-          <p class="about-quote-role">{{ language() === 'de' ? 'Gruender & Strategie' : 'Founders & Strategy' }}</p>
+          <p class="about-quote-role">{{ 'about.founderRole' | translate }}</p>
         </div>
       </div>
     </aside>

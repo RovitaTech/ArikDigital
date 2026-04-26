@@ -2,11 +2,11 @@
   <div class="contact-shell">
     <header class="contact-header">
       <div class="contact-kicker">
-        {{ language() === 'de' ? 'KONTAKT' : 'GET IN TOUCH' }}
+        {{ 'contact.kicker' | translate }}
       </div>
-      <h2 class="contact-title">{{ language() === 'de' ? 'Lass uns gemeinsam etwas Grosses bauen' : 'Let\'s build something great together' }}</h2>
+      <h2 class="contact-title">{{ 'contact.title' | translate }}</h2>
       <p class="contact-subtitle">
-        {{ language() === 'de' ? 'Bereit fuer den naechsten Schritt? Buche jetzt dein Erstgespraech mit unserem Team.' : 'Ready to transform your business? Book a first call with our team.' }}
+        {{ 'contact.subtitle' | translate }}
       </p>
     </header>
 
@@ -14,48 +14,48 @@
       <div class="contact-form-wrap">
         <form [formGroup]="form" (ngSubmit)="handleSubmit()" class="space-y-6">
           <div>
-            <label class="contact-label">{{ language() === 'de' ? 'Name' : 'Name' }}</label>
+            <label class="contact-label">{{ 'contact.name' | translate }}</label>
             <input
               type="text"
               formControlName="name"
               class="contact-input"
-              [placeholder]="language() === 'de' ? 'Dein Name' : 'Your name'"
+              [placeholder]="'contact.namePlaceholder' | translate"
             />
           </div>
 
           <div>
-            <label class="contact-label">{{ language() === 'de' ? 'E-Mail' : 'Email' }}</label>
+            <label class="contact-label">{{ 'contact.email' | translate }}</label>
             <input
               type="email"
               formControlName="email"
               class="contact-input"
-              [placeholder]="language() === 'de' ? 'dein@email.de' : 'your@email.com'"
+              [placeholder]="'contact.emailPlaceholder' | translate"
             />
           </div>
 
           <div>
-            <label class="contact-label">{{ language() === 'de' ? 'Gewuenschte Leistung' : 'Service interested in' }}</label>
+            <label class="contact-label">{{ 'contact.service' | translate }}</label>
             <select
               formControlName="service"
               class="contact-input"
             >
-              <option value="">{{ language() === 'de' ? 'Leistung auswaehlen' : 'Select a service' }}</option>
-              <option value="business">{{ language() === 'de' ? 'Individuelle Webentwicklung' : 'Custom Web Development' }}</option>
-              <option value="ecommerce">{{ language() === 'de' ? 'E-Commerce Loesungen' : 'E-commerce Solutions' }}</option>
-              <option value="landing">{{ language() === 'de' ? 'Landingpages' : 'Landing Pages' }}</option>
-              <option value="brand">{{ language() === 'de' ? 'Branding + Design' : 'Brand + Design' }}</option>
+              <option value="">{{ 'contact.servicePlaceholder' | translate }}</option>
+              <option value="business">{{ 'contact.serviceOptions.business' | translate }}</option>
+              <option value="ecommerce">{{ 'contact.serviceOptions.ecommerce' | translate }}</option>
+              <option value="landing">{{ 'contact.serviceOptions.landing' | translate }}</option>
+              <option value="brand">{{ 'contact.serviceOptions.brand' | translate }}</option>
               <option value="seo">SEO & Performance</option>
-              <option value="maintenance">{{ language() === 'de' ? 'Laufende Betreuung' : 'Ongoing Support' }}</option>
+              <option value="maintenance">{{ 'contact.serviceOptions.maintenance' | translate }}</option>
             </select>
           </div>
 
           <div>
-            <label class="contact-label">{{ language() === 'de' ? 'Projektinformationen' : 'Project details' }}</label>
+            <label class="contact-label">{{ 'contact.message' | translate }}</label>
             <textarea
               rows="5"
               formControlName="message"
               class="contact-input contact-textarea"
-              [placeholder]="language() === 'de' ? 'Erzaehle uns kurz etwas ueber dein Projekt und deine Ziele ...' : 'Tell us about your project and goals...'"
+              [placeholder]="'contact.messagePlaceholder' | translate"
             ></textarea>
           </div>
 
@@ -63,16 +63,16 @@
             type="submit"
             class="contact-submit"
           >
-            {{ language() === 'de' ? 'Erstgespraech anfragen' : 'Request consultation' }}
+            {{ 'contact.submit' | translate }}
           </button>
         </form>
       </div>
 
       <div class="contact-info-wrap">
         <div class="contact-info-card">
-          <h3 class="contact-info-title">{{ language() === 'de' ? 'Arbeite mit Experten' : 'Work with experts' }}</h3>
+          <h3 class="contact-info-title">{{ 'contact.workWithExperts' | translate }}</h3>
           <p class="contact-info-copy">
-            {{ language() === 'de' ? 'Wir melden uns innerhalb von 24 Stunden bei dir, klaeren dein Projekt und senden dir ein passendes Angebot.' : 'Our team will respond within 24 hours to discuss your project and provide a tailored proposal.' }}
+            {{ 'contact.expertsCopy' | translate }}
           </p>
 
           <div class="space-y-6">
@@ -84,7 +84,7 @@
                 </svg>
               </div>
               <div>
-                <div class="contact-item-title">{{ language() === 'de' ? 'E-Mail' : 'Email us' }}</div>
+                <div class="contact-item-title">{{ 'contact.emailLabel' | translate }}</div>
                 <div class="contact-item-value">hello@arikdigital.com</div>
               </div>
             </div>
@@ -109,8 +109,8 @@
                 </svg>
               </div>
               <div>
-                <div class="contact-item-title">{{ language() === 'de' ? 'Antwortzeit' : 'Response time' }}</div>
-                <div class="contact-item-value">{{ language() === 'de' ? 'Innerhalb von 24 Stunden' : 'Within 24 hours' }}</div>
+                <div class="contact-item-title">{{ 'contact.responseTime' | translate }}</div>
+                <div class="contact-item-value">{{ 'contact.responseValue' | translate }}</div>
               </div>
             </div>
           </div>

@@ -1,17 +1,18 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, TranslateModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {
   private readonly fb = inject(FormBuilder);
-  readonly language = input<'en' | 'de'>('de');
+  private readonly translate = inject(TranslateService);
 
   protected readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required]],
@@ -26,11 +27,7 @@ export class ContactComponent {
       return;
     }
 
-    alert(
-      this.language() === 'de'
-        ? 'Danke! Unser Team meldet sich innerhalb von 24 Stunden bei dir, um dein Projekt zu besprechen.'
-        : 'Thank you! Our team will contact you within 24 hours to discuss your project.'
-    );
+    alert(this.translate.instant('contact.successMessage'));
     this.form.reset();
   }
 }

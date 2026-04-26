@@ -5,20 +5,20 @@ import {
   ElementRef,
   OnDestroy,
   ViewChild,
-  computed,
-  input,
   signal,
 } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface StatMetric {
   value: number;
   suffix: string;
-  label: string;
+  labelKey: string;
 }
 
 @Component({
   selector: 'app-stats',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './stats.component.html',
   styleUrl: './stats.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,32 +26,20 @@ interface StatMetric {
 export class StatsComponent implements AfterViewInit, OnDestroy {
   @ViewChild('statsSection', { static: true }) private statsSection?: ElementRef<HTMLElement>;
 
-  readonly language = input<'en' | 'de'>('de');
   private readonly started = signal(false);
   private readonly values = signal([0, 0, 0, 0]);
   private observer: IntersectionObserver | null = null;
   private rafId: number | null = null;
 
-  protected readonly stats = computed((): StatMetric[] => {
-    if (this.language() === 'en') {
-      return [
-        { value: 50, suffix: '+', label: 'Clients' },
-        { value: 3, suffix: 'x', label: 'Average ROI' },
-        { value: 8, suffix: '+', label: 'Years experience' },
-        { value: 200, suffix: '+', label: 'Projects delivered' },
-      ];
-    }
-
-    return [
-      { value: 50, suffix: '+', label: 'Kunden' },
-      { value: 3, suffix: 'x', label: 'Durchschnittlicher ROI' },
-      { value: 8, suffix: '+', label: 'Jahre Erfahrung' },
-      { value: 200, suffix: '+', label: 'Umgesetzte Projekte' },
-    ];
-  });
+  protected readonly stats: StatMetric[] = [
+    { value: 50, suffix: '+', labelKey: 'stats.labels.clients' },
+    { value: 3, suffix: 'x', labelKey: 'stats.labels.roi' },
+    { value: 8, suffix: '+', labelKey: 'stats.labels.experience' },
+    { value: 200, suffix: '+', labelKey: 'stats.labels.projects' },
+  ];
 
   protected displayNumber(index: number): string {
-    return `${this.values()[index]}${this.stats()[index]?.suffix ?? ''}`;
+    return `${this.values()[index]}${this.stats[index]?.suffix ?? ''}`;
   }
 
   ngAfterViewInit(): void {
@@ -60,7 +48,7 @@ export class StatsComponent implements AfterViewInit, OnDestroy {
     }
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      this.values.set(this.stats().map((item) => item.value));
+      this.values.set(this.stats.map((item) => item.value));
       this.started.set(true);
       return;
     }
@@ -97,7 +85,7 @@ export class StatsComponent implements AfterViewInit, OnDestroy {
   }
 
   private startCounterAnimation(): void {
-    const targets = this.stats().map((item) => item.value);
+    const targets = this.stats.map((item) => item.value);
     const duration = 1400;
     const startTime = performance.now();
 

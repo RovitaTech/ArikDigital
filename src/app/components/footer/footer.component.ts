@@ -1,20 +1,20 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
-  readonly language = input<'en' | 'de'>('de');
-
   protected readonly quickLinks = [
-    { id: 'about', label: { en: 'About', de: 'Ueber uns' } },
-    { id: 'services', label: { en: 'Services', de: 'Leistungen' } },
-    { id: 'work', label: { en: 'Case Studies', de: 'Case Studies' } },
-    { id: 'contact', label: { en: 'Contact', de: 'Kontakt' } },
+    { id: 'about', labelKey: 'nav.about' },
+    { id: 'services', labelKey: 'nav.services' },
+    { id: 'work', labelKey: 'nav.caseStudies' },
+    { id: 'contact', labelKey: 'nav.contact' },
   ];
 
   protected readonly serviceLinks = [

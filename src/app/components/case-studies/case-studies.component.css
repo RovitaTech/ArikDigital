@@ -137,6 +137,11 @@
   font-weight: 700;
 }
 
+.case-overlay-link {
+  color: #f4f3ff;
+  text-decoration: none;
+}
+
 .case-card:hover .case-overlay {
   opacity: 1;
 }

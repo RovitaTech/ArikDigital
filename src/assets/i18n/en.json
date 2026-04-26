@@ -1,0 +1,475 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "contact": "Contact",
+    "getAudit": "Get a free audit",
+    "bookCall": "Book a call"
+  },
+  "hero": {
+    "line1": "Custom websites that",
+    "line2": "elevate your brand",
+    "line3Main": "and drive real",
+    "line3Accent": "results.",
+    "subtitle": "Partner with our expert team to create stunning, high-converting websites tailored to your business. Let's discuss your project.",
+    "bookCall": "Book a call",
+    "exploreServices": "Explore services",
+    "metrics": {
+      "retention": "Client retention",
+      "experience": "Years of work experience",
+      "launch": "Guaranteed launch in 14d"
+    }
+  },
+  "clients": {
+    "label": "Trusted by"
+  },
+  "about": {
+    "kicker": "WHY US",
+    "title": "Why Arik Digital?",
+    "quote": "\"We do not design for vanity. We build digital systems that generate qualified leads, build trust, and accelerate growth.\"",
+    "founderRole": "Founders & Strategy",
+    "stats": {
+      "projects": "Projects completed",
+      "delivery": "Average delivery time",
+      "roi": "Average ROI"
+    },
+    "points": {
+      "p1": {
+        "title": "Senior Growth Expertise",
+        "detail": "Campaign and web specialists aligned to revenue, not vanity metrics."
+      },
+      "p2": {
+        "title": "Fast Execution Rhythm",
+        "detail": "Clear milestones, weekly delivery cycles, and transparent communication."
+      },
+      "p3": {
+        "title": "Conversion-First Design",
+        "detail": "Every page section is built to reduce friction and raise lead quality."
+      },
+      "p4": {
+        "title": "Data-Led Optimization",
+        "detail": "Continuous measurement and iteration to improve ROI after launch."
+      }
+    }
+  },
+  "stats": {
+    "kicker": "KEY METRICS",
+    "title": "Growth in numbers",
+    "labels": {
+      "clients": "Clients",
+      "roi": "Average ROI",
+      "experience": "Years experience",
+      "projects": "Projects delivered"
+    }
+  },
+  "services": {
+    "kicker": "SERVICES",
+    "title": "Services focused on growth",
+    "subtitle": "Hover a service to preview how we execute it.",
+    "focus": "Service focus",
+    "strategy": "Strategy",
+    "startProject": "Start project",
+    "learnMore": "Learn more",
+    "viewDetails": "View details",
+    "seoContent": {
+      "title": "SEO Content",
+      "desc": "Search-focused content systems designed to increase rankings and qualified traffic",
+      "tag": "Most popular"
+    },
+    "branding": {
+      "title": "Branding",
+      "desc": "Positioning, verbal identity, and visual direction for memorable brand presence"
+    },
+    "uiux": {
+      "title": "UI/UX Design",
+      "desc": "Conversion-first user journeys and interfaces tailored for modern customer behavior"
+    },
+    "advertising": {
+      "title": "Advertising",
+      "desc": "Creative and channel strategy for high-impact campaigns across digital platforms",
+      "tag": "High impact"
+    },
+    "paidAds": {
+      "title": "Paid Ads",
+      "desc": "Performance campaigns optimized weekly for lower CAC and stronger ROAS",
+      "tag": "High ROI"
+    },
+    "socialMedia": {
+      "title": "Social Media",
+      "desc": "Brand-aware social content and paid social loops that convert",
+      "tag": "Fast delivery"
+    },
+    "webDesign": {
+      "title": "Web Design",
+      "desc": "Premium interfaces with conversion-first architecture across devices"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "desc": "Unified dashboards and event tracking that clarify growth bottlenecks"
+    }
+  },
+  "process": {
+    "kicker": "THIS IS HOW WE WORK",
+    "title": "From initial consultation to launch in 4 steps",
+    "subtitle": "Our process is clear, fast, and built to deliver your project reliably.",
+    "steps": {
+      "s1": {
+        "title": "Initial consultation",
+        "desc": "Our sales team will work with you to find the best solution and discuss the project scope."
+      },
+      "s2": {
+        "title": "Onboarding",
+        "desc": "You will get a clear overview of the process and all the information you need."
+      },
+      "s3": {
+        "title": "Development",
+        "desc": "You can sit back and relax while our team develops your professional website."
+      },
+      "s4": {
+        "title": "Handover",
+        "desc": "In exactly 14 days you will receive your brand new website - ready to go live."
+      }
+    }
+  },
+  "caseStudies": {
+    "kicker": "SELECTED WORK",
+    "title": "Case studies with measurable outcomes",
+    "viewLink": "View case study",
+    "northlane": {
+      "result": "+240% organic traffic",
+      "desc": "Content + technical SEO strategy that doubled qualified inbound leads in 5 months."
+    },
+    "nexa": {
+      "result": "+68% conversion rate",
+      "desc": "Checkout and product page redesign with stronger value communication and trust layers."
+    },
+    "voltica": {
+      "result": "-37% CAC",
+      "desc": "Rebuilt ad funnel and landing architecture to increase trial quality while lowering spend."
+    }
+  },
+  "pricing": {
+    "kicker": "PRICING",
+    "title": "Transparent pricing. Zero surprises.",
+    "subtitle": "Choose a package that fits your needs, or request a custom quote.",
+    "selectedPlan": "Selected plan",
+    "ctaButton": "Contact sales",
+    "plans": {
+      "start": {
+        "name": "Start",
+        "price": "from EUR 890",
+        "period": "one-time",
+        "maintenance": "EUR 89 / month maintenance",
+        "features": [
+          "Up to 5 pages",
+          "Responsive on all devices",
+          "Contact form",
+          "SEO basics",
+          "2 revision rounds"
+        ]
+      },
+      "growth": {
+        "name": "Growth",
+        "price": "from EUR 1,690",
+        "period": "one-time",
+        "maintenance": "EUR 149 / month maintenance",
+        "badge": "Most popular",
+        "features": [
+          "Up to 15 pages",
+          "Custom animations",
+          "CMS or blog system",
+          "Advanced SEO",
+          "Analytics setup",
+          "Unlimited revisions"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "price": "from EUR 2,990",
+        "period": "one-time",
+        "maintenance": "EUR 249 / month maintenance",
+        "features": [
+          "Unlimited pages",
+          "E-commerce and checkout",
+          "Payment integrations",
+          "Custom integrations",
+          "Priority support",
+          "Dedicated project contact"
+        ]
+      }
+    }
+  },
+  "testimonials": {
+    "kicker": "SOCIAL PROOF",
+    "title": "What our clients say",
+    "quote0": "Arik Digital transformed our website into a high-converting growth channel in under 8 weeks.",
+    "quote1": "The team delivered strategy and execution with exceptional speed and clarity.",
+    "quote2": "We saw better lead quality and lower acquisition costs within the first month after launch."
+  },
+  "contact": {
+    "kicker": "GET IN TOUCH",
+    "title": "Let's build something great together",
+    "subtitle": "Ready to transform your business? Book a first call with our team.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "service": "Service interested in",
+    "servicePlaceholder": "Select a service",
+    "serviceOptions": {
+      "business": "Custom Web Development",
+      "ecommerce": "E-commerce Solutions",
+      "landing": "Landing Pages",
+      "brand": "Brand + Design",
+      "seo": "SEO & Performance",
+      "maintenance": "Ongoing Support"
+    },
+    "message": "Project details",
+    "messagePlaceholder": "Tell us about your project and goals...",
+    "submit": "Request consultation",
+    "successMessage": "Thank you! Our team will contact you within 24 hours to discuss your project.",
+    "workWithExperts": "Work with experts",
+    "expertsCopy": "Our team will respond within 24 hours to discuss your project and provide a tailored proposal.",
+    "emailLabel": "Email us",
+    "responseTime": "Response time",
+    "responseValue": "Within 24 hours"
+  },
+  "serviceDetails": {
+    "kicker": "Service Deep Dive",
+    "whatYouGet": "What You Get",
+    "deliverables": "Deliverables",
+    "idealFor": "Ideal For",
+    "cta": "Book a strategy call",
+    "backToHome": "Back to homepage",
+    "notFound": "Service page not found",
+    "seo-content": {
+      "title": "SEO Content",
+      "summary": "We design and produce search-ready content systems that help your brand rank for high-intent topics and convert qualified visitors.",
+      "bullets": [
+        "Keyword strategy mapped to your revenue priorities",
+        "Topic clusters and pillar pages for authority",
+        "Conversion-focused copywriting and structure",
+        "Editorial workflow and performance tracking"
+      ],
+      "deliverables": "SEO roadmap, content briefs, optimized pages, and monthly performance insights.",
+      "idealFor": "Brands that want sustainable inbound growth with measurable lead quality."
+    },
+    "branding": {
+      "title": "Branding",
+      "summary": "We shape a clear brand position and visual direction so your business is remembered, trusted, and chosen faster.",
+      "bullets": [
+        "Brand positioning and messaging framework",
+        "Voice, tone, and communication principles",
+        "Visual identity direction and design language",
+        "Practical brand guidelines for daily use"
+      ],
+      "deliverables": "Brand strategy deck, messaging guide, visual system references, and implementation recommendations.",
+      "idealFor": "Teams preparing for a relaunch, new market entry, or stronger premium positioning."
+    },
+    "ui-ux-design": {
+      "title": "UI/UX Design",
+      "summary": "We craft conversion-first user journeys and interfaces that make your offer easy to understand and easy to buy.",
+      "bullets": [
+        "User journey mapping from first click to inquiry",
+        "Wireframes focused on clarity and flow",
+        "High-fidelity UI tailored to your brand",
+        "Mobile-first layouts and interaction states"
+      ],
+      "deliverables": "Journey maps, wireframes, UI screens, component patterns, and handoff-ready specs.",
+      "idealFor": "Businesses that need better conversion rates and a more modern digital experience."
+    },
+    "advertising": {
+      "title": "Advertising",
+      "summary": "We plan and execute creative campaigns that connect message, channel, and audience for maximum business impact.",
+      "bullets": [
+        "Campaign architecture per funnel stage",
+        "Creative concepts and ad messaging angles",
+        "Offer testing strategy and optimization rhythm",
+        "Cross-channel consistency and reporting"
+      ],
+      "deliverables": "Campaign plan, creative direction, live ad setup, and weekly optimization reports.",
+      "idealFor": "Brands that want to scale awareness and lead generation without wasted ad spend."
+    },
+    "paid-ads": {
+      "title": "Paid Ads",
+      "summary": "We run performance campaigns with disciplined testing and optimization to lower CAC and improve ROAS.",
+      "bullets": [
+        "Audience and funnel strategy setup",
+        "Ad account structure built for scale",
+        "Continuous testing of creatives and landing pages",
+        "Budget reallocation based on hard data"
+      ],
+      "deliverables": "Channel setup, campaign launch, optimization logs, and KPI dashboard.",
+      "idealFor": "Teams that need predictable customer acquisition and strong media efficiency."
+    },
+    "social-media": {
+      "title": "Social Media",
+      "summary": "We create social systems that build trust, improve consistency, and turn attention into real business outcomes.",
+      "bullets": [
+        "Content themes aligned with your offer",
+        "Platform-native post and short-form strategy",
+        "Paid social loops connected to landing pages",
+        "Performance metrics tied to pipeline impact"
+      ],
+      "deliverables": "Content plan, creative templates, paid social strategy, and monthly growth review.",
+      "idealFor": "Brands that need stronger visibility and more qualified inbound conversations."
+    },
+    "web-design": {
+      "title": "Web Design",
+      "summary": "We design premium, high-converting websites that communicate your value fast and move visitors from interest to action.",
+      "bullets": [
+        "Homepage and core pages designed around your sales narrative",
+        "Conversion architecture with clear CTAs and trust layers",
+        "Responsive design optimized for mobile and desktop",
+        "Performance-minded structure prepared for launch"
+      ],
+      "deliverables": "Custom page designs, conversion copy structure, responsive layouts, and launch-ready assets.",
+      "idealFor": "Businesses that need a website that looks premium and performs like a revenue channel."
+    },
+    "analytics": {
+      "title": "Analytics",
+      "summary": "We build practical measurement systems so you can see where growth comes from and where revenue leaks happen.",
+      "bullets": [
+        "KPI framework mapped to business objectives",
+        "Event tracking and attribution setup",
+        "Dashboard design for clear decision-making",
+        "Insight cycles for continuous optimization"
+      ],
+      "deliverables": "Tracking plan, implementation spec, reporting dashboards, and insight recommendations.",
+      "idealFor": "Teams that want data-driven decisions instead of guesswork."
+    }
+  },
+  "caseStudyDetails": {
+    "kicker": "Case Study",
+    "challenge": "Challenge",
+    "strategy": "Strategy",
+    "execution": "Execution",
+    "outcomes": "Outcomes",
+    "cta": "Discuss your project",
+    "backToHome": "Back to homepage",
+    "backToCases": "Back to case studies",
+    "notFound": "Case study not found",
+    "northlane": {
+      "title": "Northlane MedCare Growth Overhaul",
+      "subtitle": "How a healthcare brand scaled qualified inbound traffic through an SEO + content engine built for intent.",
+      "metrics": [
+        {
+          "value": "+240%",
+          "label": "Organic traffic"
+        },
+        {
+          "value": "+2.1x",
+          "label": "Qualified lead rate"
+        },
+        {
+          "value": "5 mo",
+          "label": "Time to impact"
+        }
+      ],
+      "challenge": "Northlane had steady branded traffic but weak visibility for high-intent topics. The site architecture diluted authority and most pages failed to convert clinical decision-makers.",
+      "strategy": [
+        "Built a topic cluster model around service-line intent",
+        "Reworked information architecture for semantic depth",
+        "Created conversion-led landing content with stronger proof",
+        "Introduced monthly content performance sprints"
+      ],
+      "execution": [
+        "Month 1: technical cleanup, keyword map, and content brief system",
+        "Month 2-3: pillar page rollout with supporting articles and schema",
+        "Month 4-5: CRO iteration on high-traffic pages and internal linking"
+      ],
+      "outcomes": [
+        "Meaningful rank lift for core non-branded keywords",
+        "Higher lead quality from organic compared to paid channels",
+        "Clear editorial operating model the team can scale"
+      ],
+      "quote": "For the first time, SEO felt tied to revenue instead of vanity graphs.",
+      "quoteAuthor": "Growth Lead, Northlane MedCare"
+    },
+    "nexa": {
+      "title": "Nexa Commerce Conversion Redesign",
+      "subtitle": "How a full checkout and product-page redesign improved trust, clarity, and conversion rate at scale.",
+      "metrics": [
+        {
+          "value": "+68%",
+          "label": "Conversion rate"
+        },
+        {
+          "value": "-22%",
+          "label": "Cart abandonment"
+        },
+        {
+          "value": "8 wk",
+          "label": "Implementation window"
+        }
+      ],
+      "challenge": "Nexa had strong acquisition but leaked users in the middle of the funnel. Product pages lacked trust signals and checkout created friction across mobile sessions.",
+      "strategy": [
+        "Mapped user hesitation points with session data and heatmaps",
+        "Reframed product communication around value and proof",
+        "Simplified checkout flow and reduced cognitive load",
+        "Introduced experiment framework for rapid conversion testing"
+      ],
+      "execution": [
+        "Week 1-2: UX audit, analytics deep dive, and design hypotheses",
+        "Week 3-5: component redesign, copy rewrite, and prototype validation",
+        "Week 6-8: staged rollout, A/B validation, and iteration"
+      ],
+      "outcomes": [
+        "Higher checkout completion on both desktop and mobile",
+        "Improved average order value from clearer bundle presentation",
+        "Reusable design system for future campaign landing pages"
+      ],
+      "quote": "The redesign paid for itself in weeks. Conversion gains were immediate and consistent.",
+      "quoteAuthor": "Head of E-commerce, Nexa Commerce"
+    },
+    "voltica": {
+      "title": "Voltica SaaS Acquisition Reset",
+      "subtitle": "How a re-architected paid funnel and landing journey cut CAC while improving trial quality.",
+      "metrics": [
+        {
+          "value": "-37%",
+          "label": "Customer acquisition cost"
+        },
+        {
+          "value": "+31%",
+          "label": "Trial-to-demo rate"
+        },
+        {
+          "value": "6 wk",
+          "label": "Optimization cycle"
+        }
+      ],
+      "challenge": "Voltica was spending aggressively, but trial quality was inconsistent and CAC kept climbing. Messaging varied across channels and landing pages did not match ad intent.",
+      "strategy": [
+        "Consolidated campaign structure around ICP segments",
+        "Aligned ad messaging with segment-specific landing pages",
+        "Introduced intent filters before trial submission",
+        "Shifted budget dynamically based on pipeline-quality signals"
+      ],
+      "execution": [
+        "Week 1-2: account restructure and persona-level message matrix",
+        "Week 3-4: landing system launch and conversion tracking hardening",
+        "Week 5-6: creative rotation and budget reallocation by quality"
+      ],
+      "outcomes": [
+        "Lower CAC without sacrificing qualified volume",
+        "Sales team reported better-fit leads entering demo stage",
+        "A clear paid media playbook for quarterly scaling"
+      ],
+      "quote": "We stopped buying random trials and started generating real pipeline.",
+      "quoteAuthor": "VP Revenue, Voltica SaaS"
+    }
+  },
+  "footer": {
+    "cta": "Let's work together",
+    "ctaBtn": "Book a free audit",
+    "tagline": "Premium digital agency for websites, campaigns, and measurable growth.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contact": "Contact",
+    "copyright": "© 2026 ArikDigital. All rights reserved.",
+    "privacy": "Privacy Policy"
+  }
+}

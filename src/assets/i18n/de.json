@@ -1,0 +1,475 @@
+{
+  "nav": {
+    "about": "Über uns",
+    "services": "Leistungen",
+    "caseStudies": "Case Studies",
+    "contact": "Kontakt",
+    "getAudit": "Kostenlosen Audit sichern",
+    "bookCall": "Erstgespräch buchen"
+  },
+  "hero": {
+    "line1": "Individuelle Websites, die",
+    "line2": "deine Marke aufwerten",
+    "line3Main": "und echte",
+    "line3Accent": "Ergebnisse liefern.",
+    "subtitle": "Arbeite mit unserem Expertenteam zusammen und erhalte eine hochkonvertierende Website, exakt auf dein Unternehmen zugeschnitten. Lass uns über dein Projekt sprechen.",
+    "bookCall": "Erstgespräch buchen",
+    "exploreServices": "Unsere Leistungen",
+    "metrics": {
+      "retention": "Kundenbindung",
+      "experience": "Jahre Berufserfahrung",
+      "launch": "Garantierter Launch in 14 Tagen"
+    }
+  },
+  "clients": {
+    "label": "Unsere Kunden"
+  },
+  "about": {
+    "kicker": "WARUM WIR",
+    "title": "Warum Arik Digital?",
+    "quote": "\"Wir bauen kein Design für Awards. Wir bauen digitale Systeme, die Leads erzeugen, Vertrauen aufbauen und dein Wachstum beschleunigen.\"",
+    "founderRole": "Gründer & Strategie",
+    "stats": {
+      "projects": "Projekte abgeschlossen",
+      "delivery": "Durchschnittliche Lieferzeit",
+      "roi": "Durchschnittlicher ROI"
+    },
+    "points": {
+      "p1": {
+        "title": "Erfahrung im Wachstumsmarketing",
+        "detail": "Spezialisten für Kampagnen und Websites mit Fokus auf echten Umsatz."
+      },
+      "p2": {
+        "title": "Schnelle Umsetzung",
+        "detail": "Klare Meilensteine, wöchentliche Releases und transparente Kommunikation."
+      },
+      "p3": {
+        "title": "Conversion-First Design",
+        "detail": "Jeder Abschnitt wird für bessere Leads und höhere Anfragen optimiert."
+      },
+      "p4": {
+        "title": "Datengetriebene Optimierung",
+        "detail": "Kontinuierliche Messung und Verbesserung für nachhaltigen ROI."
+      }
+    }
+  },
+  "stats": {
+    "kicker": "KENNZAHLEN",
+    "title": "Wachstum in Zahlen",
+    "labels": {
+      "clients": "Kunden",
+      "roi": "Durchschnittlicher ROI",
+      "experience": "Jahre Erfahrung",
+      "projects": "Umgesetzte Projekte"
+    }
+  },
+  "services": {
+    "kicker": "LEISTUNGEN",
+    "title": "Leistungen mit Fokus auf Wachstum",
+    "subtitle": "Wähle eine Leistung aus und sieh direkt, wie wir sie umsetzen.",
+    "focus": "Leistungsfokus",
+    "strategy": "Strategie",
+    "startProject": "Projekt starten",
+    "learnMore": "Mehr erfahren",
+    "viewDetails": "Details ansehen",
+    "seoContent": {
+      "title": "SEO Content",
+      "desc": "SEO-orientierte Content-Systeme für bessere Rankings und qualifizierten Traffic",
+      "tag": "Am beliebtesten"
+    },
+    "branding": {
+      "title": "Branding",
+      "desc": "Positionierung, Markenbotschaft und visuelle Richtung für einen starken Auftritt"
+    },
+    "uiux": {
+      "title": "UI/UX Design",
+      "desc": "Conversion-orientierte User Journeys und Interfaces für moderne Nutzererwartungen"
+    },
+    "advertising": {
+      "title": "Advertising",
+      "desc": "Kreative Kampagnenstrategie für starke Wirkung auf allen digitalen Kanälen",
+      "tag": "Hohe Wirkung"
+    },
+    "paidAds": {
+      "title": "Paid Ads",
+      "desc": "Performance-Kampagnen mit laufender Optimierung für besseren ROAS",
+      "tag": "Hoher ROI"
+    },
+    "socialMedia": {
+      "title": "Social Media",
+      "desc": "Content- und Paid-Social-Strategien für Reichweite mit Ergebnis",
+      "tag": "Schnelle Lieferung"
+    },
+    "webDesign": {
+      "title": "Web Design",
+      "desc": "Premium Webdesign mit Fokus auf Conversion und mobile Experience"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "desc": "Tracking und Dashboards, die echte Entscheidungsgrundlagen liefern"
+    }
+  },
+  "process": {
+    "kicker": "SO ARBEITEN WIR",
+    "title": "Vom Erstgespräch bis zum Launch in 4 Schritten",
+    "subtitle": "Unser Ablauf ist klar, schnell und darauf ausgelegt, dein Projekt sicher ans Ziel zu bringen.",
+    "steps": {
+      "s1": {
+        "title": "Erstgespräch",
+        "desc": "Unser Sales-Team findet mit dir die beste Lösung und bespricht den Projektumfang."
+      },
+      "s2": {
+        "title": "Onboarding",
+        "desc": "Du bekommst einen klaren Überblick über den Ablauf und alle Informationen, die du brauchst."
+      },
+      "s3": {
+        "title": "Entwicklung",
+        "desc": "Du kannst dich zurücklehnen, während unser Team deine professionelle Website entwickelt."
+      },
+      "s4": {
+        "title": "Übergabe",
+        "desc": "In genau 14 Tagen erhältst du deine brandneue Website – startklar für den Livegang."
+      }
+    }
+  },
+  "caseStudies": {
+    "kicker": "AUSGEWÄHLTE PROJEKTE",
+    "title": "Case Studies mit messbaren Ergebnissen",
+    "viewLink": "Case Study ansehen",
+    "northlane": {
+      "result": "+240% organischer Traffic",
+      "desc": "Content- und Technical-SEO-Strategie mit deutlich mehr qualifizierten Leads in 5 Monaten."
+    },
+    "nexa": {
+      "result": "+68% Conversion Rate",
+      "desc": "Relaunch von Checkout und Produktseiten mit klarerem Nutzenversprechen."
+    },
+    "voltica": {
+      "result": "-37% CAC",
+      "desc": "Neuer Ad-Funnel und Landing-Architektur für bessere Trial-Qualität bei weniger Kosten."
+    }
+  },
+  "pricing": {
+    "kicker": "PREISE",
+    "title": "Transparente Preise. Keine Überraschungen.",
+    "subtitle": "Wähle ein Paket passend zu deinem Bedarf oder fordere ein individuelles Angebot an.",
+    "selectedPlan": "Ausgewähltes Paket",
+    "ctaButton": "Beratung anfragen",
+    "plans": {
+      "start": {
+        "name": "Start",
+        "price": "ab 890 EUR",
+        "period": "einmalig",
+        "maintenance": "89 EUR / Monat Betreuung",
+        "features": [
+          "Bis zu 5 Seiten",
+          "Responsive auf allen Geräten",
+          "Kontaktformular",
+          "SEO-Basis",
+          "2 Korrekturrunden"
+        ]
+      },
+      "growth": {
+        "name": "Wachstum",
+        "price": "ab 1.690 EUR",
+        "period": "einmalig",
+        "maintenance": "149 EUR / Monat Betreuung",
+        "badge": "Am beliebtesten",
+        "features": [
+          "Bis zu 15 Seiten",
+          "Individuelle Animationen",
+          "CMS oder Blog-System",
+          "Erweiterte SEO-Optimierung",
+          "Analytics-Einrichtung",
+          "Unbegrenzte Korrekturen"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "price": "ab 2.990 EUR",
+        "period": "einmalig",
+        "maintenance": "249 EUR / Monat Betreuung",
+        "features": [
+          "Unbegrenzte Seiten",
+          "E-Commerce und Checkout",
+          "Zahlungsanbieter-Integration",
+          "Individuelle Schnittstellen",
+          "Priorisierter Support",
+          "Fester Projektansprechpartner"
+        ]
+      }
+    }
+  },
+  "testimonials": {
+    "kicker": "SOCIAL PROOF",
+    "title": "Was unsere Kunden sagen",
+    "quote0": "Arik Digital hat unsere Website in weniger als 8 Wochen in einen starken Wachstumskanal verwandelt.",
+    "quote1": "Das Team liefert Strategie und Umsetzung mit hoher Geschwindigkeit und Klarheit.",
+    "quote2": "Bereits im ersten Monat nach dem Launch stieg die Lead-Qualität bei niedrigeren Akquisekosten."
+  },
+  "contact": {
+    "kicker": "KONTAKT",
+    "title": "Lass uns gemeinsam etwas Großes bauen",
+    "subtitle": "Bereit für den nächsten Schritt? Buche jetzt dein Erstgespräch mit unserem Team.",
+    "name": "Name",
+    "namePlaceholder": "Dein Name",
+    "email": "E-Mail",
+    "emailPlaceholder": "dein@email.de",
+    "service": "Gewünschte Leistung",
+    "servicePlaceholder": "Leistung auswählen",
+    "serviceOptions": {
+      "business": "Individuelle Webentwicklung",
+      "ecommerce": "E-Commerce Lösungen",
+      "landing": "Landingpages",
+      "brand": "Branding + Design",
+      "seo": "SEO & Performance",
+      "maintenance": "Laufende Betreuung"
+    },
+    "message": "Projektinformationen",
+    "messagePlaceholder": "Erzähl uns kurz etwas über dein Projekt und deine Ziele ...",
+    "submit": "Erstgespräch anfragen",
+    "successMessage": "Danke! Unser Team meldet sich innerhalb von 24 Stunden bei dir, um dein Projekt zu besprechen.",
+    "workWithExperts": "Arbeite mit Experten",
+    "expertsCopy": "Wir melden uns innerhalb von 24 Stunden bei dir, klären dein Projekt und senden dir ein passendes Angebot.",
+    "emailLabel": "E-Mail",
+    "responseTime": "Antwortzeit",
+    "responseValue": "Innerhalb von 24 Stunden"
+  },
+  "serviceDetails": {
+    "kicker": "Service im Detail",
+    "whatYouGet": "Was Sie erhalten",
+    "deliverables": "Leistungsumfang",
+    "idealFor": "Ideal für",
+    "cta": "Strategiegespräch buchen",
+    "backToHome": "Zurück zur Startseite",
+    "notFound": "Service-Seite nicht gefunden",
+    "seo-content": {
+      "title": "SEO Content",
+      "summary": "Wir entwickeln suchmaschinenstarke Content-Systeme, die für relevante Themen ranken und qualifizierte Anfragen erzeugen.",
+      "bullets": [
+        "Keyword-Strategie entlang Ihrer Umsatzziele",
+        "Themencluster und Pillar-Seiten für Autorität",
+        "Conversion-orientierte Struktur und Texte",
+        "Redaktioneller Ablauf mit Performance-Messung"
+      ],
+      "deliverables": "SEO-Roadmap, Content-Briefings, optimierte Seiten und monatliche Performance-Insights.",
+      "idealFor": "Unternehmen, die nachhaltiges Inbound-Wachstum mit messbarer Lead-Qualität aufbauen möchten."
+    },
+    "branding": {
+      "title": "Branding",
+      "summary": "Wir schärfen Positionierung und visuelle Richtung, damit Ihre Marke schneller verstanden, erinnert und bevorzugt wird.",
+      "bullets": [
+        "Markenpositionierung und Messaging-Framework",
+        "Sprachstil und Kommunikationsprinzipien",
+        "Visuelle Leitidee und Designsystem",
+        "Praxisnahe Richtlinien für den Alltag"
+      ],
+      "deliverables": "Strategiedeck, Messaging-Guide, visuelle Systembausteine und Umsetzungsempfehlungen.",
+      "idealFor": "Teams vor Relaunch, Markteintritt oder Neupositionierung im Premiumsegment."
+    },
+    "ui-ux-design": {
+      "title": "UI/UX Design",
+      "summary": "Wir gestalten nutzerzentrierte Journeys und Interfaces, die Ihr Angebot klar kommunizieren und Conversion steigern.",
+      "bullets": [
+        "User-Journey vom Erstkontakt bis zur Anfrage",
+        "Wireframes mit Fokus auf Klarheit und Fluss",
+        "High-Fidelity UI passend zu Ihrer Marke",
+        "Mobile-First Layouts und Interaktionszustände"
+      ],
+      "deliverables": "Journey-Maps, Wireframes, UI-Screens, Komponentenlogik und Handoff-Spezifikationen.",
+      "idealFor": "Unternehmen, die Conversion-Raten erhöhen und ein modernes Nutzererlebnis schaffen wollen."
+    },
+    "advertising": {
+      "title": "Advertising",
+      "summary": "Wir planen und steuern Kampagnen, bei denen Botschaft, Kanal und Zielgruppe präzise auf Wirkung ausgerichtet sind.",
+      "bullets": [
+        "Kampagnenarchitektur je Funnel-Stufe",
+        "Kreativkonzepte und starke Message-Angles",
+        "Angebotstests mit klarer Optimierungslogik",
+        "Kanalübergreifende Konsistenz und Reporting"
+      ],
+      "deliverables": "Kampagnenplan, Creative-Richtung, Live-Setup und wöchentliche Optimierungsberichte.",
+      "idealFor": "Marken, die Reichweite und Lead-Generierung mit hoher Effizienz skalieren möchten."
+    },
+    "paid-ads": {
+      "title": "Paid Ads",
+      "summary": "Wir führen Performance-Kampagnen mit konsequentem Testing, um CAC zu senken und ROAS nachhaltig zu steigern.",
+      "bullets": [
+        "Zielgruppen- und Funnel-Strategie",
+        "Skalierbare Kontostruktur",
+        "Kontinuierliche Tests für Creatives und Landingpages",
+        "Budgetsteuerung auf Basis harter Daten"
+      ],
+      "deliverables": "Kanalsetup, Kampagnenstart, Optimierungsprotokolle und KPI-Dashboard.",
+      "idealFor": "Teams, die planbare Neukundengewinnung mit guter Medieneffizienz brauchen."
+    },
+    "social-media": {
+      "title": "Social Media",
+      "summary": "Wir entwickeln Social-Media-Systeme, die Vertrauen aufbauen, Sichtbarkeit erhöhen und Aufmerksamkeit in Ergebnis überführen.",
+      "bullets": [
+        "Content-Themen entlang Ihres Angebots",
+        "Plattformgerechte Posting- und Kurzvideo-Strategie",
+        "Paid-Social-Loops mit Landingpages",
+        "Kennzahlen mit direktem Bezug zur Pipeline"
+      ],
+      "deliverables": "Content-Plan, Creative-Templates, Paid-Social-Strategie und monatliche Growth-Reviews.",
+      "idealFor": "Unternehmen, die mehr qualifizierte Gespräche aus Social aufbauen möchten."
+    },
+    "web-design": {
+      "title": "Web Design",
+      "summary": "Wir gestalten hochwertige Websites, die Ihre Leistung in Sekunden verständlich machen und Besucher gezielt zur Anfrage führen.",
+      "bullets": [
+        "Startseite und Kernseiten entlang Ihrer Sales-Story",
+        "Conversion-Architektur mit klaren CTAs und Trust-Elementen",
+        "Responsives Design für Mobile und Desktop",
+        "Performance-orientierte Struktur für den Launch"
+      ],
+      "deliverables": "Individuelle Seitendesigns, Conversion-Struktur, responsive Layouts und launchfähige Assets.",
+      "idealFor": "Unternehmen, die eine Premium-Website möchten, die wie ein Vertriebskanal performt."
+    },
+    "analytics": {
+      "title": "Analytics",
+      "summary": "Wir bauen Messsysteme, die transparent zeigen, welche Maßnahmen Wachstum erzeugen und wo Umsatzpotenziale verloren gehen.",
+      "bullets": [
+        "KPI-Framework entlang Ihrer Geschäftsziele",
+        "Event-Tracking und Attributions-Setup",
+        "Dashboards für schnelle Entscheidungen",
+        "Regelmäßige Insights zur Optimierung"
+      ],
+      "deliverables": "Tracking-Plan, Implementierungsspezifikation, Reporting-Dashboards und Handlungsempfehlungen.",
+      "idealFor": "Teams, die datenbasiert entscheiden statt auf Bauchgefühl zu setzen."
+    }
+  },
+  "caseStudyDetails": {
+    "kicker": "Case Study",
+    "challenge": "Ausgangslage",
+    "strategy": "Strategie",
+    "execution": "Umsetzung",
+    "outcomes": "Ergebnisse",
+    "cta": "Projekt besprechen",
+    "backToHome": "Zurück zur Startseite",
+    "backToCases": "Zurück zu den Case Studies",
+    "notFound": "Case Study nicht gefunden",
+    "northlane": {
+      "title": "Northlane MedCare Growth Overhaul",
+      "subtitle": "Wie eine Healthcare-Marke mit einem intent-basierten SEO- und Content-System qualifizierten Inbound-Traffic skaliert hat.",
+      "metrics": [
+        {
+          "value": "+240%",
+          "label": "Organischer Traffic"
+        },
+        {
+          "value": "+2,1x",
+          "label": "Qualifizierte Leads"
+        },
+        {
+          "value": "5 Mon",
+          "label": "Bis zum Ergebnis"
+        }
+      ],
+      "challenge": "Northlane hatte stabilen Brand-Traffic, aber kaum Sichtbarkeit bei transaktionsnahen Themen. Die Seitenstruktur verteilte Autorität zu stark und konvertierte Entscheider nur schwach.",
+      "strategy": [
+        "Topic-Cluster-Modell entlang der Service-Intention aufgebaut",
+        "Informationsarchitektur für semantische Tiefe neu strukturiert",
+        "Conversion-orientierte Landing-Inhalte mit stärkerem Proof erstellt",
+        "Monatliche Content-Performance-Sprints eingeführt"
+      ],
+      "execution": [
+        "Monat 1: technisches Cleanup, Keyword-Map und Briefing-System",
+        "Monat 2-3: Rollout von Pillar-Pages mit Supporting Content und Schema",
+        "Monat 4-5: CRO-Iterationen auf Traffic-starken Seiten und internem Linking"
+      ],
+      "outcomes": [
+        "Deutlicher Ranking-Anstieg bei zentralen Non-Brand-Keywords",
+        "Höhere Lead-Qualität aus Organic im Vergleich zu Paid",
+        "Skalierbarer redaktioneller Ablauf für das interne Team"
+      ],
+      "quote": "Zum ersten Mal war SEO direkt mit Umsatz verbunden und nicht nur mit schönen Kurven.",
+      "quoteAuthor": "Growth Lead, Northlane MedCare"
+    },
+    "nexa": {
+      "title": "Nexa Commerce Conversion Redesign",
+      "subtitle": "Wie ein kompletter Checkout- und Produktseiten-Relaunch Vertrauen, Klarheit und Conversion messbar verbessert hat.",
+      "metrics": [
+        {
+          "value": "+68%",
+          "label": "Conversion Rate"
+        },
+        {
+          "value": "-22%",
+          "label": "Warenkorbabbrüche"
+        },
+        {
+          "value": "8 Wo",
+          "label": "Implementierungszeit"
+        }
+      ],
+      "challenge": "Nexa hatte starke Reichweite, verlor jedoch Nutzer in der Funnel-Mitte. Produktseiten boten zu wenig Vertrauen, und der Checkout erzeugte besonders mobil unnötige Reibung.",
+      "strategy": [
+        "Hemmnisse per Session-Daten und Heatmaps identifiziert",
+        "Produktkommunikation entlang Nutzen und Proof neu aufgebaut",
+        "Checkout-Flow vereinfacht und kognitive Last reduziert",
+        "Experiment-Framework für schnelle Conversion-Tests eingeführt"
+      ],
+      "execution": [
+        "Woche 1-2: UX-Audit, Analytics-Deep-Dive und Hypothesen",
+        "Woche 3-5: Komponenten-Redesign, Copy-Überarbeitung und Prototyp-Tests",
+        "Woche 6-8: gestufter Rollout, A/B-Validierung und Optimierung"
+      ],
+      "outcomes": [
+        "Höhere Checkout-Completion auf Desktop und Mobile",
+        "Besserer Warenkorbwert durch klarere Bundle-Kommunikation",
+        "Wiederverwendbares Designsystem für zukünftige Kampagnen-Landingpages"
+      ],
+      "quote": "Der Relaunch hat sich innerhalb weniger Wochen bezahlt gemacht.",
+      "quoteAuthor": "Head of E-commerce, Nexa Commerce"
+    },
+    "voltica": {
+      "title": "Voltica SaaS Acquisition Reset",
+      "subtitle": "Wie ein neu aufgebauter Paid-Funnel mit passender Landing-Journey CAC gesenkt und Trial-Qualität erhöht hat.",
+      "metrics": [
+        {
+          "value": "-37%",
+          "label": "Customer Acquisition Cost"
+        },
+        {
+          "value": "+31%",
+          "label": "Trial-zu-Demo-Rate"
+        },
+        {
+          "value": "6 Wo",
+          "label": "Optimierungszyklus"
+        }
+      ],
+      "challenge": "Voltica investierte stark in Paid Media, doch die Trial-Qualität schwankte und CAC stieg weiter. Messaging war kanalübergreifend inkonsistent und Landingpages trafen die Ad-Intention nicht.",
+      "strategy": [
+        "Kampagnenstruktur nach ICP-Segmenten konsolidiert",
+        "Ad-Messaging mit segmentierten Landingpages synchronisiert",
+        "Intent-Filter vor Trial-Submission eingeführt",
+        "Budgetsteuerung an Pipeline-Qualität statt nur Klickdaten gekoppelt"
+      ],
+      "execution": [
+        "Woche 1-2: Account-Restrukturierung und Message-Matrix je Persona",
+        "Woche 3-4: Launch des Landing-Systems und Tracking-Härtung",
+        "Woche 5-6: Creative-Rotation und Budget-Reallokation nach Lead-Qualität"
+      ],
+      "outcomes": [
+        "Deutlich geringerer CAC bei stabilem qualifiziertem Volumen",
+        "Sales erhielt mehr passende Leads in der Demo-Phase",
+        "Klare Paid-Media-Playbooks für die nächste Skalierungsrunde"
+      ],
+      "quote": "Wir haben aufgehört, zufällige Trials einzukaufen, und bauen jetzt echte Pipeline auf.",
+      "quoteAuthor": "VP Revenue, Voltica SaaS"
+    }
+  },
+  "footer": {
+    "cta": "Lass uns gemeinsam wachsen",
+    "ctaBtn": "Kostenlosen Audit buchen",
+    "tagline": "Premium Digitalagentur für Websites, Kampagnen und messbares Wachstum.",
+    "quickLinks": "Quick Links",
+    "services": "Leistungen",
+    "contact": "Kontakt",
+    "copyright": "© 2026 ArikDigital. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz"
+  }
+}

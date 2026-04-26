@@ -1,24 +1,26 @@
 <section id="services" class="services-section" [style.--active-service-color]="activeService().color">
   <div class="services-shell">
     <div class="services-header" data-reveal-item>
-      <div class="services-kicker">{{ language() === 'de' ? 'LEISTUNGEN' : 'SERVICES' }}</div>
-      <h2 class="services-title">{{ language() === 'de' ? 'Leistungen mit Fokus auf Wachstum' : 'Services focused on growth' }}</h2>
-      <p class="services-subtitle">{{ language() === 'de' ? 'Waehle eine Leistung aus und sieh direkt, wie wir sie umsetzen.' : 'Hover a service to preview how we execute it.' }}</p>
+      <div class="services-kicker">{{ 'services.kicker' | translate }}</div>
+      <h2 class="services-title">{{ 'services.title' | translate }}</h2>
+      <p class="services-subtitle">{{ 'services.subtitle' | translate }}</p>
     </div>
 
     <div class="services-stage" data-reveal-item>
       <article class="service-preview-panel" data-reveal-item>
-        <img [src]="activeService().preview" [alt]="activeService().title" />
+        <img [src]="activeService().preview" [alt]="('services.' + activeService().key + '.title') | translate" />
         <div class="service-preview-meta">
-          <p class="service-preview-tag">{{ activeService().tag || (language() === 'de' ? 'Leistungsfokus' : 'Service focus') }}</p>
-          <h3>{{ activeService().title }}</h3>
-          <p>{{ activeService().description }}</p>
-          <a href="#contact">{{ language() === 'de' ? 'Projekt starten' : 'Start project' }} →</a>
+          <p class="service-preview-tag">
+            {{ activeService().tagKey ? (activeService().tagKey! | translate) : ('services.focus' | translate) }}
+          </p>
+          <h3>{{ ('services.' + activeService().key + '.title') | translate }}</h3>
+          <p>{{ ('services.' + activeService().key + '.desc') | translate }}</p>
+          <a [routerLink]="['/services', toSlug(activeService().key)]">{{ 'services.viewDetails' | translate }} →</a>
         </div>
       </article>
 
       <div class="services-list" role="list" aria-label="Services">
-        @for (service of services; track service.title; let i = $index) {
+        @for (service of services; track service.key; let i = $index) {
           <button
             type="button"
             role="listitem"
@@ -31,23 +33,29 @@
             data-reveal-item
           >
             <span class="service-row-index">{{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }}</span>
-            <span class="service-row-title">{{ service.title }}</span>
-            <span class="service-row-side">{{ service.tag || (language() === 'de' ? 'Strategie' : 'Strategy') }}</span>
+            <span class="service-row-title">
+              <a [routerLink]="['/services', toSlug(service.key)]" (click)="$event.stopPropagation()">
+                {{ ('services.' + service.key + '.title') | translate }}
+              </a>
+            </span>
+            <span class="service-row-side">{{ service.tagKey ? (service.tagKey | translate) : ('services.strategy' | translate) }}</span>
             <span class="service-row-dot" [style.background]="service.color"></span>
-            <span class="service-row-description">{{ service.description }}</span>
+            <span class="service-row-description">{{ ('services.' + service.key + '.desc') | translate }}</span>
           </button>
         }
       </div>
     </div>
 
     <div class="services-grid-mobile">
-      @for (service of services; track service.title; let i = $index) {
+      @for (service of services; track service.key; let i = $index) {
         <article class="service-card" [class.service-card-active]="activeIndex() === i" (click)="setActive(i)" data-reveal-item>
-          <img [src]="service.preview" [alt]="service.title" />
+          <img [src]="service.preview" [alt]="('services.' + service.key + '.title') | translate" />
           <div class="service-card-body">
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.description }}</p>
-            <a href="#contact">{{ language() === 'de' ? 'Mehr erfahren' : 'Learn more' }} →</a>
+            <h3>{{ ('services.' + service.key + '.title') | translate }}</h3>
+            <p>{{ ('services.' + service.key + '.desc') | translate }}</p>
+            <a [routerLink]="['/services', toSlug(service.key)]" (click)="$event.stopPropagation()">
+              {{ 'services.viewDetails' | translate }} →
+            </a>
           </div>
         </article>
       }

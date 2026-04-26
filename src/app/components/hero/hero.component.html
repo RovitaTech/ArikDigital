@@ -1,33 +1,33 @@
 <section class="hero-section">
-  <div class="hero-glow hero-glow-left" [style.transform]="leftGlowTransform()"></div>
-  <div class="hero-glow hero-glow-right" [style.transform]="rightGlowTransform()"></div>
+  <div class="hero-glow hero-glow-left" [style.transform]="leftGlowTransform"></div>
+  <div class="hero-glow hero-glow-right" [style.transform]="rightGlowTransform"></div>
 
   <div class="hero-content">
     <h1 class="hero-title font-['Urbanist'] font-extrabold">
       <div class="hero-title-line">
-        @for (word of headlineLine1()[language()]; track word; let i = $index) {
+        @for (word of headlineLine1(); track word; let i = $index) {
           <span class="hero-word hero-word-white" [style.--word-index]="i">{{ word }}</span>
         }
       </div>
 
       <div class="hero-title-line">
-        @for (word of headlineLine2()[language()]; track word; let i = $index) {
+        @for (word of headlineLine2(); track word; let i = $index) {
           <span class="hero-word hero-word-accent" [style.--word-index]="i + 4">{{ word }}</span>
         }
       </div>
 
       <div class="hero-title-line">
-        @for (word of headlineLine3Main()[language()]; track word; let i = $index) {
+        @for (word of headlineLine3Main(); track word; let i = $index) {
           <span class="hero-word hero-word-white" [style.--word-index]="i + 8">{{ word }}</span>
         }
-        @for (word of headlineLine3Accent()[language()]; track word; let i = $index) {
+        @for (word of headlineLine3Accent(); track word; let i = $index) {
           <span class="hero-word hero-word-accent" [style.--word-index]="i + 11">{{ word }}</span>
         }
       </div>
     </h1>
 
     <p class="hero-subtitle font-['Urbanist']">
-      {{ language() === 'de' ? 'Arbeite mit unserem Expertenteam zusammen und erhalte eine hochkonvertierende Website, exakt auf dein Unternehmen zugeschnitten. Lass uns ueber dein Projekt sprechen.' : 'Partner with our expert team to create stunning, high-converting websites tailored to your business. Let\'s discuss your project.' }}
+      {{ 'hero.subtitle' | translate }}
     </p>
 
     <div class="hero-actions">
@@ -37,7 +37,7 @@
         rel="noopener noreferrer"
         class="hero-btn hero-btn-primary"
       >
-        {{ language() === 'de' ? 'Erstgespraech buchen' : 'Book a call' }}
+        {{ 'hero.bookCall' | translate }}
       </a>
 
       <button
@@ -45,7 +45,7 @@
         (click)="scrollToSection('services')"
         class="hero-btn hero-btn-ghost"
       >
-        {{ language() === 'de' ? 'Unsere Leistungen' : 'Explore services' }}
+        {{ 'hero.exploreServices' | translate }}
       </button>
     </div>
 
@@ -60,15 +60,15 @@
       <div class="hero-metrics">
         <div class="metric-chip metric-chip-a">
           <span class="metric-value">98%</span>
-          <span class="metric-label">{{ language() === 'de' ? 'Kundenbindung' : 'Client retention' }}</span>
+          <span class="metric-label">{{ 'hero.metrics.retention' | translate }}</span>
         </div>
         <div class="metric-chip metric-chip-b">
           <span class="metric-value">10+</span>
-          <span class="metric-label">{{ language() === 'de' ? 'Jahre Berufserfahrung' : 'Years of work experience' }}</span>
+          <span class="metric-label">{{ 'hero.metrics.experience' | translate }}</span>
         </div>
         <div class="metric-chip metric-chip-c">
           <span class="metric-value">14d</span>
-          <span class="metric-label">{{ language() === 'de' ? 'Garantierter Launch in 14 Tagen' : 'Guaranteed launch in 14d' }}</span>
+          <span class="metric-label">{{ 'hero.metrics.launch' | translate }}</span>
         </div>
       </div>
     </div>

@@ -240,8 +240,8 @@ app-footer {
 }
 
 .reveal-section {
-  opacity: 0;
-  transform: translateY(22px);
+  opacity: 1;
+  transform: none;
   transition: opacity 680ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 680ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -251,8 +251,8 @@ app-footer {
 }
 
 .reveal-section .reveal-item {
-  opacity: 0;
-  transform: translateY(16px);
+  opacity: 1;
+  transform: none;
   transition: opacity 520ms ease, transform 520ms ease;
   transition-delay: var(--stagger-delay, 0ms);
 }

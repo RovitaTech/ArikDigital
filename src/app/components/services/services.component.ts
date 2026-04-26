@@ -1,174 +1,69 @@
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
 
 type ServiceIcon = 'globe' | 'cart' | 'zap' | 'palette' | 'trending' | 'wrench';
 
-interface ServiceItem {
-  title: string;
-  description: string;
+interface ServiceMeta {
+  key: string;
+  tagKey: string | null;
   icon: ServiceIcon;
   color: string;
-  tag: string | null;
   preview: string;
 }
 
 @Component({
   selector: 'app-services',
   standalone: true,
+  imports: [TranslateModule, RouterLink],
   templateUrl: './services.component.html',
   styleUrl: './services.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ServicesComponent {
-  readonly language = input<'en' | 'de'>('de');
+  private readonly translateSvc = inject(TranslateService);
   protected readonly activeIndex = signal(0);
+  protected readonly currentLang = toSignal(
+    this.translateSvc.onLangChange.pipe(map((e) => e.lang)),
+    { initialValue: this.translateSvc.currentLang ?? 'de' },
+  );
+
+  protected readonly services: ServiceMeta[] = [
+    { key: 'seoContent', tagKey: 'services.seoContent.tag', icon: 'globe', color: '#6C63FF', preview: '/assets/images/ceo.webp' },
+    { key: 'branding', tagKey: null, icon: 'palette', color: '#FFC107', preview: '/assets/images/marketing.webp' },
+    { key: 'uiux', tagKey: null, icon: 'palette', color: '#43E8A0', preview: '/assets/images/cto.webp' },
+    { key: 'advertising', tagKey: 'services.advertising.tag', icon: 'trending', color: '#FF6584', preview: '/assets/images/ceo.webp' },
+    { key: 'paidAds', tagKey: 'services.paidAds.tag', icon: 'cart', color: '#FF6584', preview: '/assets/images/marketing.webp' },
+    { key: 'socialMedia', tagKey: 'services.socialMedia.tag', icon: 'zap', color: '#43E8A0', preview: '/assets/images/cto.webp' },
+    { key: 'webDesign', tagKey: null, icon: 'zap', color: '#FFC107', preview: '/assets/images/ceo.webp' },
+    { key: 'analytics', tagKey: null, icon: 'wrench', color: '#FF6584', preview: '/assets/images/cto.webp' },
+  ];
 
   protected setActive(index: number): void {
     if (index < 0 || index >= this.services.length) {
       return;
     }
-
     this.activeIndex.set(index);
   }
 
-  protected activeService(): ServiceItem {
+  protected activeService(): ServiceMeta {
     return this.services[this.activeIndex()] ?? this.services[0];
   }
 
-  protected get services(): ServiceItem[] {
-    if (this.language() === 'en') {
-      return [
-        {
-          title: 'SEO Content',
-          description: 'Search-focused content systems designed to increase rankings and qualified traffic',
-          icon: 'globe',
-          color: '#6C63FF',
-          tag: 'Most popular',
-          preview: '/assets/images/ceo.webp',
-        },
-        {
-          title: 'Branding',
-          description: 'Positioning, verbal identity, and visual direction for memorable brand presence',
-          icon: 'palette',
-          color: '#FFC107',
-          tag: null,
-          preview: '/assets/images/marketing.webp',
-        },
-        {
-          title: 'UI/UX Design',
-          description: 'Conversion-first user journeys and interfaces tailored for modern customer behavior',
-          icon: 'palette',
-          color: '#43E8A0',
-          tag: null,
-          preview: '/assets/images/cto.webp',
-        },
-        {
-          title: 'Advertising',
-          description: 'Creative and channel strategy for high-impact campaigns across digital platforms',
-          icon: 'trending',
-          color: '#FF6584',
-          tag: 'High impact',
-          preview: '/assets/images/ceo.webp',
-        },
-        {
-          title: 'Paid Ads',
-          description: 'Performance campaigns optimized weekly for lower CAC and stronger ROAS',
-          icon: 'cart',
-          color: '#FF6584',
-          tag: 'High ROI',
-          preview: '/assets/images/marketing.webp',
-        },
-        {
-          title: 'Social Media',
-          description: 'Brand-aware social content and paid social loops that convert',
-          icon: 'zap',
-          color: '#43E8A0',
-          tag: 'Fast delivery',
-          preview: '/assets/images/cto.webp',
-        },
-        {
-          title: 'Web Design',
-          description: 'Premium interfaces with conversion-first architecture across devices',
-          icon: 'zap',
-          color: '#FFC107',
-          tag: null,
-          preview: '/assets/images/ceo.webp',
-        },
-        {
-          title: 'Analytics',
-          description: 'Unified dashboards and event tracking that clarify growth bottlenecks',
-          icon: 'wrench',
-          color: '#FF6584',
-          tag: null,
-          preview: '/assets/images/cto.webp',
-        },
-      ];
-    }
+  protected toSlug(key: string): string {
+    const mapToSlug: Record<string, string> = {
+      seoContent: 'seo-content',
+      branding: 'branding',
+      uiux: 'ui-ux-design',
+      advertising: 'advertising',
+      paidAds: 'paid-ads',
+      socialMedia: 'social-media',
+      webDesign: 'web-design',
+      analytics: 'analytics',
+    };
 
-    return [
-      {
-        title: 'SEO Content',
-        description: 'SEO-orientierte Content-Systeme fuer bessere Rankings und qualifizierten Traffic',
-        icon: 'globe',
-        color: '#6C63FF',
-        tag: 'Am beliebtesten',
-        preview: '/assets/images/ceo.webp',
-      },
-      {
-        title: 'Branding',
-        description: 'Positionierung, Markenbotschaft und visuelle Richtung fuer einen starken Auftritt',
-        icon: 'palette',
-        color: '#FFC107',
-        tag: null,
-        preview: '/assets/images/marketing.webp',
-      },
-      {
-        title: 'UI/UX Design',
-        description: 'Conversion-orientierte User Journeys und Interfaces fuer moderne Nutzererwartungen',
-        icon: 'palette',
-        color: '#43E8A0',
-        tag: null,
-        preview: '/assets/images/cto.webp',
-      },
-      {
-        title: 'Advertising',
-        description: 'Kreative Kampagnenstrategie fuer starke Wirkung auf allen digitalen Kanaelen',
-        icon: 'trending',
-        color: '#FF6584',
-        tag: 'Hohe Wirkung',
-        preview: '/assets/images/ceo.webp',
-      },
-      {
-        title: 'Paid Ads',
-        description: 'Performance-Kampagnen mit laufender Optimierung fuer besseren ROAS',
-        icon: 'cart',
-        color: '#FF6584',
-        tag: 'Hoher ROI',
-        preview: '/assets/images/marketing.webp',
-      },
-      {
-        title: 'Social Media',
-        description: 'Content- und Paid-Social-Strategien fuer Reichweite mit Ergebnis',
-        icon: 'zap',
-        color: '#43E8A0',
-        tag: 'Schnelle Lieferung',
-        preview: '/assets/images/cto.webp',
-      },
-      {
-        title: 'Web Design',
-        description: 'Premium Webdesign mit Fokus auf Conversion und mobile Experience',
-        icon: 'zap',
-        color: '#FFC107',
-        tag: null,
-        preview: '/assets/images/ceo.webp',
-      },
-      {
-        title: 'Analytics',
-        description: 'Tracking und Dashboards, die echte Entscheidungsgrundlagen liefern',
-        icon: 'wrench',
-        color: '#FF6584',
-        tag: null,
-        preview: '/assets/images/cto.webp',
-      },
-    ];
+    return mapToSlug[key] ?? 'web-design';
   }
 }

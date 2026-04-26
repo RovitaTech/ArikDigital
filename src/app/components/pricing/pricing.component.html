@@ -2,50 +2,56 @@
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-20">
       <div class="text-[#6C63FF] text-[17px] md:text-[18px] font-['Urbanist'] font-semibold tracking-[0.15em] uppercase mb-5">
-        {{ language() === 'de' ? 'PREISE' : 'PRICING' }}
+        {{ 'pricing.kicker' | translate }}
       </div>
-      <h2 class="pricing-heading font-['Urbanist'] font-extrabold text-white mb-4">{{ language() === 'de' ? 'Transparente Preise. Keine Ueberraschungen.' : 'Transparent pricing. Zero surprises.' }}</h2>
+      <h2 class="pricing-heading font-['Urbanist'] font-extrabold text-white mb-4">{{ 'pricing.title' | translate }}</h2>
       <p class="pricing-subheading text-[#9D9CAA] font-['Urbanist'] max-w-2xl mx-auto">
-        {{ language() === 'de' ? 'Waehle ein Paket passend zu deinem Bedarf oder fordere ein individuelles Angebot an.' : 'Choose a package that fits your needs, or request a custom quote.' }}
+        {{ 'pricing.subtitle' | translate }}
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto pricing-grid">
-      @for (plan of plans; track plan.name; let i = $index) {
+      @for (plan of plans; track plan.key; let i = $index) {
         <article
           class="pricing-card relative bg-gradient-to-b from-[#13131C] to-[#0F0F16] rounded-2xl p-8 transition-all duration-300 border border-white/[0.08] hover:-translate-y-2 cursor-pointer"
           [class.is-active]="isActive(i)"
-          [class.pricing-card-with-badge]="plan.badge || isActive(i)"
+          [class.pricing-card-with-badge]="('pricing.plans.' + plan.key + '.badge' | translate) !== ('pricing.plans.' + plan.key + '.badge') || isActive(i)"
           (click)="setActivePlan(i)"
         >
-          @if (plan.badge || isActive(i)) {
+          @if ((('pricing.plans.' + plan.key + '.badge' | translate) !== ('pricing.plans.' + plan.key + '.badge')) || isActive(i)) {
             <div class="plan-badge absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-2 bg-gradient-to-r from-[#6C63FF] to-[#5B52E8] rounded-full text-[13px] text-white font-['Urbanist'] font-bold shadow-lg shadow-[#6C63FF]/30">
-              {{ isActive(i) ? (plan.badge ?? (language() === 'de' ? 'Ausgewaehltes Paket' : 'Selected plan')) : plan.badge }}
+              {{ isActive(i)
+                ? (('pricing.plans.' + plan.key + '.badge' | translate) !== ('pricing.plans.' + plan.key + '.badge')
+                    ? ('pricing.plans.' + plan.key + '.badge' | translate)
+                    : ('pricing.selectedPlan' | translate))
+                : ('pricing.plans.' + plan.key + '.badge' | translate) }}
             </div>
           }
 
           <div class="text-[#B5B4C0] text-[13px] font-['Urbanist'] font-bold uppercase tracking-wider mb-6 mt-2">
-            {{ plan.name }}
+            {{ ('pricing.plans.' + plan.key + '.name') | translate }}
           </div>
 
-          <div class="mb-2"><span class="text-6xl font-['Urbanist'] font-extrabold text-white">{{ plan.price }}</span></div>
-          <div class="text-[#9D9CAA] text-[15px] font-['Urbanist'] mb-8">{{ plan.period }}</div>
+          <div class="mb-2"><span class="text-6xl font-['Urbanist'] font-extrabold text-white">{{ ('pricing.plans.' + plan.key + '.price') | translate }}</span></div>
+          <div class="text-[#9D9CAA] text-[15px] font-['Urbanist'] mb-8">{{ ('pricing.plans.' + plan.key + '.period') | translate }}</div>
 
           <div class="space-y-4 mb-8">
-            @for (feature of plan.features; track feature) {
+            @for (featureIndex of [0,1,2,3,4,5]; track featureIndex) {
+              @if ((('pricing.plans.' + plan.key + '.features.' + featureIndex) | translate) !== ('pricing.plans.' + plan.key + '.features.' + featureIndex)) {
               <div class="flex items-start gap-3">
                 <div class="w-5 h-5 rounded-full bg-[#43E8A0]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-3.5 h-3.5 text-[#43E8A0]">
                     <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                 </div>
-                <span class="text-[#F0EFF8] text-[15px] font-['Urbanist']">{{ feature }}</span>
+                <span class="text-[#F0EFF8] text-[15px] font-['Urbanist']">{{ ('pricing.plans.' + plan.key + '.features.' + featureIndex) | translate }}</span>
               </div>
+              }
             }
           </div>
 
           <div class="text-[#8A8899] text-[13px] font-['Urbanist'] mb-6 pb-6 border-b border-white/[0.05]">
-            + optional {{ plan.maintenance }}
+            + optional {{ ('pricing.plans.' + plan.key + '.maintenance') | translate }}
           </div>
 
           <button
@@ -54,7 +60,7 @@
             [class.is-active]="isActive(i)"
             (click)="setActivePlan(i); scrollToSection('contact')"
           >
-            {{ language() === 'de' ? 'Beratung anfragen' : 'Contact sales' }}
+            {{ 'pricing.ctaButton' | translate }}
           </button>
         </article>
       }

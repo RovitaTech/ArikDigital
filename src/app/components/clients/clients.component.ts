@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface ClientLogo {
   name: string;
@@ -8,12 +9,12 @@ interface ClientLogo {
 @Component({
   selector: 'app-clients',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './clients.component.html',
   styleUrl: './clients.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientsComponent {
-  readonly language = input<'en' | 'de'>('de');
 
   protected readonly clients: ClientLogo[] = [
     { name: 'Meta', text: 'Meta' },

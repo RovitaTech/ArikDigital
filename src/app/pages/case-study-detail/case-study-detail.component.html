@@ -1,0 +1,94 @@
+<section class="case-detail-page" [class.case-tone-violet]="tone() === 'violet'" [class.case-tone-coral]="tone() === 'coral'" [class.case-tone-mint]="tone() === 'mint'">
+  <header class="detail-topbar">
+    <a routerLink="/" class="brand-link" aria-label="Back to homepage">
+      <span class="brand-white">Arik</span><span class="brand-accent">Digital</span>
+    </a>
+
+    <div class="detail-actions">
+      <label class="language-wrap" aria-label="Language select">
+        <select class="language-select" [value]="currentLang()" (change)="onLanguageChange($event)">
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+        </select>
+      </label>
+      <a routerLink="/" fragment="work" class="back-link">{{ 'caseStudyDetails.backToCases' | translate }}</a>
+    </div>
+  </header>
+
+  @if (isValid()) {
+    <main class="case-main">
+      <section class="case-hero">
+        <div class="case-hero-content">
+          <p class="case-kicker">{{ 'caseStudyDetails.kicker' | translate }}</p>
+          <h1 class="case-title">{{ translationKey() + '.title' | translate }}</h1>
+          <p class="case-subtitle">{{ translationKey() + '.subtitle' | translate }}</p>
+
+          <div class="case-metrics">
+            @for (index of [0, 1, 2]; track index) {
+              <article class="metric-card">
+                <p class="metric-value">{{ translationKey() + '.metrics.' + index + '.value' | translate }}</p>
+                <p class="metric-label">{{ translationKey() + '.metrics.' + index + '.label' | translate }}</p>
+              </article>
+            }
+          </div>
+        </div>
+
+        <aside class="case-hero-media">
+          <img [src]="heroImage()" [alt]="translationKey() + '.title' | translate" />
+          <div class="media-chip">{{ 'caseStudies.viewLink' | translate }}</div>
+        </aside>
+      </section>
+
+      <section class="case-grid">
+        <article class="case-card">
+          <h2>{{ 'caseStudyDetails.challenge' | translate }}</h2>
+          <p>{{ translationKey() + '.challenge' | translate }}</p>
+        </article>
+
+        <article class="case-card">
+          <h2>{{ 'caseStudyDetails.strategy' | translate }}</h2>
+          <ul>
+            <li>{{ translationKey() + '.strategy.0' | translate }}</li>
+            <li>{{ translationKey() + '.strategy.1' | translate }}</li>
+            <li>{{ translationKey() + '.strategy.2' | translate }}</li>
+            <li>{{ translationKey() + '.strategy.3' | translate }}</li>
+          </ul>
+        </article>
+
+        <article class="case-card">
+          <h2>{{ 'caseStudyDetails.execution' | translate }}</h2>
+          <ol>
+            <li>{{ translationKey() + '.execution.0' | translate }}</li>
+            <li>{{ translationKey() + '.execution.1' | translate }}</li>
+            <li>{{ translationKey() + '.execution.2' | translate }}</li>
+          </ol>
+        </article>
+
+        <article class="case-card">
+          <h2>{{ 'caseStudyDetails.outcomes' | translate }}</h2>
+          <ul>
+            <li>{{ translationKey() + '.outcomes.0' | translate }}</li>
+            <li>{{ translationKey() + '.outcomes.1' | translate }}</li>
+            <li>{{ translationKey() + '.outcomes.2' | translate }}</li>
+          </ul>
+
+          <blockquote>
+            “{{ translationKey() + '.quote' | translate }}”
+          </blockquote>
+          <p class="quote-author">{{ translationKey() + '.quoteAuthor' | translate }}</p>
+        </article>
+      </section>
+
+      <div class="case-cta-row">
+        <a routerLink="/" fragment="contact" class="cta-primary">{{ 'caseStudyDetails.cta' | translate }}</a>
+      </div>
+    </main>
+  } @else {
+    <main class="case-main">
+      <h1 class="case-title">{{ 'caseStudyDetails.notFound' | translate }}</h1>
+      <div class="case-cta-row">
+        <a routerLink="/" class="cta-primary">{{ 'caseStudyDetails.backToHome' | translate }}</a>
+      </div>
+    </main>
+  }
+</section>

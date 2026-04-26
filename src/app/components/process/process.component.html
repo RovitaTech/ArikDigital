@@ -1,9 +1,9 @@
 <section id="process" #processSection class="process-section" [class.process-animated]="isAnimated()">
   <div class="process-shell">
     <div class="process-header">
-      <div class="process-kicker">{{ language() === 'de' ? 'SO ARBEITEN WIR' : 'THIS IS HOW WE WORK' }}</div>
-      <h2 class="process-title">{{ language() === 'de' ? 'Vom Erstgespraech bis zum Launch in 4 Schritten' : 'From initial consultation to launch in 4 steps' }}</h2>
-      <p class="process-subtitle">{{ language() === 'de' ? 'Unser Ablauf ist klar, schnell und darauf ausgelegt, dein Projekt sicher ans Ziel zu bringen.' : 'Our process is clear, fast, and built to deliver your project reliably.' }}</p>
+      <div class="process-kicker">{{ 'process.kicker' | translate }}</div>
+      <h2 class="process-title">{{ 'process.title' | translate }}</h2>
+      <p class="process-subtitle">{{ 'process.subtitle' | translate }}</p>
     </div>
 
     <div class="process-container">
@@ -49,8 +49,8 @@
                 }
               </div>
 
-              <h3 class="process-step-title">{{ step.title }}</h3>
-              <p class="process-step-description">{{ step.description }}</p>
+              <h3 class="process-step-title">{{ step.titleKey | translate }}</h3>
+              <p class="process-step-description">{{ step.descriptionKey | translate }}</p>
             </div>
           </article>
         }

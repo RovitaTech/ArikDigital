@@ -1,8 +1,8 @@
 <section id="work" class="case-studies-section">
   <div class="case-shell">
     <header class="case-header" data-reveal-item>
-      <p class="case-kicker">{{ language() === 'de' ? 'AUSGEWAEHLTE PROJEKTE' : 'SELECTED WORK' }}</p>
-      <h2>{{ language() === 'de' ? 'Case Studies mit messbaren Ergebnissen' : 'Case studies with measurable outcomes' }}</h2>
+      <p class="case-kicker">{{ 'caseStudies.kicker' | translate }}</p>
+      <h2>{{ 'caseStudies.title' | translate }}</h2>
     </header>
 
     <div class="case-grid">
@@ -10,19 +10,21 @@
         <article class="case-card" [class.case-violet]="item.tone === 'violet'" [class.case-coral]="item.tone === 'coral'" [class.case-mint]="item.tone === 'mint'" data-reveal-item>
           <div class="case-card-top">
             <span class="case-tag">{{ item.category }}</span>
-            <span class="case-result">{{ item.result }}</span>
+            <span class="case-result">{{ item.resultKey | translate }}</span>
           </div>
 
           <h3>{{ item.name }}</h3>
-          <p>{{ item.description }}</p>
+          <p>{{ item.descriptionKey | translate }}</p>
 
-          <a href="#contact" class="case-link">
-            {{ language() === 'de' ? 'Case Study ansehen' : 'View case study' }}
+          <a [routerLink]="['/case-studies', item.slug]" class="case-link">
+            {{ 'caseStudies.viewLink' | translate }}
             <span aria-hidden="true">→</span>
           </a>
 
           <div class="case-overlay">
-            <span>{{ language() === 'de' ? 'Case Study ansehen →' : 'View case study →' }}</span>
+            <a [routerLink]="['/case-studies', item.slug]" class="case-overlay-link">
+              {{ 'caseStudies.viewLink' | translate }} →
+            </a>
           </div>
         </article>
       }
