@@ -52,6 +52,10 @@ export class ServiceDetailComponent {
     if (!target) {
       return;
     }
-    this.translate.use(target.value === 'en' ? 'en' : 'de');
+    const lang = target.value === 'en' ? 'en' : 'de';
+    this.translate.use(lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('selectedLanguage', lang);
+    }
   }
 }

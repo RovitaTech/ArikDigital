@@ -471,5 +471,41 @@
     "contact": "Contact",
     "copyright": "© 2026 ArikDigital. All rights reserved.",
     "privacy": "Privacy Policy"
+  },
+  "privacyPage": {
+    "kicker": "Legal",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: May 4, 2026",
+    "backToHome": "Back to homepage",
+    "sections": {
+      "s1": {
+        "title": "1. Data Controller",
+        "body": "ArikDigital is responsible for processing personal data on this website. You can contact us at emirhan.arik38@outlook.de."
+      },
+      "s2": {
+        "title": "2. Data We Collect",
+        "body": "We process data you voluntarily submit through forms, email, or booking tools, as well as technical usage data such as IP address, browser type, and access times."
+      },
+      "s3": {
+        "title": "3. Purpose of Processing",
+        "body": "Data is processed to handle inquiries, provide our services, organize appointments, and ensure the technical security of this website."
+      },
+      "s4": {
+        "title": "4. Legal Bases",
+        "body": "Processing is based on Art. 6(1)(b) GDPR (pre-contractual measures), Art. 6(1)(c) GDPR (legal obligations), and Art. 6(1)(f) GDPR (legitimate interests)."
+      },
+      "s5": {
+        "title": "5. Storage Period",
+        "body": "We keep personal data only as long as needed for the stated purposes or as required by law."
+      },
+      "s6": {
+        "title": "6. Your Rights",
+        "body": "You have the right to access, rectification, erasure, restriction of processing, data portability, and objection. You may also lodge a complaint with a supervisory authority."
+      },
+      "s7": {
+        "title": "7. Notice",
+        "body": "This text is a general template and does not constitute legal advice. For a fully compliant policy, we recommend a review by legal counsel."
+      }
+    }
   }
 }

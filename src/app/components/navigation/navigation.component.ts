@@ -55,12 +55,14 @@ export class NavigationComponent {
 
   protected onLanguageChange(event: Event): void {
     const target = event.target as HTMLSelectElement | null;
-
     if (!target) {
       return;
     }
-
-    this.translateSvc.use(target.value === 'en' ? 'en' : 'de');
+    const lang = target.value === 'en' ? 'en' : 'de';
+    this.translateSvc.use(lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('selectedLanguage', lang);
+    }
   }
 
   protected scrollToTop(): void {

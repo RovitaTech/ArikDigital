@@ -4,7 +4,7 @@
     "services": "Leistungen",
     "caseStudies": "Case Studies",
     "contact": "Kontakt",
-    "getAudit": "Kostenlosen Audit sichern",
+    "getAudit": "Kostenloses Gespräch sichern",
     "bookCall": "Erstgespräch buchen"
   },
   "hero": {
@@ -12,7 +12,7 @@
     "line2": "deine Marke aufwerten",
     "line3Main": "und echte",
     "line3Accent": "Ergebnisse liefern.",
-    "subtitle": "Arbeite mit unserem Expertenteam zusammen und erhalte eine hochkonvertierende Website, exakt auf dein Unternehmen zugeschnitten. Lass uns über dein Projekt sprechen.",
+    "subtitle": "Deine Website - fertig in exakt 14 Tagen",
     "bookCall": "Erstgespräch buchen",
     "exploreServices": "Unsere Leistungen",
     "metrics": {
@@ -25,9 +25,9 @@
     "label": "Unsere Kunden"
   },
   "about": {
-    "kicker": "WARUM WIR",
+    "kicker": "Über Uns",
     "title": "Warum Arik Digital?",
-    "quote": "\"Wir bauen kein Design für Awards. Wir bauen digitale Systeme, die Leads erzeugen, Vertrauen aufbauen und dein Wachstum beschleunigen.\"",
+    "quote": "\"Wir bauen digitale Systeme, die Leads erzeugen, Vertrauen aufbauen und dein Wachstum beschleunigen.\"",
     "founderRole": "Gründer & Strategie",
     "stats": {
       "projects": "Projekte abgeschlossen",
@@ -41,7 +41,7 @@
       },
       "p2": {
         "title": "Schnelle Umsetzung",
-        "detail": "Klare Meilensteine, wöchentliche Releases und transparente Kommunikation."
+        "detail": "Klare Umsetzung, schnelle Releases und transparente Kommunikation."
       },
       "p3": {
         "title": "Conversion-First Design",
@@ -49,7 +49,7 @@
       },
       "p4": {
         "title": "Datengetriebene Optimierung",
-        "detail": "Kontinuierliche Messung und Verbesserung für nachhaltigen ROI."
+        "detail": "Kontinuierliche Messung und Verbesserung für nachhaltige Wertschöpfung."
       }
     }
   },
@@ -58,7 +58,7 @@
     "title": "Wachstum in Zahlen",
     "labels": {
       "clients": "Kunden",
-      "roi": "Durchschnittlicher ROI",
+      "roi": "Lead-zu-Kunden-Rate",
       "experience": "Jahre Erfahrung",
       "projects": "Umgesetzte Projekte"
     }
@@ -72,6 +72,14 @@
     "startProject": "Projekt starten",
     "learnMore": "Mehr erfahren",
     "viewDetails": "Details ansehen",
+    "webDesign": {
+      "title": "Web Design",
+      "desc": "Premium Webdesign mit Fokus auf Conversion und mobile Experience"
+    },
+    "uiux": {
+      "title": "UI/UX Design",
+      "desc": "Conversion-orientierte User Journeys und Interfaces für moderne Nutzererwartungen"
+    },
     "seoContent": {
       "title": "SEO Content",
       "desc": "SEO-orientierte Content-Systeme für bessere Rankings und qualifizierten Traffic",
@@ -80,10 +88,6 @@
     "branding": {
       "title": "Branding",
       "desc": "Positionierung, Markenbotschaft und visuelle Richtung für einen starken Auftritt"
-    },
-    "uiux": {
-      "title": "UI/UX Design",
-      "desc": "Conversion-orientierte User Journeys und Interfaces für moderne Nutzererwartungen"
     },
     "advertising": {
       "title": "Advertising",
@@ -99,10 +103,6 @@
       "title": "Social Media",
       "desc": "Content- und Paid-Social-Strategien für Reichweite mit Ergebnis",
       "tag": "Schnelle Lieferung"
-    },
-    "webDesign": {
-      "title": "Web Design",
-      "desc": "Premium Webdesign mit Fokus auf Conversion und mobile Experience"
     },
     "analytics": {
       "title": "Analytics",
@@ -133,7 +133,7 @@
     }
   },
   "caseStudies": {
-    "kicker": "AUSGEWÄHLTE PROJEKTE",
+    "kicker": "Vergangene Projekte",
     "title": "Case Studies mit messbaren Ergebnissen",
     "viewLink": "Case Study ansehen",
     "northlane": {
@@ -151,8 +151,8 @@
   },
   "pricing": {
     "kicker": "PREISE",
-    "title": "Transparente Preise. Keine Überraschungen.",
-    "subtitle": "Wähle ein Paket passend zu deinem Bedarf oder fordere ein individuelles Angebot an.",
+    "title": "Transparente Preise. Keine Cent mehr.",
+    "subtitle": "Wähle ein Paket oder fordere ein individuelles Angebot an.",
     "selectedPlan": "Ausgewähltes Paket",
     "ctaButton": "Beratung anfragen",
     "plans": {
@@ -203,9 +203,9 @@
   "testimonials": {
     "kicker": "SOCIAL PROOF",
     "title": "Was unsere Kunden sagen",
-    "quote0": "Arik Digital hat unsere Website in weniger als 8 Wochen in einen starken Wachstumskanal verwandelt.",
-    "quote1": "Das Team liefert Strategie und Umsetzung mit hoher Geschwindigkeit und Klarheit.",
-    "quote2": "Bereits im ersten Monat nach dem Launch stieg die Lead-Qualität bei niedrigeren Akquisekosten."
+    "quote0": "Arik Digital hat unsere Website in weniger als 2 Wochen fertiggebracht, super!",
+    "quote1": "Die Jungs habens echt drauf, bin sehr zufrieden",
+    "quote2": "Ich hatte gar nicht realisiert, dass eine Website so einen Unterschied macht, ich bin begeistert"
   },
   "contact": {
     "kicker": "KONTAKT",
@@ -228,7 +228,7 @@
     "message": "Projektinformationen",
     "messagePlaceholder": "Erzähl uns kurz etwas über dein Projekt und deine Ziele ...",
     "submit": "Erstgespräch anfragen",
-    "successMessage": "Danke! Unser Team meldet sich innerhalb von 24 Stunden bei dir, um dein Projekt zu besprechen.",
+    "successMessage": "Danke! Unser Team meldet sich innerhalb von 12 Stunden bei dir, um dein Projekt zu besprechen.",
     "workWithExperts": "Arbeite mit Experten",
     "expertsCopy": "Wir melden uns innerhalb von 24 Stunden bei dir, klären dein Projekt und senden dir ein passendes Angebot.",
     "emailLabel": "E-Mail",
@@ -471,5 +471,41 @@
     "contact": "Kontakt",
     "copyright": "© 2026 ArikDigital. Alle Rechte vorbehalten.",
     "privacy": "Datenschutz"
+  },
+  "privacyPage": {
+    "kicker": "Rechtliches",
+    "title": "Datenschutzerklarung",
+    "lastUpdated": "Stand: 04. Mai 2026",
+    "backToHome": "Zuruck zur Startseite",
+    "sections": {
+      "s1": {
+        "title": "1. Verantwortliche Stelle",
+        "body": "ArikDigital ist fur die Verarbeitung personenbezogener Daten auf dieser Website verantwortlich. Kontaktieren Sie uns unter emirhan.arik38@outlook.de." 
+      },
+      "s2": {
+        "title": "2. Erhobene Daten",
+        "body": "Wir verarbeiten Daten, die Sie uns uber Formulare, E-Mail oder Terminbuchung freiwillig ubermitteln, sowie technische Nutzungsdaten wie IP-Adresse, Browsertyp und Zugriffszeiten." 
+      },
+      "s3": {
+        "title": "3. Zweck der Verarbeitung",
+        "body": "Die Datenverarbeitung erfolgt zur Bearbeitung von Anfragen, zur Bereitstellung unserer Leistungen, zur Terminorganisation und zur technischen Sicherheit dieser Website." 
+      },
+      "s4": {
+        "title": "4. Rechtsgrundlagen",
+        "body": "Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche MaSSnahmen), lit. c (rechtliche Verpflichtungen) und lit. f (berechtigtes Interesse)." 
+      },
+      "s5": {
+        "title": "5. Speicherdauer",
+        "body": "Wir speichern personenbezogene Daten nur so lange, wie es fur die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen." 
+      },
+      "s6": {
+        "title": "6. Ihre Rechte",
+        "body": "Sie haben das Recht auf Auskunft, Berichtigung, Loschung, Einschrankung der Verarbeitung, Datenubertragbarkeit und Widerspruch. Zudem konnen Sie sich bei einer Aufsichtsbehorde beschweren." 
+      },
+      "s7": {
+        "title": "7. Hinweis",
+        "body": "Diese Vorlage dient als allgemeine Information und ersetzt keine rechtliche Beratung. Fur eine vollstandige DSGVO-konforme Datenschutzerklarung empfehlen wir die Prufung durch eine Rechtsberatung." 
+      }
+    }
   }
 }

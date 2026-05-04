@@ -1,0 +1,45 @@
+<section class="privacy-page">
+  <header class="privacy-topbar">
+    <a routerLink="/" class="brand-link" aria-label="Back to homepage">
+      <span class="brand-white">Arik</span><span class="brand-accent">Digital</span>
+    </a>
+    <div class="privacy-actions">
+      <label class="language-wrap" aria-label="Language select">
+        <select class="language-select" [value]="currentLang()" (change)="onLanguageChange($event)">
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+        </select>
+      </label>
+    </div>
+    <a routerLink="/" class="back-link">{{ 'privacyPage.backToHome' | translate }}</a>
+  </header>
+
+  <main class="privacy-main">
+    <p class="privacy-kicker">{{ 'privacyPage.kicker' | translate }}</p>
+    <h1 class="privacy-title">{{ 'privacyPage.title' | translate }}</h1>
+    <p class="privacy-meta">{{ 'privacyPage.lastUpdated' | translate }}</p>
+
+    <article class="privacy-card">
+      <h2>{{ 'privacyPage.sections.s1.title' | translate }}</h2>
+      <p>{{ 'privacyPage.sections.s1.body' | translate }}</p>
+
+      <h2>{{ 'privacyPage.sections.s2.title' | translate }}</h2>
+      <p>{{ 'privacyPage.sections.s2.body' | translate }}</p>
+
+      <h2>{{ 'privacyPage.sections.s3.title' | translate }}</h2>
+      <p>{{ 'privacyPage.sections.s3.body' | translate }}</p>
+
+      <h2>{{ 'privacyPage.sections.s4.title' | translate }}</h2>
+      <p>{{ 'privacyPage.sections.s4.body' | translate }}</p>
+
+      <h2>{{ 'privacyPage.sections.s5.title' | translate }}</h2>
+      <p>{{ 'privacyPage.sections.s5.body' | translate }}</p>
+
+      <h2>{{ 'privacyPage.sections.s6.title' | translate }}</h2>
+      <p>{{ 'privacyPage.sections.s6.body' | translate }}</p>
+
+      <h2>{{ 'privacyPage.sections.s7.title' | translate }}</h2>
+      <p>{{ 'privacyPage.sections.s7.body' | translate }}</p>
+    </article>
+  </main>
+</section>

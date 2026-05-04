@@ -42,7 +42,9 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   private revealObserver: IntersectionObserver | null = null;
 
   ngOnInit(): void {
-    this.translate.use('de');
+    const savedLang = typeof window !== 'undefined' ? localStorage.getItem('selectedLanguage') : null;
+    const langToUse = (savedLang === 'en' || savedLang === 'de') ? savedLang : 'de';
+    this.translate.use(langToUse);
   }
 
   ngAfterViewInit(): void {
